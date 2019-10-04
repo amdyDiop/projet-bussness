@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Property index{% endblock %}
+
+{% block body %}
+    <h1>Property index</h1>
+
+    <table class="table table-striped">
+        <thead>
+        <tr class="row100 head">
+            <th class="column100 column1" data-column="column1">Title</th>
+            <th class="column100 column1" data-column="column1">Ville</th>
+            <th class="column100 column1" data-column="column1">Addresse</th>
+            <th class="column100 column1" data-column="column1">Prix</th>
+            <th class="column100 column1" data-column="column1">Action</th>
+            <th class="column100 column1" data-column="column1"></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for property in properties %}
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">{{ property.title }}</td>
+                <td class="column100 column1" data-column="column1">{{ property.city }}</td>
+                <td class="column100 column1" data-column="column1">{{ property.adresse }}</td>
+                <td class="column100 column1" data-column="column1">{{ property.price }}</td>
+
+                <td>
+                    <a href="{{ path('property_show', {'id': property.id}) }}" class="btn btn-success">voir</a>
+
+                    <a href="{{ path('property_edit', {'id': property.id}) }}" class="btn badge-info" > modifier</a>
+                    <form method="post" action="{{ path('property_delete', {'id': property.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ property.id) }}">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="15">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('property_new') }}" class="btn badge-dark">ajouter</a>
+    <div  class="pagination justify-content-center text-info">
+        {{ knp_pagination_render(properties) }}
+    </div>
+{% endblock %}

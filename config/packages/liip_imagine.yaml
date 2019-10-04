@@ -1,0 +1,20 @@
+liip_imagine:
+    filter_sets:
+        # the name of the "filter set"
+        thumb:
+            # adjust the image quality to 75%
+            quality : 75
+            # list of transformations to apply (the "filters")
+            filters :
+               thumbnail:
+                  size:         [360, 290]
+                  mode:           outbound
+
+        medium:
+          # adjust the image quality to 75%
+          quality: 75
+          # list of transformations to apply (the "filters")
+          filters:
+            thumbnail:
+              size:         [860, 590]
+              mode:           outbound

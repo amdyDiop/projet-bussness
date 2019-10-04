@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Qui est Amdy Diop</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ asset('StyleCv/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts for this template -->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet">
+    <link href="{{ asset('StyleCv/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{{ asset('StyleCv/css/resume.min.css') }}" rel="stylesheet">
+
+</head>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+    <div class="container">
+
+                <a  class="navbar-brand" href="{{ path ('home') }}" >Logo Bi</a>
+
+         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{{ path ('maison') }}">Keur Yi
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{path ('cv')}}">About</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="">Login</a>
+                </li>
+                {% if app.user %}
+
+                    <li class="navbar-item">
+                        <a href="{{ path ('logout') }}" class="nav-link"> Se Déconnecter</a>
+                    </li>
+
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<body id="page-top">
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top" id="sideNav" >
+    <a class="navbar-brand js-scroll-trigger" href="#page-top">
+        <span class="d-block d-lg-none">Amdy Diop</span>
+        <span class="d-none d-lg-block">
+        <img class="img-fluid img-profile rounded-circle mx-auto mb-2" src="{{ asset('StyleCv/img/IMG_1228.JPG') }}" alt="">
+      </span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#experience">Experience</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#education">Formation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#Competences">Competences</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link js-scroll-trigger" href="#interests">INTÉRÊTS</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid p-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
+        <div class="w-100">
+            <h1 class="mb-0">Amdy
+                <span class="text-info">Diop</span>
+            </h1>
+            <div class="subheading mb-5">3100 HLM grand Louga · (+221) 777794204 ·
+                <a href="mailto:amdymila@gmail.com" class="text-info">amdymila@gmail.com</a>
+            </div>
+            <p class="lead mb-5">
+                Je m’appelle amdy diop j’ai 26 ans étudiant en licence 3 option Génie logiciel à l'université de Thiès (Sénégal).
+                Mes passions tournent autour d’Internet, de l’informatique, des nouvelles technologies.
+                J’adore les chants mourides: "Xasaide et Zikkar ", regarder des animes, documentations et faire de bons repas bien sûr.
+            </p>
+            <div class="social-icons">
+                <a href="#">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex justify-content-center" id="experience">
+        <div class="w-100">
+            <h2 class="mb-5">Experiences</h2>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="resume-content">
+                    <h3 class="mb-0">Stagairer</h3>
+                    <div class="subheading mb-3">Stage à la DSI Université de Thiès </div>
+                    <p>
+
+
+                    </p>
+            </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-info">Aout 2019 - Présent </span>
+                </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="resume-content">
+                    <h3 class="mb-0"> Développeur Application Java</h3>
+                    <div class="subheading mb-3">Projet Classe DEEKU WAAY</div>
+                    <p>
+                        DEEKU WAAY est une application développée en JAVA spécialement conçue pour la gestion de l’hébergement des étudiants de l’Université de Thiès .
+                        Elle bénéficie de nombreuses fonctionnalités qui en font un outil global simple d’utilisation ,
+                        capable d’aider le centre régional des œuvres universitaires sociales de Thiès en collaboration avec
+                        le président de la commission sociale  à octroyer des logements aux étudiants. DEEKU WAAY  leur permet
+                        d’accélérer le processus d’hébergement de manière sécurisée au sein du campus social.
+                    </p>
+                </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-info">Avril 2019 </span>
+                </div>
+            </div>
+
+
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+                <div class="resume-content">
+                    <h3 class="mb-0">junior Mobile Developper</h3>
+                    <div class="subheading mb-3">Projet Class Ionic Samay Keyit </div>
+                    <p>
+                        SAMAY KÉYIT est une application permettant à tous citoyens d’obtenir une pièce d’état civile  sans se déplacer jusqu’à la mairie .
+                        dans cette application une personne qui n’a jamais disposé d’une pièce  doit obligatoirement se rendre à la mairie pour la délivrance de celle
+                        ci ainsi après cette procédure elle peut désormais effectué sa demande de pièce en utilisant SAMAY KÉYIT.
+                    </p>
+                </div>
+                <div class="resume-date text-md-right">
+                    <!-- text-info color du texte-->
+                    <span class="text-info">Mach 2019 </span>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="education">
+        <div class="w-100">
+            <h2 class="mb-5">Formations</h2>
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="resume-content">
+                    <h3 class="mb-0">Université De Thiès</h3>
+                    <div class="subheading mb-3">licence 3 </div>
+                    <div> informatique</div>
+                    <p>
+                            Option Génie  Logiciel
+                    </p>
+                </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-info">Octobre 2018 - En Cours </span>
+                </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="resume-content">
+                    <h3 class="mb-0">Université De Thiès</h3>
+                    <div class="subheading mb-3">licence 2 </div>
+                    <div> informatique</div>
+                    <p>
+
+                    </p>
+                </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-info">Juillet 2018 </span>
+                </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+                <div class="resume-content">
+                    <h3 class="mb-0">Université De Thiès</h3>
+                    <div class="subheading mb-3">licence 1 </div>
+                    <div> informatique</div>
+                    <p>
+
+                    </p>
+                </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-info">Juillet 2017 </span>
+                </div>
+            </div>
+
+            <div class="resume-item d-flex flex-column flex-md-row justify-content-between">
+                <div class="resume-content">
+                    <h3 class="mb-0">Cours Priivé Les Intéllos</h3>
+                    <div class="subheading mb-3">Bac S2</div>
+
+                </div>
+                <div class="resume-date text-md-right">
+                    <span class="text-info"> Juillet 2016 </span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <hr class="m-0">
+
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="Competences">
+        <div class="w-100">
+            <h2 class="mb-5" >Compétences</h2>
+
+            <div class="subheading mb-3">Langages de Programmation &amp; Outils</div>
+            <ul class="list-inline dev-icons" class="bg-info">
+                <li class="list-inline-item"><a href="https://dev.w3.org/html5/html-author/" class="text-info">
+                    <i class="fab fa-html5"></i></a>
+                    </a>
+                </li>
+                <li class="list-inline-item"> <a href="https://devdocs.io/css/" class="text-info">
+                    <i class="fab fa-css3-alt"></i></a>
+                </li>
+                <li class="list-inline-item" ><a href="https://getbootstrap.com/docs/4.1/getting-started/introduction/" class="text-info">
+                        <i class="fab fa-bootstrap"></i></a>
+                </li>
+                <li class="list-inline-item"><a href="https://devdocs.io/javascript/" class="text-info">
+                    <i class="fab fa-js"></i></a>
+                </li>
+                <li class="list-inline-item"><a href="https://angular.io/docs" class="text-info">
+                    <i class="fab fa-angular"></i></a>
+                </li>
+
+                <li class="list-inline-item" > <a href="https://symfony.com" class="text-info">
+                    <i class="fab fa-symfony"></i>
+                    </a>
+                </li>
+                <li class="list-inline-item"><a href="https://laravel.com/docs/5.8" class="text-info">
+                    <i class="fab fa-laravel"></i></a>
+                </li>
+
+                <li class="list-inline-item"><a href="https://github.com/" class="text-info">
+                    <i class="fab fa-github"></i></a>
+                </li>
+                <li class="list-inline-item"><a href="https://docs.oracle.com/en/java/" class="text-info">
+                    <i class="fab fa-java"></i></a>
+                </li>
+                <li class="list-inline-item"><a href="https://developer.android.com/docs" class="text-info">
+                    <i class="fab fa-android"></i></a>
+                </li>
+                <li class="list-inline-item"><a href="https://www.npmjs.com/package/documentation" class="text-info">
+                    <i class="fab fa-npm"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <hr class="m-0">
+    <section class="resume-section p-3 p-lg-5 d-flex align-items-center" id="interests">
+        <div class="w-100">
+            <h2 class="mb-5">INTÉRÊTS</h2>
+            <p>
+                En plus d'être à la fois développeur Web et Mobile, j'apprécie la plupart de mon temps passé à l'extérieur.
+                Je suis un chanteur de Xassaide passionné aux écrit  de CHEIKH AHMADOU BAMBA .
+            </p>
+            <p class="mb-0">
+                Quand je suis forcé à l'intérieur, je suis un certain nombre de films mangas ou jouer .
+                Je suis un chef en devenir et je passe une grande partie de mon temps libre à explorer les dernières avancées technologiques dans le monde du développement Web et mobile
+            </p>
+        </div>
+    </section>
+</div>
+
+<!-- Bootstrap core JavaScript -->
+<script src="vendor/jquery/jquery.min.js"></script>
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Plugin JavaScript -->
+<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+<!-- Custom scripts for this template -->
+<script src="../../public/StylePhoto/js/resume.min.js"></script>
+
+</body>
+
+</html>

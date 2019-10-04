@@ -1,0 +1,10 @@
+#index:
+#    path: /
+#
+
+logout:
+   path: /logout
+
+login:
+     path: /login
+     controller: App\vendor\friendsofsymfony:controller\SecurityController::renderLogin

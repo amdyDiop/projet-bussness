@@ -1,0 +1,71 @@
+
+
+{% extends 'base.html.twig' %}
+{% block title 'Maisons' %}
+
+{% block body %}
+    <div class="jumbotron">
+    <div class="container mt-5">
+
+            <div class="container">
+                {{ form_start(form) }}
+                <div class="form-row">
+                    <div class="col">
+                        {{ form_row(form.maxPrice)}}
+                    </div>
+
+                    <div class="col">
+                        {{ form_row(form.surface)}}
+                  </div>
+                    <div class="col">
+                    <button class="btn btn-info">  Rechercher </button>
+
+                    </div>
+                    </div>
+                </div>
+
+                {{ form_end(form) }}
+            </div>
+        <h1>KEUR YI GAYE AM NII </h1>
+
+        <div class="row ">
+            {% for property in properties %}
+                <div class="col-4">
+
+                    <div class="card mb-4">
+                        {% if property.filename %}
+                            <img src="{{ vich_uploader_asset(property,'imageFile')|imagine_filter('thumb') }}"
+                                 alt="card-img-top" style="width: 100% ; height: auto;">
+                            {% else %}
+                                <img src="{{ '/images/properties/maison_a_etage_2_0.jpg' |imagine_filter('thumb') }}"
+                                     alt="card-img-top" style="width: 100% ; height: auto;">
+                        {% endif %}
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                <a href="{{ path ('page_view',
+                                    { id:property.id, slug:property.slug} ) }} " class="text-info">
+                                    {{ property.title }}</a>
+
+                            </h5>
+                            <p class="card-text">
+                                {{ property.surface }}m2 -  {{ property.city  }}( {{ property.postal }})
+                            </p>
+
+                            <div class="text-info" style="font-size: 2rem;font-weight: bold">
+                                {{ property.formatPrice() }} cfa
+                            </div>
+                        </div>
+
+
+
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div  class="pagination justify-content-center" class="text-info">
+            {{ knp_pagination_render(properties) }}
+        </div>
+    </div>
+    </div>
+{% endblock %}
+
