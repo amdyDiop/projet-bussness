@@ -1,7 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="912d8055-e6c0-4302-abeb-9bfb39177f1a" name="Default Changelist" comment="" />
+    <list default="true" id="912d8055-e6c0-4302-abeb-9bfb39177f1a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/reprise.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/reprise.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5d91f2a28aae7938115502.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5d91f2bbd115b327289621.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5d921a26b8ac3992537274.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/PropertySearchType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/PropertySearchType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/PropertyRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/PropertyRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/CV.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/CV.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/pages/maison.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/pages/maison.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/property/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/property/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/index.html.twig" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,6 +71,9 @@
       </path>
     </expand>
     <select />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -171,11 +195,15 @@
       <path value="$PROJECT_DIR$/vendor/jms/metadata" />
       <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-pack" />
+      <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
     </include_path>
   </component>
   <component name="ProjectId" id="1RKikh6Dsc1duW3r5ZEe4rT3TT0" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Edit As Language" value="MySQL" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
@@ -184,19 +212,19 @@
     <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\images\bg" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StylehomePhoto" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\pages" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StylehomePhoto\css" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleContact" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\vendor\friendsofsymfony\user-bundle\Resources\views\Security" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StylePhoto" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\pages" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\pages\Style" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StylehomePhoto" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\images\bg" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StylehomePhoto" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\pages" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StylehomePhoto\css" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleContact" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -243,11 +271,29 @@
       <workItem from="1569924441826" duration="26115000" />
       <workItem from="1570008978585" duration="12841000" />
       <workItem from="1570054224300" duration="36751000" />
-      <workItem from="1570180928632" duration="8454000" />
+      <workItem from="1570180928632" duration="12417000" />
+      <workItem from="1570200752444" duration="5545000" />
+      <workItem from="1570239089385" duration="3781000" />
+      <workItem from="1570310853348" duration="3565000" />
+      <workItem from="1570445259185" duration="2314000" />
+      <workItem from="1570471525352" duration="18000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

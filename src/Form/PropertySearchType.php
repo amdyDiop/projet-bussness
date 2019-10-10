@@ -3,9 +3,8 @@
 namespace App\Form;
 
 use App\Entity\propertySearch;
-use Doctrine\DBAL\Types\StringType;
-use Symfony\Component\Console\Input\StringInput;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\AbstractType;
@@ -28,14 +27,14 @@ class PropertySearchType extends AbstractType
                     'attr' =>[
                         'placeholder' =>'surface maximale ?'
                     ]
-                ]);
-      /**  ->add('ville',IntegerType::class,[
+                ])
+       ->add('ville',TextType::class,[
         'required' =>false,
         'label'  =>false,
         'attr' =>[
             'placeholder' =>'ville ?'
         ]
-    ]);**/
+    ]);
     }
 
     public function configureOptions(OptionsResolver $resolver)

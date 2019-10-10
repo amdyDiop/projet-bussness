@@ -8,7 +8,9 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Qui est Amdy Diop</title>
+    <title>Qui Suis Je</title>
+    <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
 
     <!-- Bootstrap core CSS -->
     <link href="{{ asset('StyleCv/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -49,8 +51,14 @@
                 </li>
                 {% if app.user %}
 
-                    <li class="navbar-item">
+                    <li class="navbar-item bg-danger">
                         <a href="{{ path ('logout') }}" class="nav-link"> Se Déconnecter</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <button class="nav-item bg-info" >
+                            <a class="nav-link " href="{{ path('login') }}">Connecter</a>
+                        </button>
                     </li>
 
                 {% endif %}

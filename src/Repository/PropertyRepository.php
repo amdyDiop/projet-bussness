@@ -40,7 +40,7 @@ class PropertyRepository extends ServiceEntityRepository
         if ($search->getVille())
         {
             $query= $query
-                ->andWhere('p.ville <= :ville')
+                ->andWhere('p.city = :ville')
                 ->setParameter('ville',$search->getVille());
         }
         if ($search->getSurface())
