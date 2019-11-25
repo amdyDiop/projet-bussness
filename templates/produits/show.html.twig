@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title%}
+
+   {{ property.title}}
+
+{% endblock %}
+
+
+
+{% block body %}
+
+
+   <div class="jumbotron">
+      <div class="container">
+         <div class="row">
+
+            <div class="col-md-4">
+
+               <h1>{{ property.title}}</h1>
+               <h2>{{ property.rooms}} piéces {{ property.surface }} m2 </h2>
+               <div class="text-info  " style="font-size: 4rem;font-weight: bold;"> {{ property.getformatPrice() }} cfa </div>
+               <a href="#" class="btn btn-info" > Contacter le Propriétaire</a>
+
+               <div id="conactForm" class="mt-4" >
+                  {{ form_start(form) }}
+                  <div class="row-6">
+                     {{ form_row(form.firstname) }}
+                     {{ form_row(form.lastname) }}
+                  </div>
+                  <div class="row-6">
+                   {{ form_row(form.phone) }}
+                   {{ form_row(form.email) }}
+                     {{ form_row(form.message) }}
+                  </div>
+
+                  <div class="form-group">
+                     <button class="btn btn-info">Envoyer</button>
+                  </div>
+                  {{ form_end(form) }}
+
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+   <div class="container mt-4">
+      <p>
+         {{ property.description }}
+      </p>
+      <div class="row">
+         <div class="col-md 8">
+            <h2>Caracteristiques </h2>
+
+            <table class="table table-striped" >
+               <tr>
+                  <td>Prix</td>
+                  <td> {{ produits.getPrix() }} m2</td>
+               </tr>
+
+               <tr>
+                  <td>Poids</td>
+                  <td> {{ produits.poid }} Kg</td>
+               </tr>
+
+               <tr>
+                  <td>Quantité</td>
+                  <td> {{ produits.stock }} </td>
+               </tr>
+
+
+            </table>
+
+         </div>
+         <div class="col md-4">
+            <h2>Spécificités</h2>
+
+
+         </div>
+
+      </div>
+   </div>
+{% endblock %}
+
+
+
