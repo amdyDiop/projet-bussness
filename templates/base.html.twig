@@ -30,6 +30,7 @@
         <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
 
+
 {#        homme second template#}
 
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
@@ -53,7 +54,8 @@
         {% endblock %}
     </head>
     <body>
-    <header class="pl-155 pr-155 intelligent-header">
+    <div class="wrapper">
+     <header class="pl-155 pr-155 intelligent-header">
         <div class="header-area header-area-2">
             <div class="container-fluid p-0">
                 <div class="row no-gutters">
@@ -219,7 +221,7 @@
                         <li class="single-product-cart">
                             <div class="cart-checkout-btn">
                                 <a class="btn-hover cart-btn-style" href="{{path('cart_index')}}">Voir Panier </a>
-                                <a class="no-mrg btn-hover cart-btn-style" href="#">Finaliser</a>
+                                <a class="no-mrg btn-hover cart-btn-style" href="{{ path('finaliser') }}">Finaliser</a>
                             </div>
                         </li>
 
@@ -274,5 +276,6 @@
         {% block javascripts %}
 
             {% endblock %}
+    </div>
       </body>
 </html>
