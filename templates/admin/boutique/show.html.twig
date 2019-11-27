@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique{% endblock %}
+
+{% block body %}
+    <h1>Boutique</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ boutique.id }}</td>
+            </tr>
+            <tr>
+                <th>Boutique</th>
+                <td>{{ boutique.nomBoutique }}</td>
+            </tr>
+            <tr>
+                <th>Ville</th>
+                <td>{{ boutique.ville }}</td>
+            </tr>
+            <tr>
+                <th>Nom Vendeur</th>
+                <td>{{ boutique.nom }}</td>
+            </tr>
+            <tr>
+                <th>Prénom Vendeur</th>
+                <td>{{ boutique.prenom }}</td>
+            </tr>
+            <tr>
+                <th>email</th>
+                <td>{{ boutique.email }}</td>
+            </tr>
+            <tr>
+                <th>Password</th>
+                <td>{{ boutique.password }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ boutique.active ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>Nombre De Vente</th>
+                <td>{{ boutique.nombreDeVente }}</td>
+            </tr>
+            <tr>
+                <th>NumeroCompte</th>
+                <td>{{ boutique.numeroCompte }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('boutique_index') }}">Retour à la Liste</a>
+
+    <a href="{{ path('boutique_edit', {'id': boutique.id}) }}">Modifier</a>
+
+    {{ include('admin/boutique/_delete_form.html.twig') }}
+{% endblock %}

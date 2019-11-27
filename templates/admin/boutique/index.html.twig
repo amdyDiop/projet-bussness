@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique index{% endblock %}
+
+{% block body %}
+    <h1>Boutique index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+
+                <th>Boutique</th>
+                <th>Ville</th>
+                <th>Nom Vendeur</th>
+                <th>Prénom Vendeur</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Active</th>
+                <th>Nombre De Vente</th>
+                <th>Numéro Compte</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boutique in boutiques %}
+            <tr>
+                <td>{{ boutique.nomBoutique }}</td>
+                <td>{{ boutique.ville }}</td>
+                <td>{{ boutique.nom }}</td>
+                <td>{{ boutique.prenom }}</td>
+                <td>{{ boutique.email}}</td>
+                <td>{{ boutique.password }}</td>
+                <td>{{ boutique.active ? 'Yes' : 'No' }}</td>
+                <td>{{ boutique.nombreDeVente }}</td>
+                <td>{{ boutique.numeroCompte }}</td>
+                <td>
+                    <a href="{{ path('boutique_show', {'id': boutique.id}) }}">show</a>
+                    <a href="{{ path('boutique_edit', {'id': boutique.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="11">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('boutique_new') }}">Create new</a>
+{% endblock %}

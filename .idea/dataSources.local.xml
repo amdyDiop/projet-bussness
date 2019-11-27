@@ -2,7 +2,17 @@
 <project version="4">
   <component name="dataSourceStorageLocal">
     <data-source name="MySQL - maisons@localhost" uuid="874f6a0d-8b15-475f-a24f-995ad7f014fb">
-      <database-info product="MySQL" version="5.7.21" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)" dbms="MYSQL" exact-version="5.7.21" exact-driver-version="8.0">
+      <database-info product="MySQL" version="5.7.21" jdbc-version="4.2" driver-name="MySQL Connector/J" driver-version="mysql-connector-java-8.0.15 (Revision: 79a4336f140499bd22dd07f02b708e163844e3d5)" dbms="MYSQL" exact-version="5.7.21">
+        <extra-name-characters>#@</extra-name-characters>
+        <identifier-quote-string>`</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>dofbi</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="maisons@localhost" uuid="f870cef6-7758-406a-9f70-10756834bdc3">
+      <database-info product="MySQL" version="5.7.21" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.47 ( Revision: fe1903b1ecb4a96a917f7ed3190d80c049b1de29 )" dbms="MYSQL" exact-version="5.7.21">
         <extra-name-characters>#@</extra-name-characters>
         <identifier-quote-string>`</identifier-quote-string>
       </database-info>
@@ -11,7 +21,7 @@
       <user-name>dofbi</user-name>
       <schema-mapping>
         <introspection-scope>
-          <node kind="schema" negative="1" />
+          <node kind="schema" qname="maisons" />
         </introspection-scope>
       </schema-mapping>
     </data-source>

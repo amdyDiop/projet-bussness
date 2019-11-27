@@ -3,11 +3,13 @@
 namespace App\Repository;
 
 use App\Entity\Produit;
-//use App\Entity\PropertySearch;
+use App\Entity\PropertySearch;
+
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Query;
 use Doctrine\ORM\QueryBuilder;
+
 
 /**
  * @method Produit|null find($id, $lockMode = null, $lockVersion = null)
@@ -21,10 +23,11 @@ class ProduitRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Produit::class);
     }
+
     /**
      * @return Query
      */
-   /** public function findAllVisibleQuery(PropertySearch  $search): Query
+    public function findAllVisibleQuery(PropertySearch  $search): Query
     {
 
         $query = $this->findVisibleQuery();
@@ -40,19 +43,20 @@ class ProduitRepository extends ServiceEntityRepository
                 ->andWhere('p.ville = :ville')
                 ->setParameter('ville',$search->getVille());
         }
-        /**  if ($search->getSurface())
+       /** if ($search->getSurface())
         {
-        $query= $query
-        ->andWhere('p.surface <= :surface')
-        ->setParameter('surface',$search->getSurface());
-        }
+            $query= $query
+                ->andWhere('p.surface <= :surface')
+                ->setParameter('surface',$search->getSurface());
+        }**/
         return $query->getQuery();
 
-    }**/
+    }
     public function findlast():array
     {
         return  $this->findVisibleQuery()
-            ->setMaxResults(8)
+
+            ->setMaxResults(12)
             ->getQuery()
             ->getResult();
 
@@ -65,7 +69,7 @@ class ProduitRepository extends ServiceEntityRepository
             ->Where('p.visible = true');
     }
     // /**
-    //  * @return Produit[] Returns an array of Produit objects
+    //  * @return Property[] Returns an array of Property objects
     //  */
     /*
     public function findByExampleField($value)
@@ -82,7 +86,7 @@ class ProduitRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Produit
+    public function findOneBySomeField($value): ?Property
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

@@ -1,151 +1,236 @@
 <!doctype html>
 <html class="no-js" lang="en">
     <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
-              integrity="sha256-+N4/V/SbAFiW1MPBCXnfnP9QSN3+Keu+NlB+0ev/YKQ=" crossorigin="anonymous"/>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
         <title>
             {% block title %}Seen Guinaar
             {% endblock %}
         </title>
-     {#   <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Style/assets/img/favicon.png') }}">
+
         <!-- all css here -->
 
-        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('Style/assets/img/favicon.png') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/magnific-popup.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/animate.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/owl.carousel.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/slinky.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/slick.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/ionicons.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/bundle.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/style.css') }}">
-        <link rel="stylesheet" href="{{ asset('Style/assets/css/responsive.css') }}">
-        <script src="{{ asset('Style/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}"  sizes="32x32">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/slinky.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/easyzoom.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/bundle.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+        <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
 
-        
+
 {#        homme second template#}
 
   <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('Style/pages/fonts/icomoon/style.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
 
     <link rel="stylesheet" href="{{asset('Style/pages/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('Style/pages/css/jquery-ui.css')}}">
     <link rel="stylesheet" href="{{asset('Style/pages/css/owl.carousel.min.css')}}">
     <link rel="stylesheet" href="{{asset('Style/pages/css/owl.theme.default.min.css')}}">
     <link rel="stylesheet" href="{{asset('Style/pages/css/owl.theme.default.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('Style/pages/css/jquery.fancybox.min.css')}}">
-
     <link rel="stylesheet" href="{{asset('Style/pages/css/bootstrap-datepicker.css')}}">
-
     <link rel="stylesheet" href="{{asset('Style/pages/fonts/flaticon/font/flaticon.css')}}">
-
     <link rel="stylesheet" href="{{asset('Style/pages/css/aos.css')}}">
-
     <link rel="stylesheet" href="{{asset('Style/pages/css/style.css')}}">
-        
-
         {% block stylesheets %}
 
         {% endblock %}
     </head>
     <body>
-       <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-
-    <header class="site-navbar py-4 bg-white js-sticky-header site-navbar-target" role="banner">
-
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-6 col-xl-2">
-            <h4 class="mb-0 site-logo"><a href="/" class="text-black">Seen Guinar </a></h4>
-          </div>
-          <div class="col-12 col-md-10 d-none d-xl-block">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#" class="nav-link">Home</a></li>
-                <li><a href="#" class="nav-link">Products</a></li>
-                <li><a href="#" class="nav-link">About Us</a></li>
-                <li><a href="#" class="nav-link">Special</a></li>
-                <li><a href="#" class="nav-link">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-
-
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle text-black float-right"><span class="icon-menu h3"></span></a></div>
-
-        </div>
-      </div>
-      
-    </header>
-
-        <div class="container pt-5">
-
-            {% block body %}{% endblock %}
-            <footer class="site-footer bg-dark">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="row">
-                                <div class="col">
-                                    <h2 class="footer-heading ">About Us</h2>
-                                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum autem. Amet aliquid nesciunt veritatis aliquam.</p>
-                                </div>
-                                <div class="col ">
-                                    <h2 class="footer-heading ">Quick Links</h2>
-                                    <ul class="list-unstyled">
-                                        <li><p> Téléphone: </p></li>
-                                        <li><p> Mail: </p></li>
-                                        <li><p> Téléphone: </p></li>
-                                        <li><p> Mail: </p></li>
-
-                                    </ul>
-                                </div>
-                                <div class="col">
-                                    <h2 class="footer-heading">Follow Us</h2>
-                                    <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                                    <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                                    <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                                    <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 ml-auto">
-                            <h2 class="footer-heading mb-4">Featured Product</h2>
-                            <a href="#"><img src="{{asset('Style/pages/images/rood.jpg')}}" alt="Image" class="img-fluid mb-3"></a>
-                            <h4 class="h5">Leather Brown Shoe</h4>
-                            <p><strong class="text-black mb-3 d-inline-block"> $60.00</strong></p>
-                            <p><a href="#" class="btn btn-black rounded-0">Add to Cart</a></p>
+    <header class="pl-155 pr-155 intelligent-header">
+        <div class="header-area header-area-2">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="logo">
+                            <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt="" /></a>
                         </div>
                     </div>
-                    <div class=" text-center ">
-                        <div class="col-md-12">
-                                <p>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved |Seen Guinaar <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >AMDY DIOP</a>
-                                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                </p>
+                    <div class="col-lg-6 menu-none-block menu-center">
+                        <div class="main-menu">
+                            <nav>
+                                <ul>
+                                    <li><a href="{{ path('produits') }}">produits</a></li>
+                                    <li><a href="{{ path('shop') }}">Boutiques</a></li>
+                                    <li><a href="">Specials</a></li>
+                                    <li><a href="#">login</a>
+                                        <ul class="dropdown">
 
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="#">contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="header-search-cart">
+                            <div class="header-search common-style">
+                                <button class="sidebar-trigger-search">
+                                    <span class="ion-ios-search-strong"></span>
+                                </button>
+                            </div>
+                            <div class="header-cart common-style">
+                                <button class="sidebar-trigger">
+                                    <span class="ion-bag"></span>
+                                </button>
+                            </div>
+                            <div class="header-sidebar common-style">
+                                <button class="header-navbar-active">
+                                    <span class="ion-navicon"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-menu-area d-md-block col-md-12 col-lg-12 col-12 d-lg-none d-xl-none">
+                        <div class="mobile-menu">
+                            <nav id="mobile-menu-active">
+                                <ul>
+                                    <li><a href="{{ path('produits') }}">produits</a></li>
+                                    <li><a href="">Boutiques</a></li>
+                                    <li><a href="">Specials</a></li>
+                                    <!--li><a href="#">login</a>
+                                        ul class="dropdown">
+                                        </ul>
+                                    </li-->
+                                    <li><a href="#">contact</a></li>
+                                </ul>
+                            </nav>
                         </div>
                     </div>
                 </div>
-            </footer>
-
+            </div>
         </div>
+    </header>
 
+
+    <div class="wrapper">
+
+        <!-- main-search start -->
+        <div class="main-search-active">
+            <div class="sidebar-search-icon">
+                <button class="search-close"><span class="ion-android-close"></span></button>
+            </div>
+            <div class="sidebar-search-input">
+                <form>
+                    <div class="form-search">
+                        <input id="search" class="input-text" value="" placeholder="Search Entire Store" type="search">
+                        <button>
+                            <i class="ion-ios-search-strong"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <!-- main-search start -->
+        <div class="cur-lang-acc-active">
+            <div class="wrap-sidebar">
+                <div class="sidebar-nav-icon">
+                    <button class="op-sidebar-close"><span class="ion-android-close"></span></button>
+                </div>
+                <div class="cur-lang-acc-all">
+                    <div class="single-currency-language-account">
+                        <div class="cur-lang-acc-title">
+                            <h4>My Account:</h4>
+                        </div>
+                        <div class="cur-lang-acc-dropdown">
+                            <ul>
+                                <li><a href="">register</a></li>
+                                <li><a href="">login </a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
+            <div class="container">
+                <div class="breadcrumb-content">
+                    <h2>shop</h2>
+                    <ul>
+                        <li><a href="#">home</a></li>
+                        <li> shop </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    {#modale du panier #}
+    <div class="sidebar-cart onepage-sidebar-area">
+        <div class="wrap-sidebar">
+            <div class="sidebar-cart-all">
+                <div class="sidebar-cart-icon">
+                    <button class="op-sidebar-close"><span class="ion-android-close"></span></button>
+                </div>
+                <div class="cart-content">
+                    <h3>Votre Panier </h3>
+                    <ul>
+                        {% for item in item %}
+                            <li class="single-product-cart">
+                                <div class="cart-img">
+                                    {% if item.produit.filename %}
+                                        <a class="btn-hover-black" href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }} ">
+                                            <img src="{{ vich_uploader_asset(item.produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                        </a>
+                                    {% else %}
+                                        <a class="btn-hover-black" href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }} ">
+                                            <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                                <div class="cart-title">
+                                    <h3><a href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }} "> {{item.produit.labelle}}</a></h3>
+                                    <span>{{ item.quantity }} x {{item.produit.prix}}</span>
+                                </div>
+                                <div class="cart-delete">
+                                    <a href="{{path('cart_remove',{'id': item.produit.id})}}"><i class="ion-ios-trash-outline"></i></a>
+                                </div>
+
+                            </li>
+                            <li class="single-product-cart">
+                                <div class="cart-total">
+                                    <h4>Total : <span>{{ item.quantity *item.produit.prix}} Cfa</span></h4>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        <li class="single-product-cart">
+                            <div class="cart-total">
+                                <h3> <span><strong>Total: </strong> <span>{{ total}} Cfa</span></span></h3>
+                            </div>
+                        </li>
+                        <li class="single-product-cart">
+                            <div class="cart-checkout-btn">
+                                <a class="btn-hover cart-btn-style" href="{{path('cart_index')}}">Voir Panier </a>
+                                <a class="no-mrg btn-hover cart-btn-style" href="#">Finaliser</a>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="container ">
+            {% block body %}{% endblock %}
+        </div>
        <link rel="stylesheet" href="{{asset('Style/pages/css/bootstrap.min.css')}}">
         <!-- all js here -->
        <script src="{{ asset('Style/pages/js/jquery-3.3.1.min.js') }}"></script>
@@ -163,14 +248,31 @@
        <script src="{{ asset('Style/pages/js/jquery.sticky.js') }}"></script>
        <script src="{{ asset('Style/pages/js/main.js') }}"></script>
 
-       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-
-
-
+{##  nhena style#}
+       <script src="{{ asset('assets/js/vendor/jquery-1.12.0.min.js') }}"> </script>
+       <script src="{{ asset('assets/js/popper.js') }}"></script>
+       <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+       <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+       <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+       <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+       <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+       <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
+       <script src="{{ asset('assets/js/slinky.min.js') }}"></script>
+       <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+       <script src="{{ asset('assets/js/plugins.js') }}"></script>
+       <script src="{{ asset('assets/js/main.js') }}"></script>
+       <script type="text/javascript">
+           // grab an element
+           var myElement = document.querySelector(".intelligent-header");
+           // construct an instance of Headroom, passing the element
+           var headroom  = new Headroom(myElement);
+           // initialise
+           headroom.init();
+       </script>
+       <script src="{{ asset('assets/js/main.js') }}"></script>
 
         {% block javascripts %}
 
             {% endblock %}
-    </body>
-
-    </html>
+      </body>
+</html>

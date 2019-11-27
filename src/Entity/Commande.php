@@ -28,11 +28,6 @@ class Commande
      */
     private $dateCommande;
 
-    /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="commandes")
-     * @ORM\JoinColumn(nullable=false)
-     */
-    private $idlient;
 
     /**
      * @ORM\Column(type="float")
@@ -50,17 +45,20 @@ class Commande
     private $tttc;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Lcommande", mappedBy="idCommande")
+     * @ORM\OneToMany(targetEntity="App\Entity\Client", mappedBy="commande")
      */
-    private $idProduit;
+    private $clients;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Produit", inversedBy="commandes")
+     */
+    private $produit;
 
     public function __construct()
     {
-        $this->idProduit = new ArrayCollection();
+        $this->clients = new ArrayCollection();
+        $this->produit = new ArrayCollection();
     }
-
-
-
 
     public function getId(): ?int
     {
@@ -91,17 +89,6 @@ class Commande
         return $this;
     }
 
-    public function getIdlient(): ?Client
-    {
-        return $this->idlient;
-    }
-
-    public function setIdlient(?Client $idlient): self
-    {
-        $this->idlient = $idlient;
-
-        return $this;
-    }
 
     public function getTht(): ?float
     {
@@ -140,37 +127,60 @@ class Commande
     }
 
     /**
-     * @return Collection|Lcommande[]
+     * @return Collection|Client[]
      */
-    public function getIdProduit(): Collection
+    public function getClients(): Collection
     {
-        return $this->idProduit;
+        return $this->clients;
     }
 
-    public function addIdProduit(Lcommande $idProduit): self
+    public function addClient(Client $client): self
     {
-        if (!$this->idProduit->contains($idProduit)) {
-            $this->idProduit[] = $idProduit;
-            $idProduit->setIdCommande($this);
+        if (!$this->clients->contains($client)) {
+            $this->clients[] = $client;
+            $client->setCommande($this);
         }
 
         return $this;
     }
 
-    public function removeIdProduit(Lcommande $idProduit): self
+    public function removeClient(Client $client): self
     {
-        if ($this->idProduit->contains($idProduit)) {
-            $this->idProduit->removeElement($idProduit);
+        if ($this->clients->contains($client)) {
+            $this->clients->removeElement($client);
             // set the owning side to null (unless already changed)
-            if ($idProduit->getIdCommande() === $this) {
-                $idProduit->setIdCommande(null);
+            if ($client->getCommande() === $this) {
+                $client->setCommande(null);
             }
         }
 
         return $this;
     }
 
+    /**
+     * @return Collection|Produit[]
+     */
+    public function getProduit(): Collection
+    {
+        return $this->produit;
+    }
 
+    public function addProduit(Produit $produit): self
+    {
+        if (!$this->produit->contains($produit)) {
+            $this->produit[] = $produit;
+        }
 
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): self
+    {
+        if ($this->produit->contains($produit)) {
+            $this->produit->removeElement($produit);
+        }
+
+        return $this;
+    }
 
 }

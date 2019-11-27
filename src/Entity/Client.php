@@ -58,6 +58,11 @@ class Client
      */
     private $active;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="clients")
+     */
+    private $commande;
+
 
     public function getId(): ?int
     {
@@ -156,6 +161,18 @@ class Client
     public function setActive(?bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getCommande(): ?Commande
+    {
+        return $this->commande;
+    }
+
+    public function setCommande(?Commande $commande): self
+    {
+        $this->commande = $commande;
 
         return $this;
     }

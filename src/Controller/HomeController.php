@@ -2,9 +2,10 @@
     namespace App\Controller;
 
 
-    use App\Repository\PropertyRepository;
+    use App\Repository\ProduitRepository;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\HttpFoundation\Response;
+    use \App\Services\Cart\CartService;
     use Symfony\Component\Routing\Annotation\Route;
     use Symfony\Component\Security\Http\Authentication\AuthenticationUtils;
 
@@ -14,25 +15,39 @@
 
         /**
          * @Route("/",name="home")
-         * @param PropertyRepository $repository
+         * @param ProduitRepository $repository
          * @return Response
          */
-        public function home(PropertyRepository $repository)
+        public function home(ProduitRepository $repository,CartService $cartService )
     {
-        $properties = $repository->findlast();
-          return $this->render('pages/home.html.twig',[
-                'properties' => $properties
+
+        $data= $cartService->fulCart();
+
+        $total = 0;
+        foreach($data as $item)
+        {
+            $totalItem = $item['produit']->getPrix()*$item['quantity'];
+            $total += $totalItem;
+
+        }
+
+        $produits = $repository->findlast();
+  //dd($produits);
+          return $this->render('home/home.html.twig',[
+                'produits' => $produits ,
+                'item' => $data,
+                'total' =>$total
               ]) ;
     }
 
         /**
-         * @Route("/cv", name="cv")
+         * @Route("/amdy", name="cvAmdy")
          * @return Response
          */
-        public function cv(PropertyRepository $repository)
+        public function cv(ProduitRepository $repository)
         {
-            $properties = $repository->findlast();
-            return $this->render('pages/CV.html.twig') ;
+
+            return $this->render('Cv/CV.html.twig' );
         }
 
         /**

@@ -3949,7 +3949,7 @@ thead {
   border-bottom: none;
 }
 .cart-page-total {
-  padding-top: 50px;
+  padding-top: 2px;
 }
 .cart-page-total > a {
   background-color: #333;

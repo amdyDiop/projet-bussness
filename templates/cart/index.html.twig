@@ -1,57 +1,85 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello CartController!
-{% endblock %}
+{% block title 'Votre Panier'%}
+
 
 {% block body %}
-<h1>Votre panier</h1>
-    <div class="bg-light p-3">
-    {%if item | length %}
-    <table class="table">
-        <thead>
-                <tr>
 
-                    <th>Produit</th>
-                    <th>Prix</th>
-                    <th>Quantité</th>
-                    <th>Total </th>
-                    <th></th>
-                     
-                </tr>
-        </thead>
-        <tbody>
-        {% for item in item %}
-            <tr>
-                <td>{{ item.product.title }}</td>
-                <td>{{ item.product.price }}</td>
-                 <td>{{ item.quantity }}</td> 
-                <td>{{ item.quantity *item.product.price}}</td>
-                <td>
-                <a href="{{path('cart_remove',{'id': item.product.id})}}" class="btn btn-danger btn-sm">
-                    <i class="fas fa-trash"></i>
-                </a>
-                </td>
-            </tr>
-        {% endfor %}
 
-        </tbody>
-        <tfoot>
-            <tr>
-                <td colspan="3" class="text-right">Total: </td>
-                <td>{{total}}</td>
-                <td></td>
+<!-- shopping-cart-area start -->
+<div class="cart-main-area pt-95 pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <h1 class="cart-heading">Panier</h1>
+                {%if item | length %}
+                    <div class="table-content table-responsive">
+                        <table>
+                            <thead>
+                            <tr>
+                                <th class="product-price">image</th>
+                                <th class="product-name">Produit</th>
+                                <th class="product-price">Prix</th>
+                                <th class="product-quantity">Quantité</th>
+                                <th class="product-subtotal">Total</th>
+                                <th class="product-name">suppimer</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for item in item %}
+                            <tr>
+                                <td class="product-thumbnail">
+                                    {% if item.produit.filename %}
+                                        <a href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }}">
+                                        <img src="{{ vich_uploader_asset(item.produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                        </a>
+                                    {% else %}
+                                        <a href="#"><img src="{{ asset('assets/img/cart/1.jpg') }}" alt=""></a>
+                                    {% endif %}
 
-            </tr>
-         </tfoot>
+                                </td>
+                                <td class="product-name"><a href="{{ path ('produit_show',{ id: item.produit.id, slug:item.produit.slug} ) }} ">{{ item.produit.labelle }}</td>
+                                <td class="product-price"><span class="amount">{{ item.produit.prix }}</span></td>
+                                <td class="product-quantity">{{ item.quantity }} </td>
+                                <td class="product-subtotal">{{ item.quantity *item.produit.prix}}</td>
+                                <td class="product-remove"><a  href="{{path('cart_remove',{'id': item.produit.id})}}"><i class="ion-ios-trash-outline"></i></a></td>
+                            </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                <div class="row">
+                    <div class="col-md-5 ml-auto ">
+                        <div class="cart-page-total">
+                            <h2>Total Panier </h2>
+                            <ul>
 
-    </table>
+                                <li>Total<span>{{total}} Fcfa</span></li>
 
-    
-
-    {%else%}
-        <p>Surprise, c'est vide !</p>
+                            </ul>
+                            <a href="#">Finaliser</a>
+                            <a href="{{ path('produits') }}">Poursuivre Achat</a>
+                            <br>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <br>
+            </div>
+            {% else %} <hr>
+        </div>
+        <p>Surprise, Votre panier est vide !</p>
         {% endif %}
-    </div>
 
-    
+    </div>
+</div>
+<!-- shopping-cart-area end -->
+
+
+
+
+
+
+
 {% endblock %}

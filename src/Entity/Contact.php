@@ -54,9 +54,9 @@ class  Contact {
 
 
     /**
-     * @var Property|null
+     * @var Produit|null
      */
-    private  $property;
+    private  $produit;
 
     /**
      * @return string|null
@@ -149,20 +149,20 @@ class  Contact {
     }
 
     /**
-     * @return Property|null
+     * @return Produit|null
      */
-    public function getProperty(): ?Property
+    public function getProduit(): ?Produit
     {
-        return $this->property;
+        return $this->produit;
     }
 
     /**
-     * @param Property|null $property
+     * @param Produit|null $produit
      * @return Contact
      */
-    public function setProperty(?Property $property): Contact
+    public function setProduit(?Produit $produit): Contact
     {
-        $this->property = $property;
+        $this->produit = $produit;
         return $this;
     }
 

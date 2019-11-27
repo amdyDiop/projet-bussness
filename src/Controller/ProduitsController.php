@@ -2,13 +2,14 @@
 
 namespace  App\Controller;
 
- use App\Entity\Property;
+ use App\Entity\Produit;
  use App\Entity\PropertySearch;
  use App\Form\ContactType;
  use App\Entity\Contact;
  use App\Form\PropertySearchType;
  use App\notification\ContactNotification;
- use App\Repository\PropertyRepository;
+ use App\Repository\ProduitRepository;
+ use App\Services\Cart\CartService;
  use Doctrine\Common\Persistence\ObjectManager;
  use Knp\Component\Pager\PaginatorInterface;
  use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -16,15 +17,15 @@ namespace  App\Controller;
  use Symfony\Component\HttpFoundation\Response;
  use Symfony\Component\Routing\Annotation\Route;
 
- class MaisonController extends  AbstractController
+ class ProduitsController extends  AbstractController
  {
      /**
-      * @var PropertyRepository
+      * @var ProduitRepository
       */
      private $em;
      private $repository;
 
-     public function __construct(PropertyRepository $repository,ObjectManager $em)
+     public function __construct(ProduitRepository $repository,ObjectManager $em)
      {
          $this->repository = $repository;
          $this->em  = $em;
@@ -36,59 +37,84 @@ namespace  App\Controller;
       *
       *
       */
-     public function produits(PaginatorInterface $pagination,Request $request):Response
+     public function index(PaginatorInterface $pagination,Request $request,CartService $cartService):Response
      {
          $search = new PropertySearch();
          $form = $this->createForm(PropertySearchType::class,$search);
          $form->handleRequest($request);
-        $property = $pagination->paginate(
+        $produits = $pagination->paginate(
             $this->repository->findAllVisibleQuery($search),
             $request->query->getInt('page',1),
              12
         );
+         $data= $cartService->fulCart();
 
-         return $this->render('pages/maison.html.twig',[
-             'properties' => $property,
-             'form' => $form->createView()
+         $total = 0;
+         foreach($data as $item)
+         {
+             $totalItem = $item['produit']->getPrix()*$item['quantity'];
+             $total += $totalItem;
+
+         }
+
+
+         return $this->render('produits/index.html.twig',[
+             'produits' => $produits,
+             'form' => $form->createView(),
+             'item' => $data,
+             'total' =>$total
          ]);
 
      }
 
      /**
-      * @Route("/maison{slug}-{id}",name="page_view",requirements={"slug": "[a-z0-9\-]*"} )
+      * @Route("/produit/{slug}-{id}",name="produit_show",requirements={"slug": "[a-z0-9\-]*"} )
       * @return Response
       */
-     public  function  view(Property $property,string $slug,ContactNotification $notification,Request $request) :Response
+     public  function  show(Produit $produits,string $slug,ContactNotification $notification,Request $request,CartService $cartService ) :Response
      {
-         if ($property->getSlug() !==$slug)
+         if ($produits->getSlug() !==$slug)
          {
-         return  $this->redirectToRoute('page_view',[
-             'id' => $property->getId(),
-             'slug' => $property->getSlug()
+         return  $this->redirectToRoute('produit_show',[
+             'id' => $produits->getId(),
+             'slug' => $produits->getSlug()
          ],301);
              }
+         $data= $cartService->fulCart();
+
+         $total = 0;
+         foreach($data as $item)
+         {
+             $totalItem = $item['produit']->getPrix()*$item['quantity'];
+             $total += $totalItem;
+
+         }
 
          $contact = new  Contact();
-         $contact->setProperty($property);
+         $contact->setProduit($produits);
          $form = $this->createForm(ContactType::class,$contact);
          $form->handleRequest($request);
          if ($form->isSubmitted() && $form->isValid()){
              $notification->notify($contact);
              $this->addFlash('success','votre email a bien été envoyé');
-             return  $this->redirectToRoute('page_view',[
-                 'id' => $property->getId(),
-                 'slug' => $property->getSlug()
+             return  $this->redirectToRoute('produit_show',[
+                 'id' => $produits->getId(),
+                 'slug' => $produits->getSlug(),
+                 'item' => $data,
+                 'total' =>$total
              ]);
          }
 
          $contact = new  Contact();
-         $contact->setProperty($property);
+         $contact->setProduit($produits);
          $form = $this->createForm(ContactType::class,$contact);
 
 
-         return  $this->render('pages/view.html.twig',[
-             'property' => $property,
-             'form'  =>$form->createView()
+         return  $this->render('produits/show.html.twig',[
+             'produits' => $produits,
+             'form'  =>$form->createView(),
+             'item' => $data,
+             'total' =>$total
          ]);
      }
 

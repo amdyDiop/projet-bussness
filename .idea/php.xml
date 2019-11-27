@@ -122,6 +122,13 @@
       <path value="$PROJECT_DIR$/vendor/vich/uploader-bundle" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-pack" />
       <path value="$PROJECT_DIR$/vendor/symfony/webpack-encore-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/syntaxhighlighter-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/core-library" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/bootstrap-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/adminbsb-material-design-bundle" />
+      <path value="$PROJECT_DIR$/vendor/webeweb/jquery-datatables-bundle" />
+      <path value="$PROJECT_DIR$/vendor/mustangostang/spyc" />
+      <path value="$PROJECT_DIR$/vendor/piwik/device-detector" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.1" />
