@@ -5,16 +5,14 @@
 {% block body %}
     <h1>Boutique index</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
 
                 <th>Boutique</th>
-                <th>Ville</th>
-                <th>Nom Vendeur</th>
-                <th>Prénom Vendeur</th>
                 <th>Email</th>
-                <th>Password</th>
+                <th>Ville</th>
+                <th>Addresse</th>
                 <th>Active</th>
                 <th>Nombre De Vente</th>
                 <th>Numéro Compte</th>
@@ -25,11 +23,9 @@
         {% for boutique in boutiques %}
             <tr>
                 <td>{{ boutique.nomBoutique }}</td>
-                <td>{{ boutique.ville }}</td>
-                <td>{{ boutique.nom }}</td>
-                <td>{{ boutique.prenom }}</td>
                 <td>{{ boutique.email}}</td>
-                <td>{{ boutique.password }}</td>
+                <td>{{ boutique.ville }}</td>
+                <td> {{boutique.adresse}}</td>
                 <td>{{ boutique.active ? 'Yes' : 'No' }}</td>
                 <td>{{ boutique.nombreDeVente }}</td>
                 <td>{{ boutique.numeroCompte }}</td>

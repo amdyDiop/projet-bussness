@@ -27,7 +27,10 @@
         <link rel="stylesheet" href="{{ asset('assets/css/bundle.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
         <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
         <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+
+
 
 
 
@@ -54,7 +57,6 @@
         {% endblock %}
     </head>
     <body>
-    <div class="wrapper">
      <header class="pl-155 pr-155 intelligent-header">
         <div class="header-area header-area-2">
             <div class="container-fluid p-0">
@@ -64,6 +66,7 @@
                             <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt="" /></a>
                         </div>
                     </div>
+                    {#liste du centre de navigation#}
                     <div class="col-lg-6 menu-none-block menu-center">
                         <div class="main-menu">
                             <nav>
@@ -71,12 +74,11 @@
                                     <li><a href="{{ path('produits') }}">produits</a></li>
                                     <li><a href="{{ path('shop') }}">Boutiques</a></li>
                                     <li><a href="">Specials</a></li>
-                                    <li><a href="#">login</a>
+                                    <!--li><a href="#">login</a>
                                         <ul class="dropdown">
 
                                         </ul>
-                                    </li>
-
+                                    </li-->
                                     <li><a href="#">contact</a></li>
                                 </ul>
                             </nav>
@@ -150,19 +152,24 @@
                 <div class="cur-lang-acc-all">
                     <div class="single-currency-language-account">
                         <div class="cur-lang-acc-title">
-                            <h4>My Account:</h4>
+                            {% if app.user %}
+                            <h4>My Account:{{ app.user.username }}</h4>
+                            <ul>
+                                    <li><a href="{{path('logout')}}">Déconnexion</a></li>
+                            </ul>
                         </div>
                         <div class="cur-lang-acc-dropdown">
                             <ul>
-                                <li><a href="">register</a></li>
-                                <li><a href="">login </a></li>
+                                {% else  %}
+                                <li><a href="{{path('login')}}">Connexion </a></li>
+                                {% endif %}
                             </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
+        <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url({{ asset('assets/img/bg/breadcrumb.jpg') }})">
             <div class="container">
                 <div class="breadcrumb-content">
                     <h2>shop</h2>
@@ -173,7 +180,7 @@
                 </div>
             </div>
         </div>
-    </div>
+
     {#modale du panier #}
     <div class="sidebar-cart onepage-sidebar-area">
         <div class="wrap-sidebar">
@@ -262,20 +269,25 @@
        <script src="{{ asset('assets/js/slinky.min.js') }}"></script>
        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
        <script src="{{ asset('assets/js/plugins.js') }}"></script>
-       <script src="{{ asset('assets/js/main.js') }}"></script>
-       <script type="text/javascript">
+       <script src="{{ asset('assets/js/main.js') }}"></script>ù
+
+        <script src="{{ asset('assets/js/instafeed.js') }}"></script>
+        <script src="{{ asset('assets/js/ajax-mail.js') }}"></script>
+
+         <script type="text/javascript">
            // grab an element
            var myElement = document.querySelector(".intelligent-header");
            // construct an instance of Headroom, passing the element
            var headroom  = new Headroom(myElement);
            // initialise
            headroom.init();
-       </script>
-       <script src="{{ asset('assets/js/main.js') }}"></script>
+         </script>
+          <script src="{{ asset('assets/js/main.js') }}"></script>
 
-        {% block javascripts %}
+            {% block javascripts %}
 
             {% endblock %}
     </div>
+
       </body>
 </html>

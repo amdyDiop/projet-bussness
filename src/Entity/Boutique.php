@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use Cocur\Slugify\Slugify;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
@@ -42,6 +43,16 @@ class Boutique
      * @ORM\Column(type="string", length=50)
      */
     private $nomBoutique;
+
+
+    /**
+     * @return string
+     */
+    public  function getSlug(): string
+    {
+        return (new Slugify())->slugify($this->nomBoutique);
+    }
+
 
     /**
      * @ORM\Column(type="string", length=70)
@@ -106,6 +117,11 @@ class Boutique
      * @ORM\Column(type="string", length=255)
      */
     private $description;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $adresse;
 
     public function __construct()
     {
@@ -321,6 +337,18 @@ class Boutique
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getAdresse(): ?string
+    {
+        return $this->adresse;
+    }
+
+    public function setAdresse(string $adresse): self
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }

@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Boutique;
 use App\Entity\Produit;
 use App\Form\Produit1Type;
 use App\Repository\ProduitRepository;
@@ -49,8 +50,50 @@ class ProduitController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
+
             $entityManager->persist($produit);
             $entityManager->flush();
+
+
+
+            return $this->redirectToRoute('produit_index');
+        }
+
+        $data= $cartService->fulCart();
+
+        $total = 0;
+        foreach($data as $item)
+        {
+            $totalItem = $item['produit']->getPrix()*$item['quantity'];
+            $total += $totalItem;
+
+        }
+
+        return $this->render('admin/produit/new.html.twig', [
+            'produit' => $produit,
+            'form' => $form->createView(),
+            'item' => $data,
+            'total' =>$total
+        ]);
+    }
+
+    /**
+     * @Route("/addProduitBoutique/{id}", name="add_produit_boutique", methods={"GET","POST"})
+     */
+    public function addProduitBoutique(Request $request,CartService $cartService,Boutique $boutique): Response
+    {
+        $produit = new Produit();
+        $form = $this->createForm(Produit1Type::class, $produit);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $entityManager->persist($produit);
+
+            $produit->addBoutique($boutique);
+            $entityManager->flush();
+
 
             return $this->redirectToRoute('produit_index');
         }

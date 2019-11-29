@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Boutique</h1>
 
-    <table class="table">
+    <table class="table table-responsive">
         <tbody>
             <tr>
                 <th>Id</th>
@@ -15,13 +15,14 @@
                 <th>Boutique</th>
                 <td>{{ boutique.nomBoutique }}</td>
             </tr>
-            <tr>
-                <th>Ville</th>
-                <td>{{ boutique.ville }}</td>
-            </tr>
+
             <tr>
                 <th>Nom Vendeur</th>
                 <td>{{ boutique.nom }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ boutique.description }}</td>
             </tr>
             <tr>
                 <th>Prénom Vendeur</th>
@@ -32,8 +33,12 @@
                 <td>{{ boutique.email }}</td>
             </tr>
             <tr>
-                <th>Password</th>
-                <td>{{ boutique.password }}</td>
+                <th>Ville</th>
+                <td>{{ boutique.ville }}</td>
+            </tr>
+            <tr>
+                <th>Addresse</th>
+                <td>{{boutique.adresse}}</td>
             </tr>
             <tr>
                 <th>Active</th>

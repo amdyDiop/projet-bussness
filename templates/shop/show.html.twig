@@ -1,0 +1,161 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boutique Ouverte{% endblock %}
+
+{% block body %}
+    <div class="breadcrumb-area pt-205 pb-210" style="background-image: url({{ asset('assets/img/bg/breadcrumb.jpg') }})">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <h2>bienvenue </h2>
+                <h2>chez {{ boutiques.nomBoutique }}</h2>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li>  {{ boutiques.nomBoutique }}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- blog-area start -->
+    <div class="blog-area pt-100 pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="blog-sidebar">
+                        <div class="sidebar-widget mb-50">
+                            <h3 class="sidebar-title">Rechercher un Produit</h3>
+                            <div class="sidebar-search">
+                                <form action="#">
+                                    <input placeholder="Search Products..." type="text">
+                                    <button><i class="ion-ios-search-strong"></i></button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="sidebar-widget mb-45">
+                            <h3 class="sidebar-title">Options de ma Boutique </h3>
+                            <div class="sidebar-categories">
+                                <ul>
+                                    <li><a href="{{ path('add_produit_boutique',{id:boutiques.id}) }}">Ajouter un  Produit <span></span></a></li>
+                                    <li><a href="#">Liste de mes Produit <span>9</span></a></li>
+                                    <li><a href="#">Detailt des Ventes  <span>5</span> </a></li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="sidebar-widget mb-50">
+                            <h3 class="sidebar-title">Recent Posts</h3>
+                            <div class="sidebar-top-rated-all">
+                                <div class="sidebar-top-rated mb-30">
+                                    <div class="single-top-rated">
+                                        <div class="top-rated-img">
+                                            <a href="#"><img src="{{ asset('assets/img/product/sidebar-product/1.jpg') }}" alt=""></a>
+                                        </div>
+                                        <div class="top-rated-text">
+                                            <span>Feb 13,  2018</span>
+                                            <h4><a href="#">Diffrent title gose here. Thisisdemo title.</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sidebar-top-rated mb-30">
+                                    <div class="single-top-rated">
+                                        <div class="top-rated-img">
+                                            <a href="#"><img src="{{ asset('assets/img/product/sidebar-product/1.jpg') }}" alt=""></a>
+                                        </div>
+                                        <div class="top-rated-text">
+                                            <span>Feb 13,  2018</span>
+                                            <h4><a href="#">Diffrent title gose here. Thisisdemo title.</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="sidebar-top-rated mb-30">
+                                    <div class="single-top-rated">
+                                        <div class="top-rated-img">
+                                            <a href="#"><img src="{{ asset('assets/img/product/sidebar-product/1.jpg') }}" alt=""></a>
+                                        </div>
+                                        <div class="top-rated-text">
+                                            <span>Feb 13,  2018</span>
+                                            <h4><a href="#">Diffrent title gose here. Thisisdemo title.</a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="sidebar-widget mb-40">
+                            <h3 class="sidebar-title"> Réseaux Sociaux</h3>
+                            <div class="social-network">
+                                <a href="#">
+                                    <i class="ion-social-twitter"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="ion-social-tumblr"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="ion-social-facebook"></i>
+                                </a>
+                                <a href="#">
+                                    <i class="ion-social-instagram-outline"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="blog-details-style">
+                        <div class="blog-part">
+                            <img src="{{ asset('assets/img/blog/blog-details.jpg') }}" alt="news">
+                            <div class="blog-info-details mt-20">
+                                <h3>Lorem Ipsum is simply dummy text of the printing</h3>
+                            </div>
+                        </div>
+                    </div>
+                        {#listes des produit mise en ligne #}
+                    <div class="shop-product-content tab-content">
+                        <div id="grid-5-col1" class="tab-pane fade active show">
+                            <div class="row custom-row">
+                              {% for produit in produits %}
+                                <div class="custom-col-5 custom-col-style">
+                                    <div class="single-product mb-35">
+                                        <div class="product-img">
+                                            <a href="#"><img src="{{ asset('assets/img/shop/shop-grid-1/1.jpg') }}" alt=""></a>
+                                            <span>vendre</span>
+                                            <div class="product-action">
+                                                <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
+                                                <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-title-price">
+                                                <div class="product-title">
+                                                    <h4><a href="product-details-6.html">{{produit.labelle}}</a></h4>
+                                                </div>
+                                                <div class="product-price">
+                                                    <span>$110.00</span>
+                                                </div>
+                                            </div>
+                                            <div class="product-cart-categori">
+                                                <div class="product-cart">
+                                                    <span>Furniter</span>
+                                                </div>
+                                                <div class="product-categori">
+                                                    <a href="#"><i class="ion-bag"></i> Add to cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+
+
+
+
+                            </div>
+                        </div>
+                </div>
+                    {#fin listes des produit mise en ligne #}
+            </div>
+        </div>
+      </div>
+    </div>
+    <!-- blog-area end -->
+{% endblock %}

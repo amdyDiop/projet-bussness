@@ -2,7 +2,9 @@
 
 namespace App\Form;
 
+use App\Entity\Boutique;
 use App\Entity\Produit;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -23,9 +25,9 @@ class Produit1Type extends AbstractType
             ->add('description')
             ->add('imageFile',FileType::class,[
                 'required' => false
-            ])
-
-        ;
+            ]);
+        //->add('boutiques',EntityType::class,
+              //  array('class' =>Boutique::class,'choice_label'=> 'nomBoutique'));
     }
 
     public function configureOptions(OptionsResolver $resolver)

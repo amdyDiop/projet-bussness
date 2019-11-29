@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
- * @Route("/boutique")
+ * @Route("/admin/boutique")
  */
 class BoutiqueController extends AbstractController
 {
@@ -75,7 +75,7 @@ class BoutiqueController extends AbstractController
     /**
      * @Route("/{id}", name="boutique_show", methods={"GET"})
      */
-    public function show(Boutique $boutique,CartService $cartService): Response
+    public function show(Boutique $boutique,CartService $cartService ): Response
     {
         $data= $cartService->fulCart();
 
