@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="912d8055-e6c0-4302-abeb-9bfb39177f1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/bundles/FOSUserBundle/layaout.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BoutiqueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BoutiqueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ShopController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Boutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Boutique.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/BoutiqueType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BoutiqueType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/Produit1Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Produit1Type.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/boutique/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/boutique/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/boutique/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/boutique/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BoutiqueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BoutiqueRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/produit/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/produit/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/produit/show.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/shop/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/produits/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produits/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/property/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/property/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop/edit.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/shop/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop/show.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -206,7 +205,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Edit As Language" value="MySQL" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/admin" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../pfc" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -217,19 +216,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\assets\img" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\assets\img\logo" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\admin" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\Cv" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\produits" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\base" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\src\Repository" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\assets\img" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\assets\img\logo" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -308,7 +307,8 @@
       <workItem from="1574032813480" duration="18000" />
       <workItem from="1574604355265" duration="24545000" />
       <workItem from="1574755721431" duration="47220000" />
-      <workItem from="1574945747032" duration="29540000" />
+      <workItem from="1574945747032" duration="30346000" />
+      <workItem from="1575024302260" duration="32349000" />
     </task>
     <servers />
   </component>

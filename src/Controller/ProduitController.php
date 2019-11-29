@@ -7,6 +7,8 @@ use App\Entity\Produit;
 use App\Form\Produit1Type;
 use App\Repository\ProduitRepository;
 use App\Services\Cart\CartService;
+use Doctrine\Common\Persistence\ObjectManager;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -17,10 +19,23 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class ProduitController extends AbstractController
 {
+
+
+    /**
+     * @var ProduitRepository
+     */
+    private $em;
+    private $repository;
+
+    public function __construct(ProduitRepository $repository,ObjectManager $em)
+    {
+        $this->repository = $repository;
+        $this->em  = $em;
+    }
     /**
      * @Route("/", name="produit_index", methods={"GET"})
      */
-    public function index(ProduitRepository $produitRepository,CartService $cartService): Response
+    public function index(ProduitRepository $produitRepository,CartService $cartService,PaginatorInterface $pagination,Request $request): Response
     {
 
         $data= $cartService->fulCart();
@@ -32,8 +47,14 @@ class ProduitController extends AbstractController
             $total += $totalItem;
 
         }
+        $produitfilter = $pagination->paginate(
+            $produitRepository->findAll(),
+            $request->query->getInt('page',1),
+            20
+        );
         return $this->render('admin/produit/index.html.twig', [
             'produits' => $produitRepository->findAll(),
+            'produit' => $produitfilter,
             'item' => $data,
             'total' =>$total
         ]);
@@ -88,13 +109,10 @@ class ProduitController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
-
             $entityManager->persist($produit);
-
+            $produit->setCreatedAt(new \ DateTime());
             $produit->addBoutique($boutique);
             $entityManager->flush();
-
-
             return $this->redirectToRoute('produit_index');
         }
 
@@ -117,7 +135,7 @@ class ProduitController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="produit_show", methods={"GET"})
+     * @Route("/{id}", name="crud_produit_show", methods={"GET"})
      */
     public function show(Produit $produit,CartService $cartService): Response
     {
@@ -151,7 +169,8 @@ class ProduitController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('produit_index');
+
+            return $this->redirectToRoute('shop');
         }
 
         return $this->render('admin/produit/edit.html.twig', [

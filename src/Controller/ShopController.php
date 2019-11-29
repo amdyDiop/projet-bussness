@@ -4,7 +4,10 @@ namespace App\Controller;
 
 use App\Entity\Contact;
 use App\Entity\Boutique;
+use App\Entity\Produit;
+use App\Form\BoutiqueType;
 use App\Form\ContactType;
+use App\Form\Produit1Type;
 use App\notification\ContactNotification;
 use App\Repository\BoutiqueRepository;
 use App\Services\Cart\CartService;
@@ -39,7 +42,7 @@ class ShopController extends AbstractController
      * @Route("/shop/{slug}-{id}",name="shop_show",requirements={"slug": "[a-z0-9\-]*"} )
      * @return Response
      */
-    public  function  show(Boutique $boutique,string $slug,ContactNotification $notification,Request $request,CartService $cartService ) :Response
+    public  function  show(Boutique $boutique, string $slug, ContactNotification $notification, Request $request, CartService $cartService,BoutiqueRepository $boutiqueRepository) :Response
     {
         if ($boutique->getSlug() !==$slug)
         {
@@ -61,5 +64,11 @@ class ShopController extends AbstractController
             'item' => $data,
             'total' =>$total
         ]);
+
+
     }
+
+
+
+
 }
