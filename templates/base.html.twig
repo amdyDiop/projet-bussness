@@ -91,11 +91,6 @@
                     </div>
                     <div class="col-lg-3 col-md-6 col-6">
                         <div class="header-search-cart">
-                            <div class="header-search common-style">
-                                <button class="sidebar-trigger-search">
-                                    <span class="ion-ios-search-strong"></span>
-                                </button>
-                            </div>
                             <div class="header-cart common-style">
                                 <button class="sidebar-trigger">
                                     <span class="ion-bag"></span>
@@ -128,32 +123,9 @@
             </div>
         </div>
     </header>
-
-
-    <div class="wrapper">
-
-        <!-- main-search start -->
-        <div class="main-search-active">
-            <div class="sidebar-search-icon">
-                <button class="search-close"><span class="ion-android-close"></span></button>
-            </div>
-            <div class="sidebar-search-input">
-                <form>
-                    <div class="form-search">
-                        <input id="search" class="input-text" value="" placeholder="Search Entire Store" type="search">
-                        <button>
-                            <i class="ion-ios-search-strong"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- main-search start -->
+    <div class="wrapper bg-black">
         <div class="cur-lang-acc-active">
             <div class="wrap-sidebar">
-                <div class="sidebar-nav-icon">
-                    <button class="op-sidebar-close"><span class="ion-android-close"></span></button>
-                </div>
                 <div class="cur-lang-acc-all">
                     <div class="single-currency-language-account">
                         <div class="cur-lang-acc-title">
@@ -230,9 +202,9 @@
             </div>
         </div>
     </div>
-        <div class="container mt-10 ">
+
             {% block body %}{% endblock %}
-        </div>
+
        <link rel="stylesheet" href="{{asset('Style/pages/css/bootstrap.min.css')}}">
         <!-- all js here -->
        <script src="{{ asset('Style/pages/js/jquery-3.3.1.min.js') }}"></script>

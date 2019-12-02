@@ -3,7 +3,17 @@
 {% block title %}Boutique Ouverte{% endblock %}
 
 {% block body %}
-
+    <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <h2>boutique:</h2>
+                <ul>
+                    <li><a href="">Acceuil</a></li>
+                    <li>{{ boutiques.nomBoutique }} </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <!-- blog-area start -->
     <div class="blog-area pt-100 pb-100">
         <div class="container">

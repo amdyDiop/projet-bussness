@@ -3,37 +3,40 @@
 {% block title %}Boutique Ouverte{% endblock %}
 
 {% block body %}
-    <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
+    <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url({{ asset('assets/img/bg/breadcrumb.jpg') }})">
         <div class="container">
             <div class="breadcrumb-content">
-                <h2>boutique</h2>
+                <h2>boutiques</h2>
                 <ul>
-                    <li><a href="#">Acceuil</a></li>
-                    <li> Boutique </li>
+                    <li><a href="">Acceuil</a></li>
+                    <li> Boutiques </li>
                 </ul>
             </div>
         </div>
     </div>
+
     <div class="shop-page-wrapper hidden-items padding-filter">
         <div class="container-fluid">
+
+            {# filtre gauche #}
             <div class="shop-filters-left">
                 <div class="shop-sidebar">
-                    <div class="sidebar-widget mb-40">
-                        <h3 class="sidebar-title">Filtrer par Prix</h3>
-                        <div class="price_filter">
-                            <div id="slider-range"></div>
-                            <div class="price_slider_amount">
-                                <div class="label-input">
-                                    <label>prix : </label>
-                                    <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
-                                </div>
-                                <button type="button">Filtrer</button>
-                            </div>
-                        </div>
-                    </div>
-
                     <div class="sidebar-widget mb-50">
-                        <h3 class="sidebar-title">Top rated products</h3>
+                        <h3 class="sidebar-title">Rechercher une  Boutique </h3>
+                        {{ form_start(form) }}
+                        <div class="sidebar-search">
+                            {{ form_row(form.nom) }}
+                        </div>
+                        <div class="sidebar-search">
+                            {{ form_row(form.ville) }}
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                        {{ form_end(form, {'render_rest': false}) }}
+
+                </div>
+                        {#produit les mieux noté#}
+                    <div class="sidebar-widget mb-50">
+                        <h3 class="sidebar-title">Produits les mieux notés</h3>
                         <div class="sidebar-top-rated-all">
                             <div class="sidebar-top-rated mb-30">
                                 <div class="single-top-rated">
@@ -75,70 +78,27 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="sidebar-top-rated mb-30">
-                                <div class="single-top-rated">
-                                    <div class="top-rated-img">
-                                        <a href="#"><img src="assets/img/product/sidebar-product/3.jpg" alt=""></a>
-                                    </div>
-                                    <div class="top-rated-text">
-                                        <h4><a href="#">Flying Drone</a></h4>
-                                        <div class="top-rated-rating">
-                                            <ul>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                            </ul>
-                                        </div>
-                                        <span>$140.00</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sidebar-top-rated mb-30">
-                                <div class="single-top-rated">
-                                    <div class="top-rated-img">
-                                        <a href="#"><img src="assets/img/product/sidebar-product/4.jpg" alt=""></a>
-                                    </div>
-                                    <div class="top-rated-text">
-                                        <h4><a href="#">Flying Drone</a></h4>
-                                        <div class="top-rated-rating">
-                                            <ul>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                            </ul>
-                                        </div>
-                                        <span>$140.00</span>
-                                    </div>
-                                </div>
-                            </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
+            {# fin filtre gauche #}
+
+            {# fin contenu de la page#}
             <div class="shop-filters-right">
                 <div class="shop-bar-area pb-60">
                     <div class="shop-bar">
                         <div class="shop-found-selector">
                             <div class="shop-found">
-                                <p><span>23</span> Product Found of <span>50</span></p>
+                                <p><span>4</span> Boutiques Trouvées  Sur <span>4</span></p>
                             </div>
-                            <div class="shop-selector">
-                                <label>Sort By : </label>
-                                <select name="select">
-                                    <option value="">Default</option>
-                                    <option value="">A to Z</option>
-                                    <option value=""> Z to A</option>
-                                    <option value="">In stock</option>
-                                </select>
-                            </div>
+
                         </div>
                         <div class="shop-filter-tab">
                             <div class="shop-filter">
-                                <a class="shop-filter-active" href="#">Filters <i class="ion-android-options"></i></a>
+                                <a class="shop-filter-active" href="#">Filtre<i class="ion-android-options"></i></a>
                             </div>
                             <div class="shop-tab nav" role=tablist>
                                 <a class="active" href="#grid-5-col1" data-toggle="tab" role="tab" aria-selected="false">
@@ -215,7 +175,7 @@
                                                                 <span>4 Ratting (S)</span>
                                                             </div>
                                                         </div>
-                                                        <p> descriprion.</p>
+                                                        <p> {{shop.description}}.</p>
                                                         <div class="quickview-plus-minus">
                                                             <div class="quickview-btn-cart">
                                                                 <a class="btn-hover-black"  href="{{ path('shop_show',{id:shop.id, slug: shop.slug}) }}">Visiter la Boutique</a>
@@ -254,7 +214,7 @@
                                         </div>
                                         <div class="product-cart-categori">
                                             <div class="product-cart">
-                                                <span>Adresse</span>
+                                                <span>{{shop.adresse}}</span>
                                             </div>
 
                                         </div>
@@ -342,16 +302,20 @@
                             <div class="col-md-12 col-lg-12 col-xl-6">
                                 <div class="single-product single-product-list product-list-right-pr mb-40">
                                     <div class="product-img list-img-width">
-                                        <a href="#"><img src="assets/img/product/list-img/1.jpg" alt=""></a>
+                                        {% if shop.filename %}
+                                            <img src="{{ vich_uploader_asset(shop, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                        {% else %}
+                                            <a href="#"><img src="{{ asset('assets/img/product/list-img/1.jpg') }}" alt=""></a>
+                                        {% endif %}
                                         <div class="product-action">
                                             <a title="Quick View" data-toggle="modal" data-target="#modalProduit{{ shop.id }}" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
                                         </div>
                                     </div>
                                     <div class="product-content-list">
                                         <div class="product-list-info">
-                                            <h4><a href="">{{shop.nomBoutique}}</a></h4>
+                                            <h4 class="text-white"><a href="">{{shop.nomBoutique}}</a></h4>
                                             <span>{{ shop.ville }}</span>
-                                            <p>description ici </p>
+                                            <p>{{shop.description}} </p>
                                         </div>
                                         <div class="product-list-cart-wishlist">
                                             <div class="product-list-wishlist">

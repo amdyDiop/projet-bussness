@@ -4,14 +4,15 @@
 
 
 {% block body %}
-
-
+    <br>  <br>  <br>  <br>
+    <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url({{ asset('images/properties/5ddc3148f0279621994159.jpg') }})">
+    </div>
 <!-- shopping-cart-area start -->
-<div class="cart-main-area pt-95 pb-100">
+<div class="cart-main-area pt-80 pb-100">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <h1 class="cart-heading">Panier</h1>
+                <h1 class="cart-heading text-white "><strong>Votre Panier</strong></h1>
                 {%if item | length %}
                     <div class="table-content table-responsive">
                         <table>
@@ -39,9 +40,9 @@
 
                                 </td>
                                 <td class="product-name"><a href="{{ path ('produit_show',{ id: item.produit.id, slug:item.produit.slug} ) }} ">{{ item.produit.labelle }}</td>
-                                <td class="product-price"><span class="amount">{{ item.produit.prix }}</span></td>
-                                <td class="product-quantity">{{ item.quantity }} </td>
-                                <td class="product-subtotal">{{ item.quantity *item.produit.prix}}</td>
+                                <td class="product-price"><span class="amount">{{ item.produit.prix }} Fcfa</span></td>
+                                <td class="product-quantity">{{ item.quantity }}  </td>
+                                <td class="product-subtotal">{{ item.quantity *item.produit.prix}} Fcfa</td>
                                 <td class="product-remove"><a  href="{{path('cart_remove',{'id': item.produit.id})}}"><i class="ion-ios-trash-outline"></i></a></td>
                             </tr>
                             {% endfor %}
@@ -51,12 +52,7 @@
                 <div class="row">
                     <div class="col-md-5 ml-auto ">
                         <div class="cart-page-total">
-                            <h2>Total Panier </h2>
-                            <ul>
-
-                                <li>Total<span>{{total}} Fcfa</span></li>
-
-                            </ul>
+                            <h2 class="text-white" >Total Panier:        {{total}} Fcfa </h2>
                             <a href="{{ path('finaliser') }}">Finaliser</a>
                             <a href="{{ path('produits') }}">Poursuivre Achat</a>
                             <br>

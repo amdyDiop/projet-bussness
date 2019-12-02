@@ -3,9 +3,9 @@
 {% block title %}Finaliser la Commande {% endblock %}
 
 {% block body %}
-
+    <br>     <br>  <br>  <br>  <br>
     <!-- checkout-area start -->
-    <div class="checkout-area ptb-100">
+    <div class="checkout-area ptb-100 text-white">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -17,22 +17,22 @@
                                 <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>
                                 <form action="#">
                                     <p class="form-row-first">
-                                        <label>Nom d'utilisateur ou email <span class="required">*</span></label>
+                                        <label class="text-white">Nom d'utilisateur ou email <span class="required">*</span></label>
                                         <input type="text" />
                                     </p>
                                     <p class="form-row-last">
-                                        <label>mod de passe  <span class="required">*</span></label>
+                                        <label class="text-white" >mot de passe  <span class="required">*</span></label>
                                         <input type="text" />
                                     </p>
                                     <p class="form-row">
                                         <input type="submit" value="Login" />
-                                        <label>
+                                        <label class="text-white" >
                                             <input type="checkbox" />
                                             rappelles-toi
                                         </label>
                                     </p>
                                     <p class="lost-password">
-                                        <a href="#">mot de passe oublié?</a>
+                                        <a href="#" class="text-white">mot de passe oublié?</a>
                                     </p>
                                 </form>
                             </div>
@@ -57,65 +57,65 @@
                 <div class="col-lg-6 col-md-12 col-12">
                     <form action="#">
                         <div class="checkbox-form">
-                            <h3>Détails de la facturation </h3>
+                            <h3 >Détails de la facturation </h3>
                             <div class="row">
 
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>Prénom <span class="required">*</span></label>
+                                        <label class="text-white">Prénom <span class="required">*</span></label>
                                         <input type="text" placeholder="" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>nom <span class="required">*</span></label>
+                                        <label class="text-white">nom <span class="required">*</span></label>
                                         <input type="text" placeholder="" />
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
-                                        <label>Address <span class="required">*</span></label>
-                                        <input type="text" placeholder="Street address" />
+                                        <label  class="text-white">Adresse <span class="required">*</span></label>
+                                        <input type="text"/>
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
-                                        <input type="text" placeholder="Apartment, suite, unit etc. (optional)" />
+                                        <input type="text" placeholder="Apartment,(facultatif)" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list">
-                                        <label>Ville<span class="required">*</span></label>
+                                        <label class="text-white">Ville<span class="required">*</span></label>
                                         <input type="text" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>Postcode / Zip <span class="required">*</span></label>
+                                        <label class="text-white">Code Postal<span class="required"></span></label>
                                         <input type="text" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>Adresse e-mail <span class="required">*</span></label>
+                                        <label class="text-white">Adresse e-mail <span class="required">*</span></label>
                                         <input type="email" />
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="checkout-form-list">
-                                        <label>Phone  <span class="required">*</span></label>
+                                        <label class="text-white">Phone  <span class="required">*</span></label>
                                         <input type="text" />
                                     </div>
                                 </div>
                                 <div class="col-md-12">
                                     <div class="checkout-form-list create-acc">
                                         <input id="cbox" type="checkbox" />
-                                        <label>Créer un compte?</label>
+                                        <label class="text-white">Créer un compte?</label>
                                     </div>
                                     <div id="cbox_info" class="checkout-form-list create-account">
                                         <p>Créez un compte en entrant les informations ci-dessous. Si vous êtes un client de retour, veuillez vous connecter en haut de la page.</p>
-                                        <label>Mot de passe <span class="required">*</span></label>
+                                        <label class="text-white">Mot de passe <span class="required">*</span></label>
                                         <input type="password" placeholder="password" />
                                     </div>
                                 </div>
@@ -123,7 +123,7 @@
                             <div class="different-address">
                                 <div class="ship-different-title">
                                     <h3>
-                                        <label>Expédier à une adresse différente?</label>
+                                        <label class="text-white">Expédier à une adresse différente?</label>
                                         <input id="ship-box" type="checkbox" />
                                     </h3>
                                 </div>
@@ -132,40 +132,35 @@
 
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
-                                            <label>Adresse <span class="required">*</span></label>
-                                            <input type="text" placeholder="Street address" />
+                                            <label class="text-white">Adresse <span class="required">*</span></label>
+                                            <input type="text"/>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
-                                            <input type="text" placeholder="Apartment, suite, unit etc. (optional)" />
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="checkout-form-list">
-                                            <label>Ville <span class="required">*</span></label>
-                                            <input type="text" placeholder="Town / City" />
+                                            <label class="text-white">Ville <span class="required">*</span></label>
+                                            <input type="text"  />
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
-                                            <label>Code Postal <span class="required">*</span></label>
-                                            <input type="text" placeholder="Postcode / Zip" />
+                                            <label class="text-white">Code Postal <span class="required"></span></label>
+                                            <input type="text"  />
                                         </div>
                                     </div>
 
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
-                                            <label>Téléphone  <span class="required">*</span></label>
-                                            <input type="text" placeholder="Postcode / Zip" />
+                                            <label class="text-white">Téléphone  <span class="required">*</span></label>
+                                            <input type="text" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="order-notes">
                                     <div class="checkout-form-list mrg-nn">
-                                        <label>Notes d'ordre</label>
-                                        <textarea id="checkout-mess" cols="30" rows="10" placeholder="Remarques sur votre commande, par exemple notes spéciales pour la livraison." ></textarea>
+                                        <label class="text-white">Notes d'ordre</label>
+                                        <textarea class="text-white" id="checkout-mess " cols="30" rows="10" placeholder="Remarques sur votre commande, par exemple notes spéciales pour la livraison." ></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -174,34 +169,34 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-12">
                     <div class="your-order">
-                        <h3>Votre Commande</h3>
+                        <h3  class="text-black">Votre Commande</h3>
                         <div class="your-order-table table-responsive">
                             <table>
                                 <thead>
                                 <tr>
-                                    <th class="product-name">Produit</th>
-                                    <th class="product-total">Total</th>
+                                    <th class="product-name text-black">Produit</th>
+                                    <th class="product-total  text-black">Total</th>
                                 </tr>
                                 </thead>
                                 <tbody>  {% for item in item %}
                                 <tr class="cart_item" >
 
-                                    <td class="product-name">
-                                        {{item.produit.labelle}} <strong class="product-quantity"> * {{ item.quantity }}</strong>
+                                    <td class="product-name   text-black">
+                                        {{item.produit.labelle}} <strong class="product-quantity text-black"> * {{ item.quantity }}</strong>
                                     </td>
-                                    <td class="product-total">
-                                        <span class="amount">{{item.produit.getFormatPrice() }}Fcfa</span>
+                                    <td class="product-total   text-black">
+                                        <span class="amount text-black">{{item.produit.getFormatPrice() }}Fcfa</span>
                                     </td>
 
                                 </tr> {% endfor %}
                                 </tbody>
                                 <tfoot>
-                                <tr class="cart-subtotal">
+                                <tr class="cart-subtotal text-black">
 
-                                    <th>Sous-total du panier </th>
+
                                     <td><span class="amount"> </span></td>
                                 </tr>
-                                <tr class="order-total">
+                                <tr class="order-total text-black">
                                     <th>Total de la commande</th>
                                     <td><strong><span class="amount">{{total}} Fcfa</span></strong>
                                     </td>

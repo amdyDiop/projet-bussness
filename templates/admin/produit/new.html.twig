@@ -3,9 +3,24 @@
 {% block title %}New Produit{% endblock %}
 
 {% block body %}
+    <br><br><br><br><br>
+    <div class="breadcrumb-area pt-205 pb-210 bg-img mt-8" style="background-image: url({{ asset('images/properties/5ddceef8b97b3467421005.jpg') }})">
+        <!--div class="container">
+            <div class="breadcrumb-content">
+                <h2>shop</h2>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li> shop </li>
+                </ul>
+            </div>
+        </div-->
+    </div>
+
+
     <h1>Create new Produit</h1>
 
     {{ include('admin/produit/_form.html.twig') }}
 
     <a href="{{ path('produit_index') }}">back to list</a>
+
 {% endblock %}

@@ -3,104 +3,189 @@
 {% block title 'liste de tous les produits' %}
 
 {% block body %}
+    <br>    <br>    <br>
+
     <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url({{ asset('assets/img/bg/breadcrumb.jpg') }})">
         <div class="container">
             <div class="breadcrumb-content">
-                <h2>shop</h2>
+                <h2>boutiques</h2>
                 <ul>
-                    <li><a href="#">home</a></li>
-                    <li> shop </li>
+                    <li><a href="">Acceuil</a></li>
+                    <li> Boutiques </li>
                 </ul>
             </div>
         </div>
     </div>
-    <div class="wrapper">
-        <div class="header-space"></div>
-        <!-- main-search start -->
-        <div class="main-search-active">
-            <div class="sidebar-search-icon">
-                <button class="search-close"><span class="ion-android-close"></span></button>
-            </div>
-            <div class="sidebar-search-input">
-                <form>
-                    <div class="form-search">
-                        <input id="search" class="input-text" value="" placeholder="Search Entire Store" type="search">
-                        <button>
-                            <i class="ion-ios-search-strong"></i>
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="shop-page-wrapper hidden-items padding-filter">
-            <div class="container-fluid">
-                <div class="shop-filters-left">
-                    <div class="shop-sidebar">
-                        <div class="sidebar-widget mb-50">
-                            <h3 class="sidebar-title">rechecher un produit </h3>
-                            <div class="sidebar-search">
-                                <form action="#">
-                                    <input placeholder="Search Products..." type="text">
-                                    <button><i class="ion-ios-search-strong"></i></button>
-                                </form>
-                            </div>
+    <div class="shop-page-wrapper hidden-items padding-filter">
+        <div class="container-fluid">
+            <div class="shop-filters-left">
+                <div class="shop-sidebar">
+                    <div class="sidebar-widget mb-50">
+                        <h3 class="sidebar-title">Rechercher une  Boutique </h3>
+
+                        <div class="sidebar-search">
+                            {{ form_start(form) }}
+                            {{ form_row(form.maxprice) }}
+                            <button><i class="fa fa-search"></i></button>
                         </div>
-                        <div class="sidebar-widget mb-40">
-                            <h3 class="sidebar-title">Filtrer par Prix</h3>
-                            <div class="price_filter">
-                                <div id="slider-range"></div>
-                                <div class="price_slider_amount">
-                                    <div class="label-input">
-                                        <label>price : </label>
-                                        <input type="text" id="amount" name="price"  placeholder="Add Your Price" />
+                        {{ form_end(form, {'render_rest': false}) }}
+
+                    </div>
+                    {#produit les mieux noté#}
+                    <div class="sidebar-widget mb-50">
+                        <h3 class="sidebar-title">Produits les mieux notés</h3>
+                        <div class="sidebar-top-rated-all">
+                            <div class="sidebar-top-rated mb-30">
+                                <div class="single-top-rated">
+                                    <div class="top-rated-img">
+                                        <a href="#"><img src="assets/img/product/sidebar-product/1.jpg" alt=""></a>
                                     </div>
-                                    <button type="button">Filter</button>
+                                    <div class="top-rated-text">
+                                        <h4><a href="#">Flying Drone</a></h4>
+                                        <div class="top-rated-rating">
+                                            <ul>
+                                                <li><i class="reting-color ion-android-star"></i></li>
+                                                <li><i class="reting-color ion-android-star"></i></li>
+                                                <li><i class="ion-android-star-outline"></i></li>
+                                                <li><i class="ion-android-star-outline"></i></li>
+                                                <li><i class="ion-android-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                        <span>$140.00</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="sidebar-widget mb-45">
-                            <h3 class="sidebar-title">Categories</h3>
-                            <div class="sidebar-categories">
-                                <ul>
-                                    <li><a href="#">Accessories <span>4</span></a></li>
-                                    <li><a href="#">Book <span>9</span></a></li>
-                                    <li><a href="#">Clothing <span>5</span> </a></li>
-                                    <li><a href="#">Homelife <span>3</span></a></li>
-                                    <li><a href="#">Kids & Baby <span>4</span></a></li>
-                                </ul>
+                            <div class="sidebar-top-rated mb-30">
+                                <div class="single-top-rated">
+                                    <div class="top-rated-img">
+                                        <a href="#"><img src="assets/img/product/sidebar-product/2.jpg" alt=""></a>
+                                    </div>
+                                    <div class="top-rated-text">
+                                        <h4><a href="#">Flying Drone</a></h4>
+                                        <div class="top-rated-rating">
+                                            <ul>
+                                                <li><i class="reting-color ion-android-star"></i></li>
+                                                <li><i class="reting-color ion-android-star"></i></li>
+                                                <li><i class="ion-android-star-outline"></i></li>
+                                                <li><i class="ion-android-star-outline"></i></li>
+                                                <li><i class="ion-android-star-outline"></i></li>
+                                            </ul>
+                                        </div>
+                                        <span>$140.00</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="shop-filters-right">
-                    <div class="shop-bar-area pb-60">
-                        <div class="shop-bar">
-                            <div class="shop-found-selector">
-                                <div class="shop-found">
-                                    <p><span>23</span> Produits  Trouvés  Sur  <span>50</span></p>
-                                </div>
+            </div>
+            <div class="shop-filters-right">
+                <div class="shop-bar-area pb-60">
+                    <div class="shop-bar">
+                        <div class="shop-found-selector">
+                            <div class="shop-found">
+                                <p><span>4</span> Produits Trouvées  Sur <span>4</span></p>
                             </div>
-                            <div class="shop-filter-tab">
-                                <div class="shop-filter">
-                                    <a class="shop-filter-active" href="#">Filters <i class="ion-android-options"></i></a>
-                                </div>
-                                <div class="shop-tab nav" role=tablist>
-                                    <a class="active" href="#grid-5-col1" data-toggle="tab" role="tab" aria-selected="false">
-                                        <i class="ion-android-apps"></i>
-                                    </a>
-                                    <a href="" data-toggle="tab" role="tab" aria-selected="true">
-                                        <i class="ion-android-menu"></i>
-                                    </a>
-                                </div>
+
+                        </div>
+                        <div class="shop-filter-tab">
+                            <div class="shop-filter">
+                                <a class="shop-filter-active" href="#">Filtre<i class="ion-android-options"></i></a>
+                            </div>
+                            <div class="shop-tab nav" role=tablist>
+                                <a class="active" href="#grid-5-col1" data-toggle="tab" role="tab" aria-selected="false">
+                                    <i class="ion-android-apps"></i>
+                                </a>
+                                <a href="#grid-5-col2" data-toggle="tab" role="tab" aria-selected="true">
+                                    <i class="ion-android-menu"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="shop-product-content tab-content">
+                    <div id="grid-5-col1" class="tab-pane fade active show">
+                        <div class="row custom-row">
+                            {# miniature de tout les produit #}
+                            {% for produit in produits %}
+                                {#fenetre modal#}
+                                <div class="modal fade" id="modalProduit{{ produit.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span class="ion-android-close" aria-hidden="true"></span>
+                                    </button>
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body">
+                                                <div class="qwick-view-left">
+                                                    <div class="quick-view-learg-img">
+                                                        <div class="quick-view-tab-content tab-content">
+                                                            <div class="tab-pane active show fade" id="modal1" role="tabpanel">
+                                                                {% if produit.filename %}
+                                                                    <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                                                {% else %}
+                                                                    <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                                                                {% endif %}
+                                                            </div>
+                                                            <div class="tab-pane fade" id="modal2" role="tabpanel">
+                                                                <img src="{{ asset('assets/img/quick-view/l2.jpg') }}" alt="">
+                                                            </div>
+                                                            <div class="tab-pane fade" id="modal3" role="tabpanel">
+                                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="quick-view-list nav" role=tablist>
+                                                        <a class="active" href="#modal1" data-toggle="tab" role="tab" aria-selected="true">
+                                                            <img src="{{ asset('assets/img/quick-view/s1.jpg') }}" alt="">
+                                                        </a>
+                                                        <a href="#modal2" data-toggle="tab" role="tab" aria-selected="false">
+                                                            <img src="{{ asset('assets/img/quick-view/s2.jpg') }}" alt="">
+                                                        </a>
+                                                        <a href="#modal3" data-toggle="tab" role="tab" aria-selected="false">
+                                                            <img src="{{ asset('assets/img/quick-view/s3.jpg') }}" alt="">
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="qwick-view-right">
+                                                    <div class="qwick-view-content text-white">
+                                                        <h3 class=><strong>{{ produit.labelle}}</strong></h3>
+                                                        <div class="price">
+                                                            <span class="new">{{ produit.prix}} Cfa</span>
+                                                            <span class="old">3500 Cfa </span>
+                                                        </div>
+                                                        <div class="rating-number">
+                                                            <div class="quick-view-rating">
+                                                                <i class="ion-ios-star red-star"></i>
+                                                                <i class="ion-ios-star red-star"></i>
+                                                                <i class="ion-android-star-outline"></i>
+                                                                <i class="ion-android-star-outline"></i>
+                                                                <i class="ion-android-star-outline"></i>
+                                                            </div>
+                                                            <div class="quick-view-number">
+                                                                <span>2 Ratting (S)</span>
+                                                            </div>
+                                                        </div>
+                                                        <p> {{ produit.description }} .</p>
+                                                        <div class="quickview-plus-minus">
 
-                    <div class="shop-product-content tab-content">
-                        <div id="grid-5-col1" class="tab-pane fade active show">
-                            <div class="row custom-row">
-                                {% for produit in produits %}
+                                                            <div class="quickview-btn-cart">
+                                                                <a class="btn-hover-black" href="{{ path('cart_index') }}"> Voir Panier</a>
+                                                            </div>
+                                                            <div class="quickview-btn-cart">
+                                                                <a class="btn-hover-black" href="{{ path ('produit_show',{ id:produit.id, slug:produit.slug} ) }} ">Voir Produit</a>
+                                                            </div>
+                                                            <div class="quickview-btn-wishlist">
+                                                                <a class="btn-hover" href="#"><i class="ion-ios-heart-outline"></i></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                {# fin fenetre modal#}
                                 <div class="custom-col-5 custom-col-style">
                                     <div class="single-product mb-35">
                                         <div class="product-img">
@@ -108,7 +193,49 @@
                                                 <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
                                             {% else %}
                                                 <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                                            {% endif %}                                        <div class="product-action">
+                                                <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
+                                                <a title="Quick View" data-toggle="modal" data-target="#modalProduit{{ produit.id }}" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
+                                            </div>
+                                        </div>
+                                        <div class="product-content">
+                                            <div class="product-title-price">
+                                                <div class="product-title">
+                                                    <h4><a href="{{ path ('produit_show',{ id: produit.id, slug: produit.slug} ) }} " > <strong>{{ produit.labelle }} </strong></a></h4>
+                                                </div>
+                                                <div class="product-price">
+                                                    <span>{{ produit.formatPrice() }} Cfa </span>
+                                                </div>
+                                            </div>
+                                            <div class="product-cart-categori">
+                                                <div class="product-cart">
+                                                    <span></span>
+                                                </div>
+                                                <div class="product-categori">
+                                                    <a href="{{ path('cart_add',{id:produit.id}) }}"><i class="ion-bag"></i><strong> ajouter au panier</strong></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            {% endfor %}
+                            {# fin miniature de tout les produits #}
+                        </div>
+                    </div>
+                    <div id="grid-5-col2" class="tab-pane fade">
+                        <div class="row">
+                            {# miniature de tout les boutiques affichage vertical #}
+                            {% for produit in produits %}
+                                <div class="col-md-12 col-lg-12 col-xl-6">
+                                    <div class="single-product single-product-list product-list-right-pr mb-40">
+                                        <div class="product-img list-img-width">
+                                            {% if produit.filename %}
+                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                            {% else %}
+                                                <a href="#"><img src="{{ asset('assets/img/product/list-img/1.jpg') }}" alt=""></a>
                                             {% endif %}
+
                                             {#fenetre modal#}
                                             <div class="modal fade" id="modalProduit{{ produit.id }}" tabindex="-1" role="dialog" aria-hidden="true">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -148,8 +275,8 @@
                                                                 </div>
                                                             </div>
                                                             <div class="qwick-view-right">
-                                                                <div class="qwick-view-content">
-                                                                    <h3>{{ produit.labelle}}</h3>
+                                                                <div class="qwick-view-content text-white">
+                                                                    <h3 class=><strong>{{ produit.labelle}}</strong></h3>
                                                                     <div class="price">
                                                                         <span class="new">{{ produit.prix}} Cfa</span>
                                                                         <span class="old">3500 Cfa </span>
@@ -187,43 +314,37 @@
                                             </div>
                                             {# fin fenetre modal#}
                                             <div class="product-action">
-                                                <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                <a title="Quick View" data-toggle="modal" data-target="#modalProduit{{ produit.id }}" class="animate-right"><i class="ion-ios-eye-outline"></i></a>
+                                                <a title="Quick View" data-toggle="modal" data-target="#modalProduit{{ produit.id }}" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
                                             </div>
                                         </div>
-                                        <div class="product-content">
-                                            <div class="product-title-price">
-                                                <div class="product-title">
-                                                    <h4><a href="{{ path ('produit_show',{ id:produit.id, slug:produit.slug} ) }} " >{{ produit.labelle }}</a></h4>
+                                        <div class="product-content-list">
+                                            <div class="product-list-info">
+                                                <h4 class="text-white"><a href="">{{produit.labelle}}</a></h4>
+                                                <span>{{ produit.getFormatPrice() }} Fcfa</span>
+                                                <p>{{produit.description}} </p>
+                                            </div>
+                                            <div class="product-list-cart-wishlist">
+                                                <div class="product-list-cart">
+                                                    <a class="btn-hover list-btn-style" href={{ path('cart_add',{id:produit.id}) }}#">Ajouter au Panier</a>
                                                 </div>
-                                                <div class="product-price">
-                                                    <span>{{ produit.prix }} cfa</span>
+                                                <div class="product-list-wishlist">
+                                                    <a class="btn-hover list-btn-wishlist" href="#"><i class="ion-ios-heart-outline"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="product-cart-categori">
-                                                <div class="product-cart">
-                                                    <span>Ajouter au panier</span>
-                                                </div>
-                                                <div class="product-categori">
-                                                    <a  href="{{ path('cart_add',{id:produit.id}) }}"><i class="ion-bag"></i> panier</a>
-                                                </div>
-                                            </div>
-                                        </div>
 
+                                        </div>
                                     </div>
                                 </div>
-
-                                {% endfor %}
-                            </div>
+                            {% endfor  %}
+                            {# miniature de tout les boutiques affichage vertical #}
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-    <div class=pagination-flat>
+      <div class="pagination">
         {{ knp_pagination_render(produits) }}
-    </div>
-{% endblock %}
+      </div>
+
+{% endblock  %}

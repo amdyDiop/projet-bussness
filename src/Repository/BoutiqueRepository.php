@@ -4,8 +4,12 @@ namespace App\Repository;
 
 use App\Entity\Boutique;
 use App\Entity\Produit;
+use App\Entity\Property;
+use App\Entity\PropertySearch;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Common\Persistence\ManagerRegistry;
+use Doctrine\ORM\Query;
+use Doctrine\ORM\QueryBuilder;
 
 /**
  * @method Boutique|null find($id, $lockMode = null, $lockVersion = null)
@@ -19,10 +23,52 @@ class BoutiqueRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Boutique::class);
     }
+    /**
+     * @return Query
+     */
+    public function findAllBoutique(PropertySearch  $search): Query
+    {
 
-    // /**
-    //  * @return Boutique[] Returns an array of Boutique objects
-    //  */
+        $query = $this->findBoutiqueVisible();
+
+        if ($search->getVille())
+        {
+            $query= $query
+                ->andWhere('p.ville = :ville')
+                ->setParameter('ville',$search->getVille());
+        }
+
+
+        if ($search->getNom())
+        {
+            $query= $query
+                ->andWhere('p.nomBoutique = :nom')
+                ->setParameter('nom',$search->getnom());
+        }
+        return $query->getQuery();
+
+    }
+
+    /**
+     * @return Property
+     */
+    function findLatest():array
+    {
+        return $this->findBoutiqueVisible()
+            ->setMaxResults(12)
+            ->getQuery()
+            ->getResult();
+
+    }
+
+    /**
+     * @return QueryBuilder
+     */
+    private function findBoutiqueVisible():QueryBuilder
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.active=true');
+    }
 
 
 

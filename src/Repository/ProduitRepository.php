@@ -27,43 +27,38 @@ class ProduitRepository extends ServiceEntityRepository
     /**
      * @return Query
      */
-    public function findAllVisibleQuery(PropertySearch  $search): Query
+    public function findAllProduit(PropertySearch  $search): Query
     {
 
-        $query = $this->findVisibleQuery();
+        $query = $this->findAllProduitVisible();
         if ($search->getMaxPrice())
         {
             $query= $query
                 ->andWhere('p.prix <= :maxPrice')
                 ->setParameter('maxPrice',$search->getMaxPrice());
         }
-        if ($search->getVille())
+
+      /**if ($search->getNom())
         {
             $query= $query
-                ->andWhere('p.ville = :ville')
-                ->setParameter('ville',$search->getVille());
-        }
-       /** if ($search->getSurface())
-        {
-            $query= $query
-                ->andWhere('p.surface <= :surface')
-                ->setParameter('surface',$search->getSurface());
+                ->andWhere('p.sku = :nom')
+                ->setParameter('nom',$search->getNom());
         }**/
         return $query->getQuery();
 
     }
     public function findlast():array
     {
-        return  $this->findVisibleQuery()
-
-            ->setMaxResults(12)
+        return  $this->findAllProduitVisible()
+            ->orderBy('p.id', 'DESC')
+            ->setMaxResults(16)
             ->getQuery()
             ->getResult();
 
     }
 
 
-    private  function findVisibleQuery():QueryBuilder
+    private  function findAllProduitVisible():QueryBuilder
     {
         return $this->createQueryBuilder('p')
             ->Where('p.visible = true');
