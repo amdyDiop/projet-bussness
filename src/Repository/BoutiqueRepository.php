@@ -61,6 +61,17 @@ class BoutiqueRepository extends ServiceEntityRepository
 
     }
 
+    function findNEW():array
+    {
+        return $this->createQueryBuilder('p')
+            ->where('p.active=false')
+            ->setMaxResults(100)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+
+    }
+
     /**
      * @return QueryBuilder
      */

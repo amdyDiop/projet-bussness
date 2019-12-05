@@ -2,754 +2,311 @@
 
 {% block title %}{% endblock %}
 
-{% block body %}
+
 {% block stylesheets %}{% endblock %}
 
-    <body class="hold-transition skin-blue sidebar-mini">
-    <div class="wrapper">
+    {% block contenue %}
+        <!-- Main content -->
+        <!-- Main content -->
+        <section class="content">
+            <!-- detail des vente membres boutique et produit -->
+            <div class="row">
+                <!--nombre de boutique-->
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-red"><i class="fa fa-address-card-o"></i></span>
 
-        <header class="main-header">
-
-            <!-- Logo -->
-            <a href="{{ path('home') }}" class="logo">
-                <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>A</b>SG</span>
-                <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Admin </b> Séen Guinar</span>
-            </a>
-
-            <!-- Header Navbar: style can be found in header.less -->
-            <nav class="navbar navbar-static-top">
-                <!-- Sidebar toggle button-->
-                <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
-                    <span class="sr-only">Basculer </span>
-                </a>
-                <!-- Navbar Right Menu -->
-                <div class="navbar-custom-menu">
-                    <ul class="nav navbar-nav">
-                        <!-- User Account: style can be found in dropdown.less -->
-                        <li class="dropdown user user-menu">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <img  src="{{ asset('StyleCv/img/IMG_1228.JPG') }} "  class="user-image" alt="User Image">
-                                <span class="hidden-xs">{{app.user.username}}</span>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <!-- User image -->
-                                <li class="user-header">
-                                    <img   src="{{ asset('StyleCv/img/IMG_1228.JPG') }} " class="img-circle" alt="User Image"><p>
-                                        {{app.user.username}} - Web Developer
-                                        <small>Membre depuis Nov. 2019</small>
-                                    </p>
-                                </li>
-                                <!-- Menu Footer-->
-                                <li class="user-footer">
-                                    <div class="pull-left">
-                                        <a href="#" class="btn btn-default btn-flat">Profile</a>
-                                    </div>
-                                    <div class="pull-right">
-                                        <a href="#" class="btn btn-default btn-flat">Sign out</a>
-                                    </div>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Control Sidebar Toggle Button -->
-                        <li>
-                            <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-                        </li>
-                    </ul>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Boutiques</span>
+                            <span class="info-box-number">{{nombreBoutique}}</span>
+                        </div>
+                        <!-- /.info-box-content -->
+                    </div>
+                    <!-- /.info-box -->
                 </div>
 
-            </nav>
-        </header>
-        <!-- Left side column. contains the logo and sidebar -->
-        <aside class="main-sidebar">
-            <!-- sidebar: style can be found in sidebar.less -->
-            <section class="sidebar">
-                <!-- Sidebar user panel -->
-                <div class="user-panel">
-                    <div class="pull-left image">
-                        <img src="{{ asset('StyleCv/img/IMG_1228.JPG') }}" class="img-circle" alt="User Image">
+                <!--nombre de produit-->
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-red"><i class="fa fa-cart-plus"></i></span>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Produits</span>
+                            <span class="info-box-number">{{nombreProduit}}</span>
+                        </div>
+                        <!-- /.info-box-content -->
                     </div>
-                    <div class="pull-left info">
-                        <p>{{app.user.username}}</p>
-                        <a href="#"><i class="fa fa-circle text-success"></i> Enligne</a>
-                    </div>
+                    <!-- /.info-box -->
                 </div>
-                <!-- search form -->
-                <form action="#" method="get" class="sidebar-form">
-                    <div class="input-group">
-                        <input type="text" name="q" class="form-control" placeholder="Search...">
-                        <span class="input-group-btn">
-                <button type="submit" name="search" id="search-btn" class="btn btn-flat">
-                  <i class="fa fa-search"></i>
-                </button>
-              </span>
-                    </div>
-                </form>
-                <!-- /.search form -->
-                <!-- sidebar menu: : style can be found in sidebar.less -->
-                <ul class="sidebar-menu" data-widget="tree">
-                    <li class="header">NAVIGATION PRINCIPALE</li>
-                    <li class="active treeview menu-open">
-                        <a href="#">
-                            <i class="fa fa-cart-plus"></i> <span> Boutiques</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i>  Détail des Boutique</a></li>
-                            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Ajouter une Boutique</a></li>
 
-                        </ul>
-                    </li>
-                    <li class="active treeview menu-open">
-                        <a href="#">
-                            <i class="fa fa-book"></i> <span> Produits</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i>  détail des Produit</a></li>
-                            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Ajouter un Produit</a></li>
+                <!-- nombre de vente -->
 
-                        </ul>
-                    </li>
-                    <li class="active treeview menu-open">
-                        <a href="#">
-                            <i class="fa fa-cart-plus"></i> <span> Clients</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i>  Listes des Client</a></li>
-                            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Ajouter un Produit</a></li>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-green"><i class="fa fa-dollar"></i></span>
 
-                        </ul>
-                    </li>
-                    <li class="active treeview menu-open">
-                        <a href="#">
-                            <i class="fa fa-dollar"></i> <span> Ventes</span>
-                            <span class="pull-right-container">
-                                <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li><a href="#"><i class="fa fa-circle-o"></i>  Listes des Client</a></li>
-                            <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Ajouter un Produit</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </section>
-            <!-- /.sidebar -->
-        </aside>
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <!-- Main content -->
-            <section class="content">
-                <!-- detail des vente membres boutique et produit -->
-                <div class="row">
-
-
-                    <!--nombre de boutique-->
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-red"><i class="fa fa-address-card-o"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Boutiques</span>
-                                <span class="info-box-number">4</span>
-                            </div>
-                            <!-- /.info-box-content -->
+                        <div class="info-box-content">
+                            <span class="info-box-text">Vente</span>
+                            <span class="info-box-number">34</span>
                         </div>
-                        <!-- /.info-box -->
+                        <!-- /.info-box-content -->
                     </div>
-
-                    <!--nombre de produit-->
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-red"><i class="fa fa-cart-plus"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Produits</span>
-                                <span class="info-box-number">50</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-
-
-                    <!-- nombre de vente -->
-
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-green"><i class="fa fa-dollar"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Vente</span>
-                                <span class="info-box-number">34</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-                    <!-- Membres -->
-
-                    <div class="col-md-3 col-sm-6 col-xs-12">
-                        <div class="info-box">
-                            <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
-
-                            <div class="info-box-content">
-                                <span class="info-box-text">Nombre d'inscrits</span>
-                                <span class="info-box-number">7</span>
-                            </div>
-                            <!-- /.info-box-content -->
-                        </div>
-                        <!-- /.info-box -->
-                    </div>
-
+                    <!-- /.info-box -->
                 </div>
-                <!-- /.rapport mensuelle  -->
-{#
-                <div class="row">
+                <!-- Membres -->
 
-                    <div class="col-md-12">
-                        <div class="box">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Rapport récapitulatif mensuel</h3>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box">
+                        <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
 
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                    </button>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
-                                            <i class="fa fa-wrench"></i></button>
-                                        <ul class="dropdown-menu" role="menu">
-                                            <li><a href="#">Action</a></li>
-                                            <li><a href="#">Another action</a></li>
-                                            <li><a href="#">Something else here</a></li>
-                                            <li class="divider"></li>
-                                            <li><a href="#">Separated link</a></li>
-                                        </ul>
-                                    </div>
-                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                </div>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <p class="text-center">
-                                            <strong>Sales: 1 Jan, 2014 - 30 Jul, 2014</strong>
-                                        </p>
-
-                                        <div class="chart">
-                                            <!-- Sales Chart Canvas -->
-                                            <canvas id="salesChart" style="height: 180px;"></canvas>
-                                        </div>
-                                        <!-- /.chart-responsive -->
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-md-4">
-                                        <p class="text-center">
-                                            <strong>Goal Completion</strong>
-                                        </p>
-
-                                        <div class="progress-group">
-                                            <span class="progress-text">Add Products to Cart</span>
-                                            <span class="progress-number"><b>160</b>/200</span>
-
-                                            <div class="progress sm">
-                                                <div class="progress-bar progress-bar-aqua" style="width: 80%"></div>
-                                            </div>
-                                        </div>
-                                        <!-- /.progress-group -->
-                                        <div class="progress-group">
-                                            <span class="progress-text">Complete Purchase</span>
-                                            <span class="progress-number"><b>310</b>/400</span>
-
-                                            <div class="progress sm">
-                                                <div class="progress-bar progress-bar-red" style="width: 80%"></div>
-                                            </div>
-                                        </div>
-                                        <!-- /.progress-group -->
-                                        <div class="progress-group">
-                                            <span class="progress-text">Visit Premium Page</span>
-                                            <span class="progress-number"><b>480</b>/800</span>
-
-                                            <div class="progress sm">
-                                                <div class="progress-bar progress-bar-green" style="width: 80%"></div>
-                                            </div>
-                                        </div>
-                                        <!-- /.progress-group -->
-                                        <div class="progress-group">
-                                            <span class="progress-text">Send Inquiries</span>
-                                            <span class="progress-number"><b>250</b>/500</span>
-
-                                            <div class="progress sm">
-                                                <div class="progress-bar progress-bar-yellow" style="width: 80%"></div>
-                                            </div>
-                                        </div>
-                                        <!-- /.progress-group -->
-                                    </div>
-                                    <!-- /.col -->
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- ./box-body -->
-                            <div class="box-footer">
-                                <div class="row">
-                                    <div class="col-sm-3 col-xs-6">
-                                        <div class="description-block border-right">
-                                            <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 17%</span>
-                                            <h5 class="description-header">$35,210.43</h5>
-                                            <span class="description-text">TOTAL REVENUE</span>
-                                        </div>
-                                        <!-- /.description-block -->
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-sm-3 col-xs-6">
-                                        <div class="description-block border-right">
-                                            <span class="description-percentage text-yellow"><i class="fa fa-caret-left"></i> 0%</span>
-                                            <h5 class="description-header">$10,390.90</h5>
-                                            <span class="description-text">TOTAL COST</span>
-                                        </div>
-                                        <!-- /.description-block -->
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-sm-3 col-xs-6">
-                                        <div class="description-block border-right">
-                                            <span class="description-percentage text-green"><i class="fa fa-caret-up"></i> 20%</span>
-                                            <h5 class="description-header">$24,813.53</h5>
-                                            <span class="description-text">TOTAL PROFIT</span>
-                                        </div>
-                                        <!-- /.description-block -->
-                                    </div>
-                                    <!-- /.col -->
-                                    <div class="col-sm-3 col-xs-6">
-                                        <div class="description-block">
-                                            <span class="description-percentage text-red"><i class="fa fa-caret-down"></i> 18%</span>
-                                            <h5 class="description-header">1200</h5>
-                                            <span class="description-text">GOAL COMPLETIONS</span>
-                                        </div>
-                                        <!-- /.description-block -->
-                                    </div>
-                                </div>
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.box-footer -->
+                        <div class="info-box-content">
+                            <span class="info-box-text">Nombre d'inscrits</span>
+                            <span class="info-box-number">{{nombreUser}}</span>
                         </div>
-                        <!-- /.box -->
+                        <!-- /.info-box-content -->
                     </div>
-                    <!-- /.col -->
-                </div>#}
-                <!-- /.row -->
-
-                <!-- Main row -->
-                <div class="row">
-                    <!-- Left col -->
-                    <div class="col-md-8">
-                        <!-- MAP & BOX PANE -->
-                        <div class="box box-success">
-
-                            <!-- /.box-header -->
-                            <div class="box-body no-padding">
-
-                                <!-- /.row -->
-                            </div>
-                            <!-- /.box-body -->
-                        </div>
-                        <!-- /.box -->
-                        <div class="row">
-                            <div class="col-md-6">
-                                <!-- DIRECT CHAT -->
-                                <div class="box box-warning direct-chat direct-chat-warning">
-
-                                    <!-- /.box-header -->
-                                    <div class="box-body">
-                                        <!-- PRODUI LIST -->
-                                        <div class="box box-primary">
-                                            <div class="box-header with-border">
-                                                <h3 class="box-title">Produits récemment ajoutés</h3>
-
-                                                <div class="box-tools pull-right">
-                                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                                    </button>
-                                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                                </div>
-                                            </div>
-                                            <!-- /.box-header -->
-                                            <div class="box-body">
-                                                <ul class="products-list product-list-in-box">
-                                                    <li class="item">
-                                                        <div class="product-img">
-                                                            <img class="contacts-list-img" src="{{ asset('images/properties/5ddbe8b873e66270307444.jpg')|imagine_filter('thumb') }}" alt="User Image">
-
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <a href="javascript:void(0)" class="product-title">quia et recusandae
-
-                                                                <span class="label label-warning pull-right">2099 Fcfa</span></a>
-                                                            <span class="product-description">
-                                                          Et itaque sapiente atque excepturi. Rerum nostrum nemo unde
-                                                                et eaque illum ducimus. Aut rerum cumque consectetur architecto
-
-                                                          </span>
-                                                        </div>
-                                                    </li>
-                                                    <li class="item">
-                                                        <div class="product-img">
-                                                            <img class="contacts-list-img" src="{{ asset('images/properties/5ddc3148f0279621994159.jpg')|imagine_filter('thumb') }}" alt="User Image">
-
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <a href="javascript:void(0)" class="product-title">sapiente ea quia
-                                                                <span class="label label-warning pull-right">3434 Fcfa</span></a>
-                                                            <span class="product-description">
-                                                         eaque illum ducimus. Aut rerum cumque consectetur architecto
-                                                                Et itaque sapiente atque  et excepturi. Rerum nostrum nemo unde
-
-
-                                                          </span>
-                                                        </div>
-                                                    </li>
-                                                    <li class="item">
-                                                        <div class="product-img">
-                                                            <img class="contacts-list-img" src="{{ asset('images/properties/5de050891aa0b443292289.gif')|imagine_filter('thumb') }}" alt="User Image">
-
-                                                        </div>
-                                                        <div class="product-info">
-                                                            <a href="javascript:void(0)" class="product-title">exercitationem enim repellat
-                                                                <span class="label label-warning pull-right">2655 Fcfa</span></a>
-                                                            <span class="product-description">
-                                                          Praesentium impedit nemo sed et non. Autem aperiam pariatur hic repudiandae eaque accusantium qui sint.
-                                                                Alias porro officiis accusamus vel.
-
-                                                          </span>
-                                                        </div>
-                                                    </li>
-
-                                                </ul>
-                                            </div>
-                                            <!-- /.box-body -->
-                                            <div class="box-footer text-center">
-                                                <a href="javascript:void(0)" class="uppercase">Voir tous les produits</a>
-                                            </div>
-                                            <!-- /.box-footer -->
-                                        </div>
-                                    </div>
-                                </div>
-                                <!--/.direct-chat -->
-                            </div>
-
-                            <!--last membre -->
-                            <div class="col-md-6">
-                                <!-- USERS LIST -->
-                                <div class="box box-danger">
-                                    <div class="box-header with-border">
-                                        <h3 class="box-title">Dernier membre</h3>
-
-                                        <div class="box-tools pull-right">
-                                            <span class="label label-danger">4 Nouveaux Utilisateurs</span>
-                                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                            </button>
-                                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <!-- /.box-header -->
-                                    <div class="box-body no-padding">
-                                        <ul class="users-list clearfix">
-                                            <li>
-                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}"  class="img-circle" alt="User Image">
-                                                <a class="users-list-name" href="#">seydou ba</a>
-                                                <span class="users-list-date">28 novembre</span>
-                                            </li>
-                                            <li>
-                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}"  class="img-circle"alt="User Image">
-                                                <a class="users-list-name" href="#">amdy diop</a>
-                                                <span class="users-list-date">28 novembre</span>
-                                            </li>
-                                            <li>
-                                                <img src="{{ asset('StyleCv/img/IMG_1228.JPG') }} " class="img-circle" >
-                                                <a class="users-list-name" href="#">dofbi leu</a>
-                                                <span class="users-list-date">24 novembre</span>
-                                            </li>
-                                        </ul>
-                                        <!-- /.users-list -->
-                                    </div>
-                                    <!-- /.box-body -->
-                                    <div class="box-footer text-center">
-                                        <a href="javascript:void(0)" class="uppercase">Voir tout les utilisateursl</a>
-                                    </div>
-                                    <!-- /.box-footer -->
-                                </div>
-                                <!--/.box -->
-                            </div>
-
-                        </div>
-                        <!-- /.row -->
-
-                        <!-- TABLE: Dernier commande -->
-                        <div class="box box-info">
-                            <div class="box-header with-border">
-                                <h3 class="box-title">Dernières commandes</h3>
-
-                                <div class="box-tools pull-right">
-                                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                                </div>
-                            </div>
-                            <!-- /.box-header -->
-                            <div class="box-body">
-                                <div class="table-responsive">
-                                    <table class="table no-margin">
-                                        <thead>
-                                        <tr>
-                                            <th> Image</th>
-                                            <th>Produit</th>
-                                            <th>Status</th>
-
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-
-
-                                        <tr>
-                                            <td>  <img src="{{ asset('images/properties/5ddc2a92c4f9c718726062.jpg')|imagine_filter('card') }}" alt=""></td>
-                                            <td>ratione ducimus et</td>
-                                            <td><span class="label label-warning">En attente</span></td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>  <img src="{{ asset('images/properties/5ddc09d28eb27581121440.jpg')|imagine_filter('card') }}" alt=""></td>
-                                            <td>ullam vero iure</td>
-                                            <td><span class="label label-danger">Livré</span></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.table-responsive -->
-                            </div>
-                            <!-- /.box-body -->
-                            <div class="box-footer clearfix">
-                                <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Voir les Commandes</a>
-                            </div>
-                            <!-- /.box-footer -->
-                        </div>
-                        <!-- /.box -->
-                    </div>
-
-                    </div>
-
-                <!-- /.row -->
-            </section>
-            <!-- /.content -->
-        </div>
-        <!-- /.content-wrapper -->
-
-        <footer class="main-footer text-center">
-
-            <strong>Copyright &copy; 2019  <a href="{{path('home')}}">Développé par Amdy DIOP & Seydou BA</a>.</strong> All rights
-            reserved.
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Create the tabs -->
-            <ul class="nav nav-tabs nav-justified control-sidebar-tabs">
-                <li><a href="#control-sidebar-home-tab" data-toggle="tab"><i class="fa fa-home"></i></a></li>
-                <li><a href="#control-sidebar-settings-tab" data-toggle="tab"><i class="fa fa-gears"></i></a></li>
-            </ul>
-            <!-- Tab panes -->
-            <div class="tab-content">
-                <!-- Home tab content -->
-                <div class="tab-pane" id="control-sidebar-home-tab">
-                    <h3 class="control-sidebar-heading">Recent Activity</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Langdon's Birthday</h4>
-
-                                    <p>Will be 23 on April 24th</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-user bg-yellow"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Frodo Updated His Profile</h4>
-
-                                    <p>New phone +1(800)555-1234</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-envelope-o bg-light-blue"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Nora Joined Mailing List</h4>
-
-                                    <p>nora@example.com</p>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <i class="menu-icon fa fa-file-code-o bg-green"></i>
-
-                                <div class="menu-info">
-                                    <h4 class="control-sidebar-subheading">Cron Job 254 Executed</h4>
-
-                                    <p>Execution time 5 seconds</p>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
-                    <h3 class="control-sidebar-heading">Tasks Progress</h3>
-                    <ul class="control-sidebar-menu">
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Custom Template Design
-                                    <span class="label label-danger pull-right">70%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Update Resume
-                                    <span class="label label-success pull-right">95%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-success" style="width: 95%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Laravel Integration
-                                    <span class="label label-warning pull-right">50%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-warning" style="width: 50%"></div>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)">
-                                <h4 class="control-sidebar-subheading">
-                                    Back End Framework
-                                    <span class="label label-primary pull-right">68%</span>
-                                </h4>
-
-                                <div class="progress progress-xxs">
-                                    <div class="progress-bar progress-bar-primary" style="width: 68%"></div>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <!-- /.control-sidebar-menu -->
-
+                    <!-- /.info-box -->
                 </div>
-                <!-- /.tab-pane -->
 
-                <!-- Settings tab content -->
-                <div class="tab-pane" id="control-sidebar-settings-tab">
-                    <form method="post">
-                        <h3 class="control-sidebar-heading">General Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Report panel usage
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Some information about this general settings option
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Allow mail redirect
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Other sets of options are available
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Expose author name in posts
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-
-                            <p>
-                                Allow the user to show his name in blog posts
-                            </p>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <h3 class="control-sidebar-heading">Chat Settings</h3>
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Show me as online
-                                <input type="checkbox" class="pull-right" checked>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Turn off notifications
-                                <input type="checkbox" class="pull-right">
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-
-                        <div class="form-group">
-                            <label class="control-sidebar-subheading">
-                                Delete chat history
-                                <a href="javascript:void(0)" class="text-red pull-right"><i class="fa fa-trash-o"></i></a>
-                            </label>
-                        </div>
-                        <!-- /.form-group -->
-                    </form>
-                </div>
-                <!-- /.tab-pane -->
             </div>
-        </aside>
-        <!-- /.control-sidebar -->
-        <!-- Add the sidebar's background. This div must be placed
-             immediately after the control sidebar -->
-        <div class="control-sidebar-bg"></div>
 
-    </div>
-    <!-- ./wrapper -->
-{% endblock %}
+            <div class="row">
+                <!-- Left col -->
+                <div class="col-md-12">
+                    <!-- MAP & BOX PANE -->
+                    <div class="box box-success">
+
+                        <!-- /.box-header -->
+                        <div class="box-body no-padding">
+
+                            <!-- /.row -->
+                        </div>
+                        <!-- /.box-body -->
+                    </div>
+                    <!-- /.box -->
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            <!-- Liste produit -->
+                            <div class="box box-warning direct-chat direct-chat-warning">
+
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <!-- produit LISTE -->
+                                    <div class="box box-primary">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Produit Récents</h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <ul class="products-list product-list-in-box">
+                                                {% for produit in newProduit %}
+                                                <li class="item">
+                                                    <div class="product-img">
+                                                        {% if produit.filename %}
+                                                            <a href="">
+                                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                                            </a>
+                                                        {% else %}
+                                                            <a href="#"><img src="{{ asset('assets/img/cart/1.jpg') }}" alt=""></a>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="product-info">
+
+                                                        <a href="javascript:void(0)" class="product-title">{{ produit.labelle }}
+
+                                                            <span class="label label-warning pull-right">{{ produit.prix}} Fcfa</span></a>
+                                                        <span class="product-description">
+                                                                {{produit.createdAt|date('d,M,y')  }}
+                                                          </span>
+                                                        <span class="product-description">
+                                                          </span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="box-footer text-center">
+                                            <a href="javascript:void(0)" class="uppercase">Voir tous les produits</a>
+                                        </div>
+                                        <!-- /.box-footer -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.direct-chat -->
+                        </div>
+                        <div class="col-md-4">
+                            <!-- Liste Boutique -->
+                            <div class="box box-warning direct-chat direct-chat-warning">
+
+                                <!-- /.box-header -->
+                                <div class="box-body">
+                                    <!-- boutique LISTE -->
+                                    <div class="box box-primary">
+                                        <div class="box-header with-border">
+                                            <h3 class="box-title">Boutique Récents</h3>
+
+                                            <div class="box-tools pull-right">
+                                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                                </button>
+                                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                                            </div>
+                                        </div>
+                                        <!-- /.box-header -->
+                                        <div class="box-body">
+                                            <ul class="products-list product-list-in-box">
+                                                {% for boutique in newBoutique %}
+                                                <li class="item">
+                                                    <div class="product-img">
+                                                        {% if boutique.filename %}
+                                                            <a href="">
+                                                                <img src="{{ vich_uploader_asset(boutique, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                                            </a>
+                                                        {% else %}
+                                                            <a href="#"><img src="{{ asset('assets/img/cart/1.jpg') }}" alt=""></a>
+                                                        {% endif %}
+                                                    </div>
+                                                    <div class="product-info">
+
+                                                        <a href="javascript:void(0)" class="product-title">{{boutique.nomBoutique}}
+
+                                                            <span class="label label-warning pull-right">{{boutique.ville}}</span></a>
+                                                        <span class="product-description">
+                                                         {{boutique.description}}
+                                                          </span>
+                                                        <span class="product-description">
+                                                         {{boutique.createdAt|date('d,M,Y')}}
+                                                          </span>
+                                                        {% endfor %}
+                                                    </div>
+                                                </li>
+
+
+                                            </ul>
+                                        </div>
+                                        <!-- /.box-body -->
+                                        <div class="box-footer text-center">
+                                            <a href="javascript:void(0)" class="uppercase">Voir tous les produits</a>
+                                        </div>
+                                        <!-- /.box-footer -->
+                                    </div>
+                                </div>
+                            </div>
+                            <!--/.direct-chat -->
+                        </div>
+
+
+
+
+                        <!--last membre -->
+                        <div class="col-md-4">
+                            <!-- USERS LIST -->
+                            <div class="box box-danger">
+                                <div class="box-header with-border">
+                                    <h3 class="box-title">Dernier membre</h3>
+
+                                    <div class="box-tools pull-right">
+                                        <span class="label label-danger">4 Nouveaux Utilisateurs</span>
+                                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /.box-header -->
+                                <div class="box-body no-padding">
+                                    <ul class="users-list clearfix">
+                                        {% for user in users %}
+                                        <li>
+
+
+                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}"  class="img-circle" alt="User Image">
+
+                                            <a class="users-list-name" href="#">{{ user.prenom }} {{ user.nom }}</a>
+                                        <span class="users-list-date">{{ user.createdAt|date('d,m,y') }}</span>
+                                        </li>
+                                       {% endfor %}
+                                    </ul>
+                                    <!-- /.users-list -->
+                                </div>
+                                <!-- /.box-body -->
+                                <div class="box-footer text-center">
+                                    <a href="javascript:void(0)" class="uppercase">Voir tout les utilisateursl</a>
+                                </div>
+                                <!-- /.box-footer -->
+                            </div>
+                            <!--/.box -->
+                        </div>
+
+
+                    </div>
+                    <!-- /.row -->
+
+                    <!-- TABLE: Dernier commande -->
+                    <div class="box box-info">
+                        <div class="box-header with-border">
+                            <h3 class="box-title">Dernières commandes</h3>
+
+                            <div class="box-tools pull-right">
+                                <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                                </button>
+                                <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                            </div>
+                        </div>
+                        <!-- /.box-header -->
+                        <div class="box-body">
+                            <div class="table-responsive">
+                                <table class="table no-margin">
+                                    <thead>
+                                    <tr>
+                                        <th> Image</th>
+                                        <th>Produit</th>
+                                        <th>Status</th>
+
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+
+                                    <tr>
+                                        <td>  <img src="{{ asset('images/properties/5ddc2a92c4f9c718726062.jpg')|imagine_filter('card') }}" alt=""></td>
+                                        <td>ratione ducimus et</td>
+                                        <td><span class="label label-warning">En attente</span></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>  <img src="{{ asset('images/properties/5ddc09d28eb27581121440.jpg')|imagine_filter('card') }}" alt=""></td>
+                                        <td>ullam vero iure</td>
+                                        <td><span class="label label-danger">Livré</span></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.box-body -->
+                        <div class="box-footer clearfix">
+                            <a href="javascript:void(0)" class="btn btn-sm btn-default btn-flat pull-right">Voir les Commandes</a>
+                        </div>
+                        <!-- /.box-footer -->
+                    </div>
+                    <!-- /.box -->
+                </div>
+
+            </div>
+
+            <!-- /.row -->
+        </section>
+        <!-- /.content -->
+        <!-- /.content -->
+    {% endblock %}
+

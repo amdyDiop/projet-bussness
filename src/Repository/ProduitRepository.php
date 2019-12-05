@@ -63,6 +63,18 @@ class ProduitRepository extends ServiceEntityRepository
         return $this->createQueryBuilder('p')
             ->Where('p.visible = true');
     }
+
+
+    function findNEW():array
+    {
+
+        return $this->createQueryBuilder('p')
+            ->where('p.visible= true')
+            ->setMaxResults(4)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Property[] Returns an array of Property objects
     //  */

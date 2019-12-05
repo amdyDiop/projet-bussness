@@ -89,6 +89,7 @@ class Boutique
      */
     private $nombreDeVente;
 
+
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Vente", mappedBy="id_boutique")
      */
@@ -98,6 +99,7 @@ class Boutique
      * @ORM\Column(type="string", length=50)
      */
     private $numeroCompte;
+
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Produit", inversedBy="boutiques")

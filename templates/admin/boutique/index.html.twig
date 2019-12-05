@@ -1,46 +1,69 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/baseAdmin.html.twig' %}
 
-{% block title %}Boutique index{% endblock %}
+{% block title %}Boutiques{% endblock %}
 
-{% block body %}
-    <h1>Boutique index</h1>
 
-    <table class="table table-striped">
-        <thead>
-            <tr>
 
+
+    {% block contenue %}
+        <h1 class="description">
+        Liste de Tout Les Boutiques
+        </h1>
+
+        <table class="table table-striped">
+            <thead>
+            <tr  style="font-family: Algerian,sans-serif;size: 23em;">
+                <th>Image</th>
                 <th>Boutique</th>
                 <th>Email</th>
-                <th>Ville</th>
-                <th>Addresse</th>
-                <th>Active</th>
-                <th>Nombre De Vente</th>
                 <th>Numéro Compte</th>
+                <th>Active</th>
                 <th>Actions</th>
             </tr>
-        </thead>
-        <tbody>
-        {% for boutique in boutiques %}
-            <tr>
-                <td>{{ boutique.nomBoutique }}</td>
-                <td>{{ boutique.email}}</td>
-                <td>{{ boutique.ville }}</td>
-                <td> {{boutique.adresse}}</td>
-                <td>{{ boutique.active ? 'Yes' : 'No' }}</td>
-                <td>{{ boutique.nombreDeVente }}</td>
-                <td>{{ boutique.numeroCompte }}</td>
-                <td>
-                    <a href="{{ path('boutique_show', {'id': boutique.id}) }}">show</a>
-                    <a href="{{ path('boutique_edit', {'id': boutique.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="11">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for boutique in boutiques %}
+                <tr style="font-family: Arial,monospace">
+                    <td>images</td>
+                    <td>{{ boutique.nomBoutique }}</td>
+                    <td>{{ boutique.email}}</td>
+                    <td>{{ boutique.numeroCompte }}</td>
+                    <td>{{ boutique.active ? 'Activé' : 'Non Avctivé' }}</td>
+                    <td>
 
-    <a href="{{ path('boutique_new') }}">Create new</a>
+                        <a title="Voir" class="animate-right" href="{{ path('boutique_show', {'id': boutique.id}) }}" ><strong><button><i class="ion-ios-eye-outline"></i></button></strong></a>
+
+                        <a title="modifier"   href="{{ path('boutique_edit', {'id': boutique.id}) }}" ><strong><button><i class="ion-edit"></i></button></strong></a>
+
+                        <form method="post" action="{{ path('boutique_delete', {'id': boutique.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                            <input type="hidden" name="_method" value="DELETE">
+                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ boutique.id) }}">
+                            <button><i class="ion-ios-trash-outline"></i></button>
+                        </form>
+
+
+
+
+                    </td>
+
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="11">La Liste est vide</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <!--button class="btn btn"> <a href="{{ path('boutique_new') }} " class="text-white" >Nouveau Boutique</a> </button-->
+
+
+
+        <!-- Table demo -->
+        <div class="box-table">
+            <table data-fn="contacts" data-url="https://codepen.io/nakome/pen/DnEvr.js"></table>
+        </div>
+
+
+
 {% endblock %}
