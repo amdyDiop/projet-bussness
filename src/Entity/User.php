@@ -153,6 +153,11 @@ class User extends BaseUser
      */
     private $commande;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="users")
+     */
+    private $commandes;
+
 
     public function getId(): ?int
     {
@@ -239,6 +244,18 @@ class User extends BaseUser
     public function setCommande(?Commande $commande): self
     {
         $this->commande = $commande;
+
+        return $this;
+    }
+
+    public function getCommandes(): ?Commande
+    {
+        return $this->commandes;
+    }
+
+    public function setCommandes(?Commande $commandes): self
+    {
+        $this->commandes = $commandes;
 
         return $this;
     }

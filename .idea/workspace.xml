@@ -2,27 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="912d8055-e6c0-4302-abeb-9bfb39177f1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/css.login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/jqquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/admin/log.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/874f6a0d-8b15-475f-a24f-995ad7f014fb/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/874f6a0d-8b15-475f-a24f-995ad7f014fb/storage_v2/_src_/schema/sys.zb4BAA.zip" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/properties/5de292235d559841034884.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Boutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Boutique.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Client.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commande.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Form/BoutiqueType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/BoutiqueType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/BoutiqueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BoutiqueRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/baseAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/baseAdmin.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/boutique/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/boutique/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/boutique/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/boutique/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/admin/boutique/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/boutique/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Vente.php" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/finaliserComande/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/finaliserComande/index.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -245,19 +234,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin\login" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\src\Form" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\src\Repository" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\assets\img" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\admin" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\Cv" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\produits" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\base" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin\login" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\src\Form" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\src\Repository" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\assets\img" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -345,7 +334,8 @@
       <workItem from="1575209174888" duration="1320000" />
       <workItem from="1575285022353" duration="26976000" />
       <workItem from="1575368345639" duration="24055000" />
-      <workItem from="1575450580497" duration="35013000" />
+      <workItem from="1575450580497" duration="35720000" />
+      <workItem from="1575632525088" duration="30225000" />
     </task>
     <servers />
   </component>

@@ -4,231 +4,299 @@
 
 {% block body %}
     <br>     <br>  <br>  <br>  <br>
-    <!-- checkout-area start -->
+
+    <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url({{ asset('assets/img/bg/breadcrumb.jpg') }})">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <h2>shop</h2>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li> shop </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
     <div class="checkout-area ptb-100 text-white">
         <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="coupon-accordion">
-                        <!-- ACCORDION START -->
-                        <h3>Déjà client? <span id="showlogin">Cliquez ici pour vous identifier</span></h3>
-                        <div id="checkout-login" class="coupon-content">
-                            <div class="coupon-info">
-                                <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>
-                                <form action="#">
-                                    <p class="form-row-first">
-                                        <label class="text-white">Nom d'utilisateur ou email <span class="required">*</span></label>
-                                        <input type="text" />
-                                    </p>
-                                    <p class="form-row-last">
-                                        <label class="text-white" >mot de passe  <span class="required">*</span></label>
-                                        <input type="text" />
-                                    </p>
-                                    <p class="form-row">
-                                        <input type="submit" value="Login" />
-                                        <label class="text-white" >
-                                            <input type="checkbox" />
-                                            rappelles-toi
-                                        </label>
-                                    </p>
-                                    <p class="lost-password">
-                                        <a href="#" class="text-white">mot de passe oublié?</a>
-                                    </p>
-                                </form>
+            {# verification si l'utilisateur est connécté#}
+            {% if app.user == null %}
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="coupon-accordion">
+                            <!-- ACCORDION START -->
+                            <h3>Déjà client? <span id="showlogin">Cliquez ici pour vous identifier</span></h3>
+                            <div id="checkout-login" class="coupon-content">
+                                <div class="coupon-info">
+                                    <p class="coupon-text">Quisque gravida turpis sit amet nulla posuere lacinia. Cras sed est sit amet ipsum luctus.</p>
+                                    <form action="#">
+                                        <p class="form-row-first">
+                                            <label class="text-white">Nom d'utilisateur ou email <span class="required">*</span></label>
+                                            <input type="text" />
+                                        </p>
+                                        <p class="form-row-last">
+                                            <label class="text-white" >mot de passe  <span class="required">*</span></label>
+                                            <input type="text" />
+                                        </p>
+                                        <p class="form-row">
+                                            <input type="submit" value="Login" />
+                                            <label class="text-white" >
+                                                <input type="checkbox" />
+                                                rappelles-toi
+                                            </label>
+                                        </p>
+                                        <p class="lost-password">
+                                            <a href="#" class="text-white">mot de passe oublié?</a>
+                                        </p>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                        <!-- ACCORDION END -->
-                        <!-- ACCORDION START -->
-                        <!--div id="checkout_coupon" class="coupon-checkout-content">
-                            <div class="coupon-info">
-                                <form action="#">
-                                    <p class="checkout-coupon">
-                                        <input type="text" placeholder="Coupon code" />
-                                        <input type="submit" value="Apply Coupon" />
-                                    </p>
-                                </form>
-                            </div>
-                        </div-->
-                        <!-- ACCORDION END -->
                     </div>
                 </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-6 col-md-12 col-12">
-                    <form action="#">
-                        <div class="checkbox-form">
-                            <h3 >Détails de la facturation </h3>
-                            <div class="row">
+                <div class="row">
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <form action="#">
+                            <div class="checkbox-form">
+                                <h3 >Détails de la facturation </h3>
+                                <div class="row">
 
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label class="text-white">Prénom <span class="required">*</span></label>
-                                        <input type="text" placeholder="" />
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label class="text-white">Prénom <span class="required">*</span></label>
+                                            <input type="text" placeholder="" />
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label class="text-white">nom <span class="required">*</span></label>
-                                        <input type="text" placeholder="" />
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label class="text-white">nom <span class="required">*</span></label>
+                                            <input type="text" placeholder="" />
+                                        </div>
                                     </div>
-                                </div>
-
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list">
-                                        <label  class="text-white">Adresse <span class="required">*</span></label>
-                                        <input type="text"/>
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list">
-                                        <input type="text" placeholder="Apartment,(facultatif)" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list">
-                                        <label class="text-white">Ville<span class="required">*</span></label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label class="text-white">Code Postal<span class="required"></span></label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label class="text-white">Adresse e-mail <span class="required">*</span></label>
-                                        <input type="email" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="checkout-form-list">
-                                        <label class="text-white">Phone  <span class="required">*</span></label>
-                                        <input type="text" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="checkout-form-list create-acc">
-                                        <input id="cbox" type="checkbox" />
-                                        <label class="text-white">Créer un compte?</label>
-                                    </div>
-                                    <div id="cbox_info" class="checkout-form-list create-account">
-                                        <p>Créez un compte en entrant les informations ci-dessous. Si vous êtes un client de retour, veuillez vous connecter en haut de la page.</p>
-                                        <label class="text-white">Mot de passe <span class="required">*</span></label>
-                                        <input type="password" placeholder="password" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="different-address">
-                                <div class="ship-different-title">
-                                    <h3>
-                                        <label class="text-white">Expédier à une adresse différente?</label>
-                                        <input id="ship-box" type="checkbox" />
-                                    </h3>
-                                </div>
-                                <div id="ship-box-info" class="row">
-
 
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
-                                            <label class="text-white">Adresse <span class="required">*</span></label>
+                                            <label  class="text-white">Adresse <span class="required">*</span></label>
                                             <input type="text"/>
                                         </div>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
-                                            <label class="text-white">Ville <span class="required">*</span></label>
-                                            <input type="text"  />
+                                            <input type="text" placeholder="Apartment,(facultatif)" />
                                         </div>
                                     </div>
-
                                     <div class="col-md-12">
                                         <div class="checkout-form-list">
-                                            <label class="text-white">Code Postal <span class="required"></span></label>
-                                            <input type="text"  />
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-12">
-                                        <div class="checkout-form-list">
-                                            <label class="text-white">Téléphone  <span class="required">*</span></label>
+                                            <label class="text-white">Ville<span class="required">*</span></label>
                                             <input type="text" />
                                         </div>
                                     </div>
-                                </div>
-                                <div class="order-notes">
-                                    <div class="checkout-form-list mrg-nn">
-                                        <label class="text-white">Notes d'ordre</label>
-                                        <textarea class="text-white" id="checkout-mess " cols="30" rows="10" placeholder="Remarques sur votre commande, par exemple notes spéciales pour la livraison." ></textarea>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label class="text-white">Code Postal<span class="required"></span></label>
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label class="text-white">Adresse e-mail <span class="required">*</span></label>
+                                            <input type="email" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="checkout-form-list">
+                                            <label class="text-white">Phone  <span class="required">*</span></label>
+                                            <input type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="checkout-form-list create-acc">
+                                            <input id="cbox" type="checkbox" />
+                                            <label class="text-white">Créer un compte?</label>
+                                        </div>
+                                        <div id="cbox_info" class="checkout-form-list create-account">
+                                            <p>Créez un compte en entrant les informations ci-dessous. Si vous êtes un client de retour, veuillez vous connecter en haut de la page.</p>
+                                            <label class="text-white">Mot de passe <span class="required">*</span></label>
+                                            <input type="password" placeholder="password" />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-                <div class="col-lg-6 col-md-12 col-12">
-                    <div class="your-order">
-                        <h3  class="text-black">Votre Commande</h3>
-                        <div class="your-order-table table-responsive">
-                            <table>
-                                <thead>
-                                <tr>
-                                    <th class="product-name text-black">Produit</th>
-                                    <th class="product-total  text-black">Total</th>
-                                </tr>
-                                </thead>
-                                <tbody>  {% for item in item %}
-                                <tr class="cart_item" >
-
-                                    <td class="product-name   text-black">
-                                        {{item.produit.labelle}} <strong class="product-quantity text-black"> * {{ item.quantity }}</strong>
-                                    </td>
-                                    <td class="product-total   text-black">
-                                        <span class="amount text-black">{{item.produit.getFormatPrice() }}Fcfa</span>
-                                    </td>
-
-                                </tr> {% endfor %}
-                                </tbody>
-                                <tfoot>
-                                <tr class="cart-subtotal text-black">
+                                <div class="different-address">
+                                    <div class="ship-different-title">
+                                        <h3>
+                                            <label class="text-white">Expédier à une adresse différente?</label>
+                                            <input id="ship-box" type="checkbox" />
+                                        </h3>
+                                    </div>
+                                    <div id="ship-box-info" class="row">
 
 
-                                    <td><span class="amount"> </span></td>
-                                </tr>
-                                <tr class="order-total text-black">
-                                    <th>Total de la commande</th>
-                                    <td><strong><span class="amount">{{total}} Fcfa</span></strong>
-                                    </td>
-                                </tr>
-                                </tfoot>
-                            </table>
-                        </div>
-                        <div class="payment-method">
-                            <div class="payment-accordion">
-                                <div class="panel-group" id="faq">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h5 class="panel-title"><a class="collapsed" data-toggle="collapse" aria-expanded="false" data-parent="#faq" href="#payment-3">PayPal</a></h5>
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label class="text-white">Adresse <span class="required">*</span></label>
+                                                <input type="text"/>
+                                            </div>
                                         </div>
-                                        <div id="payment-3" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                <p> Effectuez votre paiement directement sur notre compte bancaire.
-                                                    Veuillez utiliser votre identifiant de commande comme référence de paiement.
-                                                    Votre commande ne sera expédiée que lorsque les fonds seront réglés sur notre compte.
-                                                </p>
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label class="text-white">Ville <span class="required">*</span></label>
+                                                <input type="text"  />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label class="text-white">Code Postal <span class="required"></span></label>
+                                                <input type="text"  />
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-12">
+                                            <div class="checkout-form-list">
+                                                <label class="text-white">Téléphone  <span class="required">*</span></label>
+                                                <input type="text" />
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="order-notes">
+                                        <div class="checkout-form-list mrg-nn">
+                                            <label class="text-white">Notes d'ordre</label>
+                                            <textarea class="text-white" id="checkout-mess " cols="30" rows="10" placeholder="Remarques sur votre commande, par exemple notes spéciales pour la livraison." ></textarea>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="order-button-payment">
-                                    <input type="submit" value="Passer la commande" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-lg-6 col-md-12 col-12">
+                        <div class="your-order">
+                            <h3  class="text-black">Votre Commande</h3>
+                            <div class="your-order-table table-responsive">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th class="product-name text-black">Produit</th>
+                                        <th class="product-total  text-black">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>  {% for item in item %}
+                                        <tr class="cart_item" >
+
+                                            <td class="product-name   text-black">
+                                                {{item.produit.labelle}} <strong class="product-quantity text-black"> * {{ item.quantity }}</strong>
+                                            </td>
+                                            <td class="product-total   text-black">
+                                                <span class="amount text-black">{{item.produit.getFormatPrice() }}Fcfa</span>
+                                            </td>
+
+                                        </tr> {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr class="cart-subtotal text-black">
+
+
+                                        <td><span class="amount"> </span></td>
+                                    </tr>
+                                    <tr class="order-total text-black">
+                                        <th>Total de la commande</th>
+                                        <td><strong><span class="amount">{{total}} Fcfa</span></strong>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="payment-method">
+                                <div class="payment-accordion">
+                                    <div class="panel-group" id="faq">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title"><a class="collapsed" data-toggle="collapse" aria-expanded="false" data-parent="#faq" href="#payment-3">PayPal</a></h5>
+                                            </div>
+                                            <div id="payment-3" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p> Effectuez votre paiement directement sur notre compte bancaire.
+                                                        Veuillez utiliser votre identifiant de commande comme référence de paiement.
+                                                        Votre commande ne sera expédiée que lorsque les fonds seront réglés sur notre compte.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-button-payment">
+                                        <a href="{{ path('finaliser_commande') }}"><input type="submit" value="Passer la commande" /></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+
+            {% else %}
+                <div class="row">
+                    <div class="col-lg-11 col-md-12 col-12">
+                        <div class="your-order">
+                            <h3  class="text-black">Votre Commande</h3>
+                            <div class="your-order-table table-responsive">
+                                <table>
+                                    <thead>
+                                    <tr>
+                                        <th class="product-name text-black">Produit</th>
+                                        <th class="product-total  text-black">Total</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>  {% for item in item %}
+                                        <tr class="cart_item" >
+
+                                            <td class="product-name   text-black">
+                                                {{item.produit.labelle}} <strong class="product-quantity text-black"> * {{ item.quantity }}</strong>
+                                            </td>
+                                            <td class="product-total   text-black">
+                                                <span class="amount text-black">{{item.produit.getFormatPrice() }}Fcfa</span>
+                                            </td>
+
+                                        </tr> {% endfor %}
+                                    </tbody>
+                                    <tfoot>
+                                    <tr class="cart-subtotal text-black">
+
+
+                                        <td><span class="amount"> </span></td>
+                                    </tr>
+                                    <tr class="order-total text-black">
+                                        <th>Total de la commande</th>
+                                        <td><strong><span class="amount">{{total}} Fcfa</span></strong>
+                                        </td>
+                                    </tr>
+                                    </tfoot>
+                                </table>
+                            </div>
+                            <div class="payment-method">
+                                <div class="payment-accordion">
+                                    <div class="panel-group" id="faq">
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h5 class="panel-title"><a class="collapsed" data-toggle="collapse" aria-expanded="false" data-parent="#faq" href="#payment-3">PayPal</a></h5>
+                                            </div>
+                                            <div id="payment-3" class="panel-collapse collapse">
+                                                <div class="panel-body">
+                                                    <p> Effectuez votre paiement directement sur notre compte bancaire.
+                                                        Veuillez utiliser votre identifiant de commande comme référence de paiement.
+                                                        Votre commande ne sera expédiée que lorsque les fonds seront réglés sur notre compte.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="order-button-payment">
+                                        <a href="{{ path('finaliser_commande') }}"><input type="submit" value="Passer la commande" /></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
         </div>
     </div>
     <!-- checkout-area end -->

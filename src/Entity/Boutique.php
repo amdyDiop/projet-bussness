@@ -90,10 +90,6 @@ class Boutique
     private $nombreDeVente;
 
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Vente", mappedBy="id_boutique")
-     */
-    private $ventes;
 
     /**
      * @ORM\Column(type="string", length=50)

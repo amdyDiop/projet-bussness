@@ -227,10 +227,7 @@
                                     <ul class="users-list clearfix">
                                         {% for user in users %}
                                         <li>
-
-
-                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}"  class="img-circle" alt="User Image">
-
+                                            <img src="{{ asset('assets/img/quick-view/l3.jpg') }}"  class="img-circle" alt="User Image">
                                             <a class="users-list-name" href="#">{{ user.prenom }} {{ user.nom }}</a>
                                         <span class="users-list-date">{{ user.createdAt|date('d,m,y') }}</span>
                                         </li>

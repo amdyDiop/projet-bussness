@@ -44,20 +44,31 @@ class Commande
      */
     private $tttc;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Client", mappedBy="commande")
-     */
-    private $clients;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Produit", inversedBy="commandes")
      */
     private $produit;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="commandes")
+     */
+    private $users;
+
+    /**
+     * @ORM\Column(type="boolean", nullable=true)
+     */
+    private $valider;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $livrer;
+
     public function __construct()
     {
-        $this->clients = new ArrayCollection();
         $this->produit = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -126,36 +137,8 @@ class Commande
         return $this;
     }
 
-    /**
-     * @return Collection|Client[]
-     */
-    public function getClients(): Collection
-    {
-        return $this->clients;
-    }
 
-    public function addClient(Client $client): self
-    {
-        if (!$this->clients->contains($client)) {
-            $this->clients[] = $client;
-            $client->setCommande($this);
-        }
 
-        return $this;
-    }
-
-    public function removeClient(Client $client): self
-    {
-        if ($this->clients->contains($client)) {
-            $this->clients->removeElement($client);
-            // set the owning side to null (unless already changed)
-            if ($client->getCommande() === $this) {
-                $client->setCommande(null);
-            }
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Produit[]
@@ -179,6 +162,61 @@ class Commande
         if ($this->produit->contains($produit)) {
             $this->produit->removeElement($produit);
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->setCommandes($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            // set the owning side to null (unless already changed)
+            if ($user->getCommandes() === $this) {
+                $user->setCommandes(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getValider(): ?bool
+    {
+        return $this->valider;
+    }
+
+    public function setValider(?bool $valider): self
+    {
+        $this->valider = $valider;
+
+        return $this;
+    }
+
+    public function getLivrer(): ?string
+    {
+        return $this->livrer;
+    }
+
+    public function setLivrer(?string $livrer): self
+    {
+        $this->livrer = $livrer;
 
         return $this;
     }
