@@ -88,7 +88,8 @@ class ProduitsController extends  AbstractController
         return  $this->render('produits/show.html.twig',[
             'produits' => $produits,
             'item' => $data,
-            'total' =>$total
+            'total' =>$total,
+            'best' =>$this->repository->best()
         ]);
     }
 }

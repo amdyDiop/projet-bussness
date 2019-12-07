@@ -10,6 +10,8 @@
 
 {% block body %}
 
+
+
    <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url({{ asset('assets/img/bg/breadcrumb.jpg') }})">
       <div class="container">
          <div class="breadcrumb-content">
@@ -21,7 +23,22 @@
          </div>
       </div>
    </div>
-   <br> <br>
+   <br>
+<br>
+<div class="wrapper">
+   <div class="breadcrumb-area bg-img border-top-1 pt-55">
+      <div class="container">
+         <div class="breadcrumb-content-2">
+            <ul>
+               <li><a class="active" href="{{ path('home') }}">Acceuil</a></li>
+               <li><a class="active" href="{{path('produits')}}">Produits </a></li>
+               <li>{{ produits.getLabelle()}}</li>
+            </ul>
+         </div>
+      </div>
+   </div>
+   <div class="product-details ptb-100 pb-90">
+      <div class="container">
    <div class="row">
       <div class="col-md-12 col-lg-7 col-12">
          <div class="product-details-img-content">
@@ -29,10 +46,11 @@
                <div class="product-details-large tab-content">
                   <div class="tab-pane active show fade" id="pro-details1" role="tabpanel">
                      <div class="easyzoom easyzoom--overlay">
-                        <a href="{{ asset('assets/img/product-details/bl1.jpg') }}">
                            {% if produits.filename %}
+                           <a href="{{ vich_uploader_asset(produits, 'imageFile')|imagine_filter('detail') }}">
                               <img src="{{ vich_uploader_asset(produits, 'imageFile')|imagine_filter('detail') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
                            {% else %}
+                             <a href="{{ asset('assets/img/product-details/bl1.jpg') }}">
                               <img src="{{ asset('assets/img/product-details/l1.jpg') }}" alt="">
                            {% endif %}
 
@@ -161,15 +179,21 @@
    <div class="product-collection-area pb-60">
       <div class="container">
          <div class="section-title text-center mb-55">
-            <h2>Produits relative</h2>
+            <h2>Meilleurs Produits</h2>
          </div>
          <div class="row">
             <div class="new-collection-slider owl-carousel">
+
+               {% for best in best  %}
                <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12">
                   <div class="single-product mb-35">
                      <div class="product-img">
-                        <a href="#"><img src="{{ asset('assets/img/shop/shop-grid-1/1.jpg') }}" alt=""></a>
-                        <span>sale</span>
+                        {% if best.filename %}
+                           <img src="{{ vich_uploader_asset(best, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                        {% else %}
+                         <img src="{{ asset('assets/img/product/list-img/1.jpg') }}" alt="">
+                        {% endif %}
+                        <span>top</span>
                         <div class="product-action">
                            <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
                            <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
@@ -178,115 +202,29 @@
                      <div class="product-content">
                         <div class="product-title-price">
                            <div class="product-title">
-                              <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
+                              <h4><a href="{{path('produit_show',{id: best.id,slug:best.slug})}}">{{best.labelle}}</a></h4>
                            </div>
                            <div class="product-price">
-                              <span>$110.00</span>
+                              <span>{{ best.getFormatPrice() }} Fcfa</span>
                            </div>
                         </div>
                         <div class="product-cart-categori">
                            <div class="product-cart">
-                              <span>Furniter</span>
+                              <span>Ajouter au Panier </span>
                            </div>
                            <div class="product-categori">
-                              <a href="#"><i class="ion-bag"></i> Add to cart</a>
+                              <a href="{{ path('cart_add',{id:best.id}) }}"><i class="ion-bag"></i> Ajouter au Panier </a>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12">
-                  <div class="single-product mb-35">
-                     <div class="product-img">
-                        <a href="#"><img src="{{ asset('assets/img/shop/shop-grid-1/7.jpg')}}" alt=""></a>
-                        <div class="product-action">
-                           <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                           <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                        </div>
-                     </div>
-                     <div class="product-content">
-                        <div class="product-title-price">
-                           <div class="product-title">
-                              <h4><a href="product-details-6.html">WOODEN FURNITURE</a></h4>
-                           </div>
-                           <div class="product-price">
-                              <span>$120.00</span>
-                           </div>
-                        </div>
-                        <div class="product-cart-categori">
-                           <div class="product-cart">
-                              <span>Furniter</span>
-                           </div>
-                           <div class="product-categori">
-                              <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12">
-                  <div class="single-product mb-35">
-                     <div class="product-img">
-                        <a href="#"><img src="{{ asset('assets/img/shop/shop-grid-1/14.jpg') }}" alt=""></a>
-                        <span>sale</span>
-                        <div class="product-action">
-                           <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                           <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                        </div>
-                     </div>
-                     <div class="product-content">
-                        <div class="product-title-price">
-                           <div class="product-title">
-                              <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                           </div>
-                           <div class="product-price">
-                              <span>$130.00</span>
-                           </div>
-                        </div>
-                        <div class="product-cart-categori">
-                           <div class="product-cart">
-                              <span>Furniter</span>
-                           </div>
-                           <div class="product-categori">
-                              <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3 col-lg-3 col-sm-4 col-xs-12">
-                  <div class="single-product mb-35">
-                     <div class="product-img">
-                        <a href="#"><img src="{{ asset('assets/img/shop/shop-grid-1/11.jpg') }}" alt=""></a>
-                        <div class="product-action">
-                           <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                           <a title="Quick View" data-toggle="modal" data-target="#exampleModal" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                        </div>
-                     </div>
-                     <div class="product-content">
-                        <div class="product-title-price">
-                           <div class="product-title">
-                              <h4><a href="product-details-6.html">HANDCRAFTED MUG</a></h4>
-                           </div>
-                           <div class="product-price">
-                              <span>$140.00</span>
-                           </div>
-                        </div>
-                        <div class="product-cart-categori">
-                           <div class="product-cart">
-                              <span>Furniter</span>
-                           </div>
-                           <div class="product-categori">
-                              <a href="#"><i class="ion-bag"></i> Add to cart</a>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+               {% endfor  %}
             </div>
          </div>
       </div>
    </div>
+</div>
 {% endblock %}
 
 
