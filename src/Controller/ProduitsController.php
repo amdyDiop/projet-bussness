@@ -24,6 +24,17 @@ class ProduitsController extends  AbstractController
         $this->repository = $repository;
         $this->em  = $em;
     }
+
+
+    /**
+     * @Route("/panier/add/{id}",name="cart_add")
+     */
+    public  function add($id ,Request $request, CartService  $cartService)
+    {
+        $cartService->add($id);
+        return $this->redirectToRoute("produits");
+
+    }
     /**
      * @Route("/produits", name="produits")
      *
@@ -46,9 +57,11 @@ class ProduitsController extends  AbstractController
         }
         return $this->render('produits/index.html.twig',[
             'produits' => $produits,
+            'totalP' => count($repository->findAll()),
             'form' => $form->createView(),
             'item' => $data,
-            'total' =>$total
+            'total' =>$total,
+            'best' =>$repository->best()
         ]);
     }
     /**

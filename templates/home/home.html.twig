@@ -1,10 +1,20 @@
 {% extends 'base.html.twig' %}
 {% block title 'Seen Guinaar'%}
+ {% block stylesheets %}
+     <link href="{{ asset('StyleCv/cssamdy et sydu/agency.min.css') }}css/agency.min.css" rel="stylesheet">
+     <link href="{{ asset('StyleCv/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
+     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+     <link href='https://fonts.googleapis.com/css?family=Kaushan+Script' rel='stylesheet' type='text/css'>
+     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+
+ {% endblock %}
 
  {% block body %}
 
 <br> <br>
+
      <div class="breadcrumb-area pt-205 pb-210 bg-img" style="background-image: url({{ asset('assets/img/bg/breadcrumb.jpg') }})">
          <div class="container">
              <div class="breadcrumb-content">
@@ -16,13 +26,18 @@
              </div>
          </div>
      </div>
-     <div class="row mb-5 justify-content-center ">
+     {% for message in app.flashes('success') %}
+         <div class="alert alert-success">
+             {{ message }}
+         </div>
+     {% endfor %}
+     <div class="row  justify-content-center ">
          <div class="col-md-6 text-center">
              <h2 class="section-title mb-4 text-white">  <strong>Les Derniers Produits</strong> </h2>
          </div>
      </div>
 
-     <div class="shop-product-content tab-content">
+     <div class="shop-product-content tab-content border-2">
          <div id="grid-5-col1" class="tab-pane fade active show">
              <div class="row custom-row">
                  {# miniature de tout les produit #}
@@ -143,124 +158,118 @@
              </div>
          </div>
      </div>
-     <!--abonnement de notification  par mail-->
-     <div class="site-blocks-cover inner-page-cover overlay get-notification"  style="background-image: url(images/hero_2.jpg); background-attachment: fixed;" data-aos="fade">
-         <div class="container">
-             <div class="row align-items-center justify-content-center">
-                 <form class="col-md-7" method="post">
-                     <h2>Get notified on each updates.</h2>
-                     <div class="d-flex mb-4">
-                         <input type="text" class="form-control rounded-0" placeholder="Entrer Votre addresse  email">
-                         <input type="submit" class="btn btn-white btn-outline-white rounded-0" value="inscrire aux news letter">a
-                     </div>
-                     <p>Vous receverez tout les nouveautées et nos promotions en temps réel</p>
-                 </form>
-             </div>
-
-         </div>
-     </div>
-
-     <!-- end notification-->
-
 
      <!-- Produit les plus populaire -->
-
      <div class="site-section bg-light">
          <div class="container">
              <div class="row mb-5 justify-content-center">
                  <div class="col-md-6 text-center">
-                     <h3 class="section-sub-title">Awesome Products</h3>
-                     <h2 class="section-title mb-3">Featured Products</h2>
-                     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut
-                         eveniet aut consequatur laboriosam ipsam.</p>
+                     <h3 class="section-sub-title">Produits Impressionnants</h3>
+                     <h2 class="section-title mb-3">Produits Présentés</h2>
+                     <p></p>
                  </div>
              </div>
+             {% for top1 in top1Produit %}
              <div class="bg-white py-4 mb-4">
                  <div class="row mx-4 my-4 product-item-2 align-items-start">
+
                      <div class="col-md-6 mb-5 mb-md-0">
-                         <img src="{{ asset('Style/pages/images/sekum tiiir.jpg') }}images/model_1_bg.jpg" alt="Image" class="img-fluid">
+                         {% if top1.filename %}
+                             <img src="{{ vich_uploader_asset(top1, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                         {% else %}
+                             <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                         {% endif %}
                      </div>
                      <div class="col-md-5 ml-auto product-title-wrap">
                          <span class="number">01.</span>
-                         <h3 class="text-black mb-4 font-weight-bold">About This Product</h3>
-                         <p class="mb-4">Et tempora id nostrum saepe amet doloribus deserunt totam officiis cupiditate asperiores quasi accusantium voluptatum
-                             dolorem quae sapiente voluptatem ratione odio iure blanditiis earum fuga molestiae alias dicta perferendis inventore!</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus soluta assumenda sed optio, error at?</p>
+                         <h3 class="text-black mb-4 font-weight-bold">{{top1.labelle}}</h3>
+                         <p class="mb-4">{{top1.description}}</p>
 
                          <div class="mb-4">
-                             <h3 class="text-black font-weight-bold h5">Price:</h3>
-                             <div class="price"><del class="mr-2">$269.00</del> $69.00</div>
+                             <h3 class="text-black font-weight-bold h5">Prix: {{ top1.getformatPrice() }} Fcfa</h3>
                          </div>
                          <p>
-                             <a href="#" class="btn btn-black btn-outline-black rounded-0 d-block mb-2 mb-lg-0 d-lg-inline-block">View Details</a>
-
+                             <a href="{{ path('produit_show',{id:top1.id,slug:top1.slug}) }}" class="btn btn-black">Voir Produit</a>
+                             <a href="{{ path('cart_add',{id:top1.id}) }}" class="btn btn-black">Ajouter au Panier</a>
 
                          </p>
                      </div>
                  </div>
              </div>
+
+             {% endfor %}
+             {% for top2 in top2Produit %}
+
              <div class="bg-white py-4">
                  <div class="row mx-4 my-4 product-item-2 align-items-start">
                      <div class="col-md-6 mb-5 mb-md-0 order-1 order-md-2">
-                         <img src="{{ asset('Style/pages/images/rood.jpg') }}" alt="Image" class="img-fluid">
+
+                         {% if top2.filename %}
+                             <img src="{{ vich_uploader_asset(top2, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                         {% else %}
+                             <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                         {% endif %}
                      </div>
 
                      <div class="col-md-5 mr-auto product-title-wrap order-2 order-md-1">
                          <span class="number">02.</span>
-                         <h3 class="text-black mb-4 font-weight-bold">About This Product</h3>
-                         <p class="mb-4">Et tempora id nostrum saepe amet doloribus deserunt totam officiis cupiditate asperiores quasi
-                             accusantium voluptatum dolorem quae sapiente voluptatem ratione odio iure blanditiis earum fuga molestiae alias dicta perferendis inventore!</p>
-                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus soluta assumenda sed optio, error at?</p>
+                         <h3 class="text-black mb-4 font-weight-bold">{{ top2.labelle }}</h3>
+                         <p class="mb-4">{{ top2.description }}</p>
 
                          <div class="mb-4">
-                             <h3 class="text-black font-weight-bold h5">Price:</h3>
-                             <div class="price"><del class="mr-2">$269.00</del> $69.00</div>
+                             <h3 class="text-black font-weight-bold h5">Price: {{ top2.getFormatPrice }} Fcfa</h3>
                          </div>
                          <p>
-                             <a href="#" class="btn btn-black btn-outline-black rounded-0 d-block mb-2 mb-lg-0 d-lg-inline-block">View Details</a>
-                             <a href="#" class="btn btn-black rounded-0 d-block d-lg-inline-block">Add To Cart</a>
+                             <a href="{{ path('produit_show',{id:top2.id,slug:top2.slug}) }}" class=" btn btn-black btn-outline-black">Voir Produit</a>
+                             <a href="{{ path('cart_add',{id:top2.id}) }}" class="btn btn-black btn-outline-black">Ajouter au Panier</a>
                          </p>
                      </div>
                  </div>
              </div>
+             {% endfor %}
          </div>
      </div>
+     <!--  fin Produit les plus populaire -->
 
-
+     <!--Marchand de confiance -->
      <div class="site-section" id="about-section">
+         {% for marchant in topBoutique %}
          <div class="container">
              <div class="row align-items-lg-center">
                  <div class="col-md-8 mb-5 mb-lg-0 position-relative">
-                     <img src="{{ asset('Style/pages/images/og tiir.jpg') }}" class="img-fluid" alt="Image">
+                     {% if marchant.filename %}
+                         <img src="{{ vich_uploader_asset(marchant, 'imageFile')|imagine_filter('boutique_icon') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                     {% else %}
+                         <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                     {% endif %}
                      <div class="experience">
-                         <span class="year">Marchand de confiance</span>
+                         <span class="year">Marchand de Confiance</span>
                          <!--span class="caption">for 50 years</span-->
                      </div>
                  </div>
                  <div class="col-md-3 ml-auto">
-                     <h3 class="section-sub-title">Marchand Company</h3>
-                     <h2 class="section-title mb-3">About Us</h2>
-                     <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Qui fuga ipsa,
-                         repellat blanditiis nihil, consectetur. Consequuntur eum inventore,
-                         em maxime, nisi excepturi ipsam libero ratione adipisci alias eius vero vel!</p>
-                     <p><a href="#" class="btn btn-black btn-black--hover rounded-0">Learn More</a></p>
+                     <h2 class="section-title mb-3">{{marchant.nomBoutique}}</h2>
+                     <h3 class="mb-3">Descriptuon de la Boutique</h3>
+                     <p class="mb-4"><strong>{{ marchant.description }}!!!</strong></p>
                  </div>
              </div>
          </div>
+         {% endfor  %}
      </div>
-     <div class="site-section border-bottom" id="team-section">
+     <!-- fin Marchand de confiance -->
+     <!--Dèveloppeur -->
+    {# <div class="site-section border-bottom" id="team-section">
          <div class="container">
-             <div class="row mb-5">
+             <div class="row ">
                  <div class="col-12 text-center">
                      <h3 class="section-sub-title">Equipe</h3>
                      <h2 class="section-title mb-3">Leadership</h2>
                  </div>
              </div>
-
              <!-- section apropos de nous -->
              <div class="row">
+                 <div class="col-6">
 
-                 <div class="col-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
                      <div class="person text-center">
                          <img src="{{ asset('StyleCv/img/IMG_1228.JPG') }}" alt="Image" class="img-fluid rounded w-75 mb-3">
                         <a href="{{ path('cvAmdy') }}"> <h3>Amdy Diop</h3></a>
@@ -274,13 +283,44 @@
                              <li><a href="#"><span class="icon-instagram"></span></a></li>
                          </ul>
                      </div>
+
                  </div>
-                 <div class="col-8 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
-                     <div class="person text-center">
-                         <img src="{{ asset('Style/pages/images/person_4.jpg') }}" alt="Image" class="img-fluid rounded w-75 mb-3">
-                         <h3>Seydou Ba</h3>
-                         <p class="position text-muted">Co-Founder</p>
-                         <p class="mb-4">etudiant en licence 3 informatique option <strong>Génie Logiciel</strong></p>
+             </div>
+        <!-- section a propos de nous-->
+         </div>
+     </div>#}
+     <!-- fin Dèveloppeur -->
+
+     <!-- Team -->
+     <section class="bg-light page-section" id="team">
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-12 text-center">
+                     <h2 class="section-sub-title text-uppercase">Equipe</h2>
+                     <h3 class="section-title mb-3 ">Leadership</h3>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-sm-3">
+                 </div>
+                 <div class="col-sm-4">
+                     <div class="team-member">
+                         <img class="img-fluid rounded w-75 mb-3"  src="{{ asset('StyleCv/img/IMG_1228.JPG') }}" alt="Amdy Diop" >
+                         <a href="{{ path('cvAmdy') }}"> <h3>Amdy Diop</h3></a>
+                         <p class="text-muted">Co-fondateur</p>
+                         <ul class="ul-social-circle">
+                             <li><a href="https://www.facebook.com/amdydiop.sn"><span class="icon-facebook"></span></a></li>
+                             <li><a href="#"><span class="icon-twitter"></span></a></li>
+                             <li><a href="#"><span class="icon-linkedin"></span></a></li>
+                             <li><a href="#"><span class="icon-instagram"></span></a></li>
+                         </ul>
+                     </div>
+                 </div>
+                 <div class="col-sm-4">
+                     <div class="team-member">
+                         <img class="img-fluid rounded w-75 mb-3"  src="{{ asset('StyleCv/img/seydou.jpg') }}" alt="Amdy Diop" >
+                         <a href="{{ path('cvAmdy') }}"> <h3>Seydou BA</h3></a>
+                         <p class="text-muted">Co-fondateur</p>
                          <ul class="ul-social-circle">
                              <li><a href="#"><span class="icon-facebook"></span></a></li>
                              <li><a href="#"><span class="icon-twitter"></span></a></li>
@@ -289,24 +329,22 @@
                          </ul>
                      </div>
                  </div>
-
              </div>
-        <!-- section a propos de nous-->
          </div>
-     </div>
+     </section>
      {# date de la promotion special promo#}
               <div class="site-blocks-cover overlay get-notification" id="special-section" style="background-image: url(images/hero_2.jpg); background-attachment: fixed; background-position: top;" data-aos="fade">
          <div class="container">
 
              <div class="row align-items-center justify-content-center">
                  <div class="col-md-7 text-center">
-                     <h3 class="section-sub-title">Special Promo</h3>
-                     <h3 class="section-title text-white mb-4">Summer Sale</h3>
-                     <p class="mb-5 lead">Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut eveniet aut consequatur laboriosam ipsam.</p>
 
+                     <h2 class="section-title text-white mb-4">Special Promo</h2>
+                     <p class="mb-5 lead">
+                         Pour le lancement du projet tous les produits sont à 50% de réduction pour les deux premières semaines et la livraison est gratuite
+                     </p>
                      <div id="date-countdown" class="mb-5"></div>
-
-                     <p><a href="#" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a></p>
+                     <p><a href="{{ path('home') }}" class="btn btn-white btn-outline-white py-3 px-5 rounded-0 mb-lg-0 mb-2 d-block d-sm-inline-block">Shop Now</a></p>
                  </div>
              </div>
 
@@ -392,84 +430,7 @@
      <!-- section nos services-->
 
 
-     <!--divclass="site-section testimonial-wrap" id="testimonials-section">
-      <div class="container">
-       <div class="row mb-5">
-        <div class="col-12 text-center">
-         <h3 class="section-sub-title">People Says</h3>
-         <h2 class="section-title mb-3">Testimonials</h2>
-        </div>
-       </div>
-      </div>
-      <div class="slide-one-item home-slider owl-carousel">
-       <div>
-        <div class="testimonial">
-         <figure class="mb-4 d-block align-items-center justify-content-center">
-          <div><img src="images/person_3.jpg" alt="Image" class="w-100 img-fluid mb-3"></div>
-         </figure>
-         <blockquote class="mb-3">
-          <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae
-          explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-         </blockquote>
-         <p class="text-black"><strong>John Smith</strong></p>
-
-
-        </div>
-       </div>
-       <div>
-        <div class="testimonial">
-
-         <figure class="mb-4 d-block align-items-center justify-content-center">
-          <div><img src="images/person_2.jpg" alt="Image" class="w-100 img-fluid mb-3"></div>
-         </figure>
-
-         <blockquote class="mb-3">
-          <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae
-           explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-         </blockquote>
-
-         <p class="text-black"><strong>Robert Aguilar</strong></p>
-
-
-        </div>
-       </div>
-
-       <div>
-        <div class="testimonial">
-         <figure class="mb-4 d-block align-items-center justify-content-center">
-          <div><img src="images/person_4.jpg" alt="Image" class="w-100 img-fluid mb-3"></div>
-         </figure>
-         <blockquote class="mb-3">
-          <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat fugiat repudiandae
-           explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-         </blockquote>
-         <p class="text-black"><strong>Roger Spears</strong></p>
-
-
-        </div>
-
-       </div>
-
-       <div>
-        <div class="testimonial">
-         <figure class="mb-4 d-block align-items-center justify-content-center">
-          <div><img src="images/person_1.jpg" alt="Image" class="w-100 img-fluid mb-3"></div>
-         </figure>
-         <blockquote class="mb-3">
-          <p>&ldquo;Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur unde reprehenderit aperiam quaerat
-           fugiat repudiandae explicabo animi minima fuga beatae illum eligendi incidunt consequatur. Amet dolores excepturi earum unde iusto.&rdquo;</p>
-         </blockquote>
-         <p class="text-black"><strong>Kyle McDonald</strong></p>
-
-
-        </div>
-
-       </div>
-
-      </div>
-     </div-->
-
-
+{#contact
      <div class="site-section bg-light" id="contact-section">
          <div class="container">
              <div class="row mb-5">
@@ -520,6 +481,23 @@
              </div>
          </div>
      </div>
+     {#contact #}
+
+     {% block javascripts %}
+         <script src="{{ asset('StyleCv/cssamdy et sydu/vendor/jquery/jquery.min.js') }}"></script>
+         <script src="{{ asset('StyleCv/cssamdy et sydu/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+         <!-- Plugin JavaScript -->
+         <script src="{{ asset('StyleCv/cssamdy et sydu/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
+
+         <!-- Contact form JavaScript -->
+         <script src="{{ asset('StyleCv/cssamdy et sydu/js/jqBootstrapValidation.js') }}"></script>
+         <script src="{{ asset('StyleCv/cssamdy et sydu/js/contact_me.js') }}"></script>
+
+         <!-- Custom scripts for this template -->
+         <script src="{{ asset('StyleCv/cssamdy et sydu/js/agency.min.js') }}"></script>
+     {% endblock %}
+
 
  {% endblock %}
 

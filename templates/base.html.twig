@@ -68,7 +68,7 @@
                 <div class="row no-gutters">
                     <div class="col-lg-2 col-md-6 col-6">
                         <div class="logo">
-                            <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""style="width: 53px;" /></a>
+                            <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""style="width: 73px;" /></a>
                         </div>
                     </div>
                     {#liste du centre de navigation#}
@@ -123,7 +123,7 @@
             </div>
         </div>
     </header>
-    <div class="wrapper bg-black">
+    <div class="wrapper ">
         <div class="cur-lang-acc-active">
             <div class="wrap-sidebar">
                 <div class="cur-lang-acc-all">
@@ -234,7 +234,7 @@
        <script src="{{ asset('assets/js/slinky.min.js') }}"></script>
        <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
        <script src="{{ asset('assets/js/plugins.js') }}"></script>
-       <script src="{{ asset('assets/js/main.js') }}"></script>ù
+       <script src="{{ asset('assets/js/main.js') }}"></script>
         <script src="{{ asset('assets/js/instafeed.js') }}"></script>
 
 
@@ -276,6 +276,56 @@
 
             {% endblock %}
     </div>
-
+     <footer class="footer-area gray-bg pt-100 pb-95">
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-3 col-md-5 col-12">
+                     <div class="footer-widget">
+                         <div class="footer-widget-l-content">
+                             <h4>3 ans d'étude Superieur</h4>
+                             <ul>
+                                 <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                                 <li><a href="#"><i class="ion-social-tumblr"></i></a></li>
+                                 <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                 <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-6 col-md-7 col-12">
+                     <div class="footer-widget">
+                         <div class="footer-widget-m-content text-center">
+                             <div class="footer-logo">
+                                 <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
+                             </div>
+                             <div class="footer-nav">
+                                 <nav>
+                                     <ul>
+                                         <li><a href="{{ path('produits') }}">Produits</a></li>
+                                         <li><a href="">Promotions </a></li>
+                                         <li><a href=""> Contact </a></li>
+                                     </ul>
+                                 </nav>
+                             </div>
+                             <p>Copyright <i class="fa fa-copyright"></i> 2019 Séen Guinaar développé par Amdy diop et Seydou Ba All rights reserved. </p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-3 col-md-12 col-12">
+                     <div class="footer-widget f-right">
+                         <div class="footer-widget-r-content">
+                             <ul>
+                                 <li><span>Téléphone :</span> 7777942204</li>
+                                 <li><span>Email : </span> <a href="#">amdy.diop@univ-thies.sn</a></li>
+                                 <li><span>Téléphone :</span> 771543457</li>
+                                 <li><span>Email : </span> <a href="#">baseydou95@gmail.com</a></li>
+                                 <li><span>Address :</span> Thies Sapco</li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </footer>
       </body>
 </html>

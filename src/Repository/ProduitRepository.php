@@ -75,6 +75,38 @@ class ProduitRepository extends ServiceEntityRepository
             ->getQuery()
             ->getResult();
     }
+
+    function best():array
+    {
+
+        return $this->createQueryBuilder('p')
+            ->where('p.visible= true')
+            ->andWhere('p.id >= 204')
+            ->setMaxResults(4)
+            ->orderBy('p.id', 'DESC')
+            ->getQuery()
+            ->getResult();
+    }
+
+
+    function topProduit2():array
+    {
+
+        return $this->createQueryBuilder('p')
+            ->andwhere('p.id = 200')
+            ->getQuery()
+            ->getResult();
+    }
+
+    function topProduit1():array
+    {
+
+        return $this->createQueryBuilder('p')
+            ->andwhere('p.id = 201')
+
+            ->getQuery()
+            ->getResult();
+    }
     // /**
     //  * @return Property[] Returns an array of Property objects
     //  */

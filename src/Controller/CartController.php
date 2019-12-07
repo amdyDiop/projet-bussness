@@ -23,11 +23,14 @@ class CartController extends AbstractController
      */
     private $em;
     private $repository;
+    protected $session;
 
-    public function __construct(CommandeRepository $repository,ObjectManager $em)
+    public function __construct(SessionInterface $session, CommandeRepository $repository,ObjectManager $em)
     {
         $this->repository = $repository;
         $this->em  = $em;
+        $this->session = $session;
+
     }
     /**
     /**
@@ -91,7 +94,8 @@ class CartController extends AbstractController
      * @Route("/panier/finaliser/",name="finaliser_commande")
      *
      */
-    public function finaliserCommande(CartService $cartService)
+    public function finaliserCommande(CartService $cartService ,ProduitRepository $produitRepository )
+
     {
         $data= $cartService->fulCart();
 
@@ -114,19 +118,25 @@ class CartController extends AbstractController
             $commande->setTht($total);
             $commande->setDateCommande(new \ DateTime());
             $commande->addUser( $this->getUser());
-            $numerCommande +=$commande->getId()+1;
-            $commande->setNumcommande($numerCommande);
+
+            $numeroCommande =$commande->getId();
+            $numeroCommande++;
+            $commande->setNumcommande($numeroCommande);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($commande);
-            dd($commande);
             $entityManager->flush();
+          $data=[];
+          $total=0;
+            $this->addFlash('success', 'merci d\'avoir complété votre paiement en ligne. Vous recevez votre commande dans sous peut');
+        }
 
-      }
+
         else
             return $this->redirectToRoute('login');
-        return $this->render('finaliserComande/index.html.twig',[
+        return $this->render('home/home.html.twig',[
             'item' => $data,
             'total' =>$total,
+            'produits' =>$produitRepository->findlast()
         ]);
 
 

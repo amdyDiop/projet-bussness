@@ -47,5 +47,6 @@ class CartService
     }
 
     return $data;
+
   }
 }

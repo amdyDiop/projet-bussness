@@ -71,6 +71,14 @@ class BoutiqueRepository extends ServiceEntityRepository
             ->getResult();
 
     }
+    function marchand():array
+    {
+        return $this->createQueryBuilder('b')
+            ->where('b.id=1')
+            ->getQuery()
+            ->getResult();
+
+    }
 
     /**
      * @return QueryBuilder

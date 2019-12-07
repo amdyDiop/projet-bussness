@@ -2,6 +2,7 @@
     namespace App\Controller;
 
 
+    use App\Repository\BoutiqueRepository;
     use App\Repository\ProduitRepository;
     use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
     use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +19,7 @@
          * @param ProduitRepository $repository
          * @return Response
          */
-        public function home(ProduitRepository $repository,CartService $cartService )
+        public function home(ProduitRepository $repository,CartService $cartService ,BoutiqueRepository $boutiqueRepository)
     {
 
         $data= $cartService->fulCart();
@@ -34,7 +35,10 @@
         $produits = $repository->findlast();
   //dd($produits);
           return $this->render('home/home.html.twig',[
+                'topBoutique' => $boutiqueRepository->marchand(),
                 'produits' => $produits ,
+                'top1Produit' =>$repository->topProduit1(),
+                'top2Produit' =>$repository->topProduit2(),
                 'item' => $data,
                 'total' =>$total
               ]) ;
