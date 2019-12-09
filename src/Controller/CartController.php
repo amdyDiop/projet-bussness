@@ -3,6 +3,7 @@
 namespace App\Controller;
 use App\Entity\Commande;
 use App\Entity\User;
+use App\Repository\BoutiqueRepository;
 use App\Repository\CommandeRepository;
 use \App\Services\Cart\CartService;
 use App\Repository\ProduitRepository;
@@ -94,7 +95,7 @@ class CartController extends AbstractController
      * @Route("/panier/finaliser/",name="finaliser_commande")
      *
      */
-    public function finaliserCommande(CartService $cartService ,ProduitRepository $produitRepository )
+    public function finaliserCommande(BoutiqueRepository $boutiqueRepository, CartService $cartService ,ProduitRepository $produitRepository )
 
     {
         $data= $cartService->fulCart();
@@ -112,16 +113,33 @@ class CartController extends AbstractController
 
         foreach($data as $item)
         {
+            $index = 0;
             $commande->addProduit($item['produit']) ;
+            $produitBoutique=$commande->getProduit();
+
+
+            $vente=$produitBoutique[$index]->getBoutique()->getNombreDeVente()+1;
+            $produitBoutique[$index]->getBoutique()->setNombreDeVente($vente);
+            $stock=$produitBoutique[$index]->getStock();
+             $restant=$stock-1;
+
+            $produitBoutique[$index]->setStock($restant);
+
+
+                if ($restant=0)
+                    $produitBoutique[$index]->setStock($stock);
         }
+
+
         if ($this->getUser()!= null){
             $commande->setTht($total);
             $commande->setDateCommande(new \ DateTime());
             $commande->addUser( $this->getUser());
 
             $numeroCommande =$commande->getId();
-            $numeroCommande++;
+
             $commande->setNumcommande($numeroCommande);
+
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($commande);
             $entityManager->flush();
@@ -136,7 +154,10 @@ class CartController extends AbstractController
         return $this->render('home/home.html.twig',[
             'item' => $data,
             'total' =>$total,
-            'produits' =>$produitRepository->findlast()
+            'top1Produit' =>$produitRepository->topProduit1(),
+            'top2Produit' =>$produitRepository->topProduit2(),
+            'produits' =>$produitRepository->findlast(),
+            'topBoutique' => $boutiqueRepository->marchand(),
         ]);
 
 

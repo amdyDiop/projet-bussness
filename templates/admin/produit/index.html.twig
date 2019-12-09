@@ -1,9 +1,8 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin/baseAdmin.html.twig' %}
 
 {% block title %}Produit index{% endblock %}
 
-{% block body %}
-    <h1>Liste des Produits</h1>
+{% block contenue %}
 
    {# <table class="table">
         <thead>
@@ -47,55 +46,50 @@
     <a href="{{ path('produit_new') }}">Nouveau Produit</a>#}
 
     <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
+
+
+            <h1 class="description">
                Liste Des Produits
-
             </h1>
-            <ol class="breadcrumb">
-                <li><a href="">Acceuil</a></li>
-                <li class="active"> Liste Des Produits</li>
-            </ol>
-        </section>
-
-        <!-- Main content -->
-        <section class="content">
-            <div class="row">
-                <div class="col-xs-12">
-                    <div class="box">
-                        <!-- /.box-header -->
-                        <div class="box-body">
-                            <table id="example1" class="table table-bordered table-striped">
+    <table class="table table-striped">
                                 <thead>
                                 <tr>
+                                    <th>Image</th>
                                     <th>Labelle</th>
                                     <th>Prix</th>
-                                    <th>Tva</th>
                                     <th>Stock</th>
-                                    <th>Stockinit</th>
                                     <th>Poids</th>
                                     <th>Visible</th>
-                                    <th>Description</th>
-                                    <th>actions</th>
+                                    <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 {% for produit in produits %}
                                     <tr>
+                                        <td>
+                                            {% if produit.filename %}
+                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:60%; height:auto;" >
+                                            {% else %}
+                                                <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                                            {% endif %}
+                                        </td>
                                         <td>{{ produit.labelle }}</td>
                                         <td>{{ produit.prix }}</td>
-                                        <td>{{ produit.tva }}</td>
                                         <td>{{ produit.stock }}</td>
-                                        <td>{{ produit.stockinit }}</td>
                                         <td>{{ produit.poids }}</td>
                                         <td>{{ produit.visible ? 'Yes' : 'No' }}</td>
-                                        <td>{{ produit.description }}</td>
                                         <td>
 
-                                            <a href="{{ path ('crud_produit_show',{ id:produit.id, slug:produit.slug} ) }} " > <button class="icon-eye"> </button></a>
-                                            <a href="{{ path('produit_edit', {'id': produit.id}) }}"><button class="icon-edit"></button> </a>
+                                            <a title="Voir" class="animate-right"  href="{{ path ('crud_produit_show',{ id:produit.id, slug:produit.slug} ) }}" ><strong><button><i class="ion-ios-eye-outline"></i></button></strong></a>
+
+                                            <a title="modifier"  href="{{ path('admin_produit_edit', {id: produit.id}) }}" ><strong><button><i class="ion-edit"></i></button></strong></a>
+
+                                            <form method="post" action="{{ path('produit_delete', {'id': produit.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément?');">
+                                                <input type="hidden" name="_method" value="DELETE">
+                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
+                                                <button><i class="ion-ios-trash-outline"></i></button>
+                                            </form>
+
                                     </tr>
                                 {% else %}
                                     <tr>
@@ -103,31 +97,11 @@
                                     </tr>
                                 {% endfor %}
                                 </tbody>
-                                <tfoot>
-                                <tr>
-                                    <th>Labelle</th>
-                                    <th>Prix</th>
-                                    <th>Tva</th>
-                                    <th>Stock</th>
-                                    <th>Stockinit</th>
-                                    <th>Poids</th>
-                                    <th>Visible</th>
-                                    <th>Description</th>
-                                    <th>actions</th>
-                                </tr>
-                                </tfoot>
+
                             </table>
-                        </div>
-                        <!-- /.box-body -->
-                    </div>
-                    <!-- /.box -->
-                </div>
-                <!-- /.col -->
-            </div>
-            <!-- /.row -->
-        </section>
-        <!-- /.content -->
+
+    <div class="pagination justify-content-center">
+        {{ knp_pagination_render(produit) }}
     </div>
-    <!-- /.content-wrapper -->
 
 {% endblock %}

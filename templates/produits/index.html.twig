@@ -204,7 +204,7 @@
                                         <div class="notfound">
                                             <div class="notfound-404">
                                                 <h3>Oops! Page not found</h3>
-                                                <h1><span>4</span><span>0</span><span>4</span></h1>
+                                                <h1><span>pas de</span><span>produit</span>pour cette <span>recherce</span></h1>
                                             </div>
                                             <h2>we are sorry, but the page you requested was not found</h2>
                                         </div>
@@ -257,9 +257,9 @@
                                                         </a>
                                                     </div>
                                                 </div>
-                                                <div class="qwick-view-right">
-                                                    <div class="qwick-view-content text-white">
-                                                        <h3 class=><strong>{{ produit.labelle}}</strong></h3>
+                                                <div class="qwick-view-right ">
+                                                    <div class="qwick-view-content">
+                                                        <h3><strong>{{ produit.labelle}}</strong></h3>
                                                         <div class="price">
                                                             <span class="new">{{ produit.prix}} Cfa</span>
                                                             <span class="old">3500 Cfa </span>
@@ -310,8 +310,11 @@
                                         </div>
                                         <div class="product-content-list">
                                             <div class="product-list-info">
-                                                <h4 class="text-white"><a href="">{{produit.labelle}}</a></h4>
-                                                <span>{{ produit.getFormatPrice() }} Fcfa</span>
+                                                <h4><a href="">{{produit.labelle}}</a></h4>
+                                                <div class="product-price">
+                                                    <span>{{ produit.getFormatPrice() }} Fcfa</span>
+                                                </div>
+
                                                 <p>{{produit.description}} </p>
                                             </div>
                                             <div class="product-list-cart-wishlist">

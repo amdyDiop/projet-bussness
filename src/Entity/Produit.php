@@ -113,15 +113,16 @@ class Produit
      */
     private $created_at;
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Boutique", mappedBy="produits")
-     */
-    private $boutiques;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Commande", mappedBy="produit")
      */
     private $commandes;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\Boutique", inversedBy="produits")
+     */
+    private $boutique;
 
     public function __construct()
     {
@@ -305,33 +306,7 @@ class Produit
         return $this;
     }
 
-    /**
-     * @return Collection|Boutique[]
-     */
-    public function getBoutiques(): Collection
-    {
-        return $this->boutiques;
-    }
 
-    public function addBoutique(Boutique $boutique): self
-    {
-        if (!$this->boutiques->contains($boutique)) {
-            $this->boutiques[] = $boutique;
-            $boutique->addProduit($this);
-        }
-
-        return $this;
-    }
-
-    public function removeBoutique(Boutique $boutique): self
-    {
-        if ($this->boutiques->contains($boutique)) {
-            $this->boutiques->removeElement($boutique);
-            $boutique->removeProduit($this);
-        }
-
-        return $this;
-    }
 
     /**
      * @return Collection|Commande[]
@@ -357,6 +332,18 @@ class Produit
             $this->commandes->removeElement($commande);
             $commande->removeProduit($this);
         }
+
+        return $this;
+    }
+
+    public function getBoutique(): ?Boutique
+    {
+        return $this->boutique;
+    }
+
+    public function setBoutique(?Boutique $boutique): self
+    {
+        $this->boutique = $boutique;
 
         return $this;
     }

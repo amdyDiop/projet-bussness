@@ -74,7 +74,7 @@ class BoutiqueRepository extends ServiceEntityRepository
     function marchand():array
     {
         return $this->createQueryBuilder('b')
-            ->where('b.id=1')
+            ->where('b.id=4')
             ->getQuery()
             ->getResult();
 

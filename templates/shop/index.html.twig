@@ -36,15 +36,23 @@
                 </div>
                         {#produit les mieux noté#}
                     <div class="sidebar-widget mb-50">
-                        <h3 class="sidebar-title">Produits les mieux notés</h3>
+                        <h3 class="sidebar-title">Top Produits</h3>
                         <div class="sidebar-top-rated-all">
+                            {% for best in best %}
                             <div class="sidebar-top-rated mb-30">
                                 <div class="single-top-rated">
                                     <div class="top-rated-img">
-                                        <a href="#"><img src="assets/img/product/sidebar-product/1.jpg" alt=""></a>
+
+                                        {% if best.filename %}
+                                            <a>
+                                                <img src="{{ vich_uploader_asset(best, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                            </a>
+                                        {% else %}
+                                            <img src="{{ asset('assets/img/product/sidebar-product/1.jpg') }}" alt="">                                        {% endif %}
+
                                     </div>
                                     <div class="top-rated-text">
-                                        <h4><a href="#">Flying Drone</a></h4>
+                                        <h4><a href="{{ path('produit_show',{id:best.id,slug:best.slug}) }}">{{best.labelle}}</a></h4>
                                         <div class="top-rated-rating">
                                             <ul>
                                                 <li><i class="reting-color ion-android-star"></i></li>
@@ -54,32 +62,11 @@
                                                 <li><i class="ion-android-star-outline"></i></li>
                                             </ul>
                                         </div>
-                                        <span>$140.00</span>
+                                        <span>{{ best.getFormatPrice() }} Fcfa</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="sidebar-top-rated mb-30">
-                                <div class="single-top-rated">
-                                    <div class="top-rated-img">
-                                        <a href="#"><img src="assets/img/product/sidebar-product/2.jpg" alt=""></a>
-                                    </div>
-                                    <div class="top-rated-text">
-                                        <h4><a href="#">Flying Drone</a></h4>
-                                        <div class="top-rated-rating">
-                                            <ul>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                            </ul>
-                                        </div>
-                                        <span>$140.00</span>
-                                    </div>
-                                </div>
-                            </div>
-
-
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
@@ -213,10 +200,7 @@
                                             </div>
                                         </div>
                                         <div class="product-cart-categori">
-                                            <div class="product-cart">
                                                 <span>{{shop.adresse}}</span>
-                                            </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -332,5 +316,8 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="pagination justify-content-center">
+        {{ knp_pagination_render(boutiques) }}
     </div>
 {% endblock %}

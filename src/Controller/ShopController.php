@@ -13,6 +13,7 @@ use App\Form\Produit1Type;
 use App\Entity\PropertySearch;
 use App\notification\ContactNotification;
 use App\Repository\BoutiqueRepository;
+use App\Repository\ProduitRepository;
 use App\Services\Cart\CartService;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -25,7 +26,7 @@ class ShopController extends AbstractController
     /**
      * @Route("/shop", name="shop")
      */
-    public function index(Request $request,PaginatorInterface $paginator ,BoutiqueRepository $repository,CartService $cartService,BoutiqueRepository $boutiqueRepository)
+    public function index(Request $request,PaginatorInterface $paginator ,  ProduitRepository $produitRepository,BoutiqueRepository $repository,CartService $cartService,BoutiqueRepository $boutiqueRepository)
     {
 
         $search = new PropertySearch();
@@ -33,7 +34,7 @@ class ShopController extends AbstractController
         $form->handleRequest($request);
         $boutique = $paginator->paginate(
             $repository->findAllBoutique($search),
-            $request->query->getInt('page',1),12);
+            $request->query->getInt('page',1),8);
         $data= $cartService->fulCart();
         $total = 0;
         foreach($data as $item)
@@ -46,7 +47,8 @@ class ShopController extends AbstractController
             'boutiques' => $boutique,
             'item' => $data,
             'total' =>$total,
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'best'=> $produitRepository->best()
 
         ]);
     }
@@ -54,7 +56,7 @@ class ShopController extends AbstractController
      * @Route("/shop/{slug}-{id}",name="shop_show",requirements={"slug": "[a-z0-9\-]*"} )
      * @return Response
      */
-    public  function  show(Boutique $boutique, string $slug, ContactNotification $notification, Request $request, CartService $cartService,BoutiqueRepository $boutiqueRepository) :Response
+    public  function  show(PaginatorInterface $paginator,Boutique $boutique, string $slug, Request $request, CartService $cartService,ProduitRepository $produitRepository) :Response
     {
         if ($boutique->getSlug() !==$slug)
         {
@@ -63,6 +65,14 @@ class ShopController extends AbstractController
                 'slug' => $boutique->getSlug()
             ],301);
         }
+
+        $search = new PropertySearch();
+        $form = $this->createForm(PropertySeachType::class,$search);
+        $form->handleRequest($request);
+        $produit = $paginator->paginate(
+            $produitRepository->findAllProduit($search),
+            $request->query->getInt('page',1),8);
+
         $data= $cartService->fulCart();
         $total = 0;
         foreach($data as $item)
@@ -72,9 +82,12 @@ class ShopController extends AbstractController
         }
         return  $this->render('shop/show.html.twig',[
             'boutiques' => $boutique,
+            'prosuit'=>$produit,
             'produits' =>$boutique->getProduits(),
             'item' => $data,
-            'total' =>$total
+            'total' =>$total,
+            'form'=>$form->createView(),
+
         ]);
 
 

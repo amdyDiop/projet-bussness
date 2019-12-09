@@ -4,75 +4,65 @@
     {{ form_widget(form) }}
     <button class="btn">{{ button_label|default('Save') }}</button>
 {{ form_end(form) }}#}
-<div class="checkout-area ptb-100 text-white">
+
+
+<div class="checkout-area ptb-100 t">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-12">
-                <form action="#">
+                {{ form_start(form) }}
                     <div class="checkbox-form">
-                        <h3 >Créer un Nouveau Produit </h3>
+                        <h3>MOdifier {{ produit.labelle }} </h3>
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label class="text-white">Nom Produit <span class="required">*</span></label>
-                                    <input type="text" placeholder="" />
+                                   {{ form_row(form.labelle) }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label class="text-white">Prix <span class="required">*</span></label>
-                                    <input type="text" placeholder="" />
+                                    {{ form_row(form.prix) }}
                                 </div>
                             </div>
 
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label  class="text-white">Tva <span class="required">*</span></label>
-                                    <input type="text"/>
+                                    {{ form_row(form.tva) }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label  class="text-white">Sku Produit <span class="required">*</span></label>
-                                    <input type="text"/>
+                                    {{ form_row(form.stockinit) }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label class="text-white">Stock <span class="required"></span></label>
-                                    <input type="text" />
+                                    {{ form_row(form.poids) }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label class="text-white">Poids <span class="required">*</span></label>
-                                    <input type="number" />
+                                    {{ form_row(form.description) }}
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="checkout-form-list">
-                                    <label class="text-white">Description  <span class="required">*</span></label>
-                                    <input type="text" />
+                                    {{ form_row(form.imageFile) }}
                                 </div>
                             </div>
-                            <div class="col-md-6">
-                                <div class="checkout-form-list">
-                                    <label class="text-white">Images Produit  <span class="required">*</span></label>
-                                    <input type="file" />
-                                </div>
-                            </div>
+
                             <div class="col-md-2">
                                 <div class="checkout-form-list">
+                                    {{ form_widget(form) }}
+                                    <input type="submit"  value="Modifier"/>
 
-                                    <input type="submit"  value="Ajouter"/>
+                                    {{ form_end(form, {'render_rest': false}) }}
                                 </div>
                             </div>
+
                         </div>
-
                     </div>
-                </form>
             </div>
-
         </div>
     </div>
 </div>

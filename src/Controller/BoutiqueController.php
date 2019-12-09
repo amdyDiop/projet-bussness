@@ -6,6 +6,7 @@ use App\Entity\Boutique;
 use App\Form\BoutiqueType;
 use App\Repository\BoutiqueRepository;
 use App\Services\Cart\CartService;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -19,9 +20,11 @@ class BoutiqueController extends AbstractController
     /**
      * @Route("/", name="boutique_index", methods={"GET"})
      */
-    public function index(BoutiqueRepository $boutiqueRepository,CartService $cartService): Response
+    public function index(BoutiqueRepository $boutiqueRepository,Request $request,CartService $cartService,PaginatorInterface $pagination): Response
     {
-
+        $boutiquePag  = $pagination->paginate(
+            $boutiqueRepository->findAll(),
+            $request->query->getInt('page',1),8);
         $data= $cartService->fulCart();
 
         $total = 0;
@@ -34,6 +37,7 @@ class BoutiqueController extends AbstractController
         return $this->render('admin/boutique/index.html.twig', [
             'boutiques' => $boutiqueRepository->findAll(),
             'item' => $data,
+            'boutiquePag'=>$boutiquePag,
             'total' =>$total
         ]);
     }

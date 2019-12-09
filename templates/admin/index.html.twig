@@ -47,7 +47,7 @@
 
                         <div class="info-box-content">
                             <span class="info-box-text">Vente</span>
-                            <span class="info-box-number">34</span>
+                            <span class="info-box-number">{{vente}}</span>
                         </div>
                         <!-- /.info-box-content -->
                     </div>
@@ -215,7 +215,7 @@
                                     <h3 class="box-title">Dernier membre</h3>
 
                                     <div class="box-tools pull-right">
-                                        <span class="label label-danger">4 Nouveaux Utilisateurs</span>
+                                        <span class="label label-danger"></span>
                                         <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
                                         </button>
                                         <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
@@ -265,26 +265,23 @@
                                 <table class="table no-margin">
                                     <thead>
                                     <tr>
-                                        <th> Image</th>
-                                        <th>Produit</th>
+                                        <th> numéro Commnande</th>
+                                        <th>Date Commande</th>
                                         <th>Status</th>
 
                                     </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody >
 
+                                    {% for commande in commande  %}
+                                        <tr>
+                                            <td>{{ commande.id }}</td>
+                                            <td>{{ commande.dateCommande|date('d-m-y h:i') }}</td>
+                                            <td><span class="label label-warning">{{commande.livrer}}</span></td>
 
-                                    <tr>
-                                        <td>  <img src="{{ asset('images/properties/5ddc2a92c4f9c718726062.jpg')|imagine_filter('card') }}" alt=""></td>
-                                        <td>ratione ducimus et</td>
-                                        <td><span class="label label-warning">En attente</span></td>
+                                        </tr>
+                                    {% endfor %}
 
-                                    </tr>
-                                    <tr>
-                                        <td>  <img src="{{ asset('images/properties/5ddc09d28eb27581121440.jpg')|imagine_filter('card') }}" alt=""></td>
-                                        <td>ullam vero iure</td>
-                                        <td><span class="label label-danger">Livré</span></td>
-                                    </tr>
                                     </tbody>
                                 </table>
                             </div>

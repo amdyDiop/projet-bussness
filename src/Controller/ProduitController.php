@@ -49,9 +49,8 @@ class ProduitController extends AbstractController
         }
         $produitfilter = $pagination->paginate(
             $produitRepository->findAll(),
-            $request->query->getInt('page',1),
-            20
-        );
+            $request->query->getInt('page',1),12);
+
         return $this->render('admin/produit/index.html.twig', [
             'produits' => $produitRepository->findAll(),
             'produit' => $produitfilter,
@@ -111,9 +110,10 @@ class ProduitController extends AbstractController
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($produit);
             $produit->setCreatedAt(new \ DateTime());
-            $produit->addBoutique($boutique);
+            $produit->setBoutique($boutique);
+            $produit->setStock($produit->getStockinit());
             $entityManager->flush();
-            return $this->redirectToRoute('produit_index');
+            return $this->redirectToRoute('shop');
         }
 
         $data= $cartService->fulCart();
@@ -168,10 +168,10 @@ class ProduitController extends AbstractController
         $total = 0;
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
-
-
+           // $this->addFlash('success', 'votre produit a été modifié avec succès');
             return $this->redirectToRoute('shop');
         }
+
 
         return $this->render('admin/produit/edit.html.twig', [
             'produit' => $produit,

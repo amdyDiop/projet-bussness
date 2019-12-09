@@ -24,7 +24,14 @@
             <tbody>
             {% for boutique in boutiques %}
                 <tr style="font-family: Arial,monospace">
-                    <td>images</td>
+                    <td>
+                        {% if boutique.filename %}
+                            <img src="{{ vich_uploader_asset(boutique, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:60%; height:auto;" >
+                        {% else %}
+                            <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                        {% endif %}
+
+                    </td>
                     <td>{{ boutique.nomBoutique }}</td>
                     <td>{{ boutique.email}}</td>
                     <td>{{ boutique.numeroCompte }}</td>
@@ -35,7 +42,7 @@
 
                         <a title="modifier"   href="{{ path('boutique_edit', {'id': boutique.id}) }}" ><strong><button><i class="ion-edit"></i></button></strong></a>
 
-                        <form method="post" action="{{ path('boutique_delete', {'id': boutique.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+                        <form method="post" action="{{ path('boutique_delete', {'id': boutique.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément?');">
                             <input type="hidden" name="_method" value="DELETE">
                             <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ boutique.id) }}">
                             <button><i class="ion-ios-trash-outline"></i></button>
@@ -64,6 +71,8 @@
             <table data-fn="contacts" data-url="https://codepen.io/nakome/pen/DnEvr.js"></table>
         </div>
 
-
+        <div class="pagination justify-content-center ">
+            {{ knp_pagination_render(boutiquePag) }}
+        </div>
 
 {% endblock %}

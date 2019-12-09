@@ -2,9 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="912d8055-e6c0-4302-abeb-9bfb39177f1a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Migrations/Version20191209130034.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/adminProduitEdit.html.twig" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/admin/adminProduitForm.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProduitsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitsController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/liip_imagine.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5de14680026bd435952511.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5de14683591a1233651709.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5de2906252323554921187.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5de7f9a1dd76f714079337.jfif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/images/properties/5dea42d879212386227517.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/AdminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/AdminController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/BoutiqueController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/BoutiqueController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/CartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/CartController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/FinaliserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/FinaliserController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ProduitController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ProduitController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ShopController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ShopController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/ProduitsFixture.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Boutique.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Boutique.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Commande.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/Produit.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Produit.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/Produit1Type.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/Produit1Type.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/BoutiqueRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/BoutiqueRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Repository/ProduitRepository.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/baseAdmin.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/baseAdmin.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/boutique/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/boutique/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/boutique/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/boutique/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/produit/_form.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/produit/_form.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/produit/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/produit/edit.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/produit/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/produit/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/produit/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/produit/new.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/admin/produit/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/admin/produit/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/finaliserComande/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/finaliserComande/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/home/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/home/home.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/produits/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produits/index.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/produits/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/produits/show.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/shop/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/shop/show.html.twig" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -214,7 +251,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/Edit As Language" value="MySQL" />
     <property name="com.jetbrains.php.lang.actions.generation.PhpGenerateFieldAccessorHandlerBase$MyMemberChooser.fluent.setters.last.selected" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/public/StyleCv/img" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../fos_user" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -227,19 +264,19 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleCv\img" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleCv\cssamdy et sydu" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleCv" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin\login" />
-      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\src\Form" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\admin" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\Cv" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\produits" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates" />
       <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\templates\base" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleCv\img" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleCv\cssamdy et sydu" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\StyleCv" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\public\admin\login" />
+      <recent name="C:\Users\amdym\OneDrive\Documents\codes\symfony\reprise\src\Form" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -329,7 +366,8 @@
       <workItem from="1575368345639" duration="24055000" />
       <workItem from="1575450580497" duration="35720000" />
       <workItem from="1575632525088" duration="30631000" />
-      <workItem from="1575719049208" duration="31713000" />
+      <workItem from="1575719049208" duration="43563000" />
+      <workItem from="1575810228239" duration="52891000" />
     </task>
     <servers />
   </component>
@@ -353,9 +391,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/templates/admin/produit/_form.html.twig</url>
-          <line>2</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/templates/finaliserComande/index.html.twig</url>
+          <line>33</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

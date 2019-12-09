@@ -169,7 +169,7 @@ class Commande
     /**
      * @return Collection|User[]
      */
-    public function getUsers(): Collection
+    public function getUsers()
     {
         return $this->users;
     }

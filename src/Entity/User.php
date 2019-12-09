@@ -149,11 +149,6 @@ class User extends BaseUser
     private $active;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="clients")
-     */
-    private $commande;
-
-    /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="users")
      */
     private $commandes;
@@ -236,17 +231,6 @@ class User extends BaseUser
         return $this;
     }
 
-    public function getCommande(): ?Commande
-    {
-        return $this->commande;
-    }
-
-    public function setCommande(?Commande $commande): self
-    {
-        $this->commande = $commande;
-
-        return $this;
-    }
 
     public function getCommandes(): ?Commande
     {

@@ -35,6 +35,7 @@ class ProduitRepository extends ServiceEntityRepository
         {
             $query= $query
                 ->andWhere('p.prix <= :maxPrice')
+                ->orderBy('p.id', 'DESC')
                 ->setParameter('maxPrice',$search->getMaxPrice());
         }
 
@@ -44,6 +45,7 @@ class ProduitRepository extends ServiceEntityRepository
                 ->andWhere('p.sku = :nom')
                 ->setParameter('nom',$search->getNom());
         }**/
+
         return $query->getQuery();
 
     }
@@ -51,7 +53,7 @@ class ProduitRepository extends ServiceEntityRepository
     {
         return  $this->findAllProduitVisible()
             ->orderBy('p.id', 'DESC')
-            ->setMaxResults(16)
+            ->setMaxResults(8)
             ->getQuery()
             ->getResult();
 
@@ -61,7 +63,8 @@ class ProduitRepository extends ServiceEntityRepository
     private  function findAllProduitVisible():QueryBuilder
     {
         return $this->createQueryBuilder('p')
-            ->Where('p.visible = true');
+            ->Where('p.visible = true')
+        ->orderBy('p.id', 'DESC');
     }
 
 
@@ -93,7 +96,7 @@ class ProduitRepository extends ServiceEntityRepository
     {
 
         return $this->createQueryBuilder('p')
-            ->andwhere('p.id = 200')
+            ->andwhere('p.id = 237')
             ->getQuery()
             ->getResult();
     }
@@ -102,7 +105,7 @@ class ProduitRepository extends ServiceEntityRepository
     {
 
         return $this->createQueryBuilder('p')
-            ->andwhere('p.id = 201')
+            ->andwhere('p.id = 239')
 
             ->getQuery()
             ->getResult();

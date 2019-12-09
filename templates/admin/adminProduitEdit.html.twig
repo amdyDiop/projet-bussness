@@ -1,0 +1,8 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block title %}Modification  Produit{% endblock %}
+
+{% block contenue %}
+    <h1 class="description">Modifier {{ produit.labelle }}</h1>
+    {{ include('admin/adminProduitForm.html.twig', {'button_label': 'Update'}) }}
+{% endblock %}
