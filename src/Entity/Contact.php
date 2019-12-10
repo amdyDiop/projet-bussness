@@ -52,12 +52,6 @@ class  Contact {
      */
     private  $message;
 
-
-    /**
-     * @var Produit|null
-     */
-    private  $produit;
-
     /**
      * @return string|null
      */
@@ -145,24 +139,6 @@ class  Contact {
     public function setMessage(?string $message): Contact
     {
         $this->message = $message;
-        return $this;
-    }
-
-    /**
-     * @return Produit|null
-     */
-    public function getProduit(): ?Produit
-    {
-        return $this->produit;
-    }
-
-    /**
-     * @param Produit|null $produit
-     * @return Contact
-     */
-    public function setProduit(?Produit $produit): Contact
-    {
-        $this->produit = $produit;
         return $this;
     }
 

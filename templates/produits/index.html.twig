@@ -27,31 +27,31 @@
                     <div class="sidebar-widget mb-50">
                         <h3 class="sidebar-title">Produits les mieux notés</h3>
                         <div class="sidebar-top-rated-all">
-                                {% for best in best %}
-                            <div class="sidebar-top-rated mb-30">
-                                <div class="single-top-rated">
-                                    <div class="top-rated-img">
-                                        {% if best.filename %}
-                                            <a href="{{ path('produit_show',{id:best.id,slug:best.slug}) }}"> <img src="{{ vich_uploader_asset(best, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" ></a>
-                                        {% else %}
-                                        <a href="#"><img src="{{ asset('assets/img/product/list-img/1.jpg') }}" alt=""></a>
-                                        {% endif %}
-                                    </div>
-                                    <div class="top-rated-text">
-                                        <h4><a href="#">{{best.labelle}}</a></h4>
-                                        <div class="top-rated-rating">
-                                            <ul>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="reting-color ion-android-star"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                                <li><i class="ion-android-star-outline"></i></li>
-                                            </ul>
+                            {% for best in best %}
+                                <div class="sidebar-top-rated mb-30">
+                                    <div class="single-top-rated">
+                                        <div class="top-rated-img">
+                                            {% if best.filename %}
+                                                <a href="{{ path('produit_show',{id:best.id,slug:best.slug}) }}"> <img src="{{ vich_uploader_asset(best, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" ></a>
+                                            {% else %}
+                                                <a href="#"><img src="{{ asset('assets/img/product/list-img/1.jpg') }}" alt=""></a>
+                                            {% endif %}
                                         </div>
-                                        <span>{{best.getFormatPrice()}} Fca</span>
+                                        <div class="top-rated-text">
+                                            <h4><a href="#">{{best.labelle}}</a></h4>
+                                            <div class="top-rated-rating">
+                                                <ul>
+                                                    <li><i class="reting-color ion-android-star"></i></li>
+                                                    <li><i class="reting-color ion-android-star"></i></li>
+                                                    <li><i class="ion-android-star-outline"></i></li>
+                                                    <li><i class="ion-android-star-outline"></i></li>
+                                                    <li><i class="ion-android-star-outline"></i></li>
+                                                </ul>
+                                            </div>
+                                            <span>{{best.getFormatPrice()}} Fca</span>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
                             {% endfor %}
 
                         </div>
@@ -89,74 +89,75 @@
                             {# miniature de tout les produit #}
                             {% for produit in produits %}
                                 {% if produit != null %}
-                                {#fenetre modal#}
-                                <div class="modal fade" id="modalProduit{{ produit.id }}" tabindex="-1" role="dialog" aria-hidden="true">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span class="ion-android-close" aria-hidden="true"></span>
-                                    </button>
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-body">
-                                                <div class="qwick-view-left">
-                                                    <div class="quick-view-learg-img">
-                                                        <div class="quick-view-tab-content tab-content">
-                                                            <div class="tab-pane active show fade" id="modal1" role="tabpanel">
-                                                                {% if produit.filename %}
-                                                                    <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
-                                                                {% else %}
+                                    {#fenetre modal#}
+                                    <div class="modal fade" id="modalProduit{{ produit.id }}" tabindex="-1" role="dialog" aria-hidden="true">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span class="ion-android-close" aria-hidden="true"></span>
+                                        </button>
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-body">
+                                                    <div class="qwick-view-left">
+                                                        <div class="quick-view-learg-img">
+                                                            <div class="quick-view-tab-content tab-content">
+                                                                <div class="tab-pane active show fade" id="modal1" role="tabpanel">
+                                                                    {% if produit.filename %}
+                                                                        <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                                                    {% else %}
+                                                                        <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                                                                    {% endif %}
+                                                                </div>
+                                                                <div class="tab-pane fade" id="modal2" role="tabpanel">
+                                                                    <img src="{{ asset('assets/img/quick-view/l2.jpg') }}" alt="">
+                                                                </div>
+                                                                <div class="tab-pane fade" id="modal3" role="tabpanel">
                                                                     <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
-                                                                {% endif %}
+                                                                </div>
                                                             </div>
-                                                            <div class="tab-pane fade" id="modal2" role="tabpanel">
-                                                                <img src="{{ asset('assets/img/quick-view/l2.jpg') }}" alt="">
-                                                            </div>
-                                                            <div class="tab-pane fade" id="modal3" role="tabpanel">
-                                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
-                                                            </div>
+                                                        </div>
+                                                        <div class="quick-view-list nav" role=tablist>
+                                                            <a class="active" href="#modal1" data-toggle="tab" role="tab" aria-selected="true">
+                                                                <img src="{{ asset('assets/img/quick-view/s1.jpg') }}" alt="">
+                                                            </a>
+                                                            <a href="#modal2" data-toggle="tab" role="tab" aria-selected="false">
+                                                                <img src="{{ asset('assets/img/quick-view/s2.jpg') }}" alt="">
+                                                            </a>
+                                                            <a href="#modal3" data-toggle="tab" role="tab" aria-selected="false">
+                                                                <img src="{{ asset('assets/img/quick-view/s3.jpg') }}" alt="">
+                                                            </a>
                                                         </div>
                                                     </div>
-                                                    <div class="quick-view-list nav" role=tablist>
-                                                        <a class="active" href="#modal1" data-toggle="tab" role="tab" aria-selected="true">
-                                                            <img src="{{ asset('assets/img/quick-view/s1.jpg') }}" alt="">
-                                                        </a>
-                                                        <a href="#modal2" data-toggle="tab" role="tab" aria-selected="false">
-                                                            <img src="{{ asset('assets/img/quick-view/s2.jpg') }}" alt="">
-                                                        </a>
-                                                        <a href="#modal3" data-toggle="tab" role="tab" aria-selected="false">
-                                                            <img src="{{ asset('assets/img/quick-view/s3.jpg') }}" alt="">
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                <div class="qwick-view-right">
-                                                    <div class="qwick-view-content text-white">
-                                                        <h3 class=><strong>{{ produit.labelle}}</strong></h3>
-                                                        <div class="price">
-                                                            <span class="new">{{ produit.prix}} Cfa</span>
-                                                            <span class="old">3500 Cfa </span>
-                                                        </div>
-                                                        <div class="rating-number">
-                                                            <div class="quick-view-rating">
-                                                                <i class="ion-ios-star red-star"></i>
-                                                                <i class="ion-ios-star red-star"></i>
-                                                                <i class="ion-android-star-outline"></i>
-                                                                <i class="ion-android-star-outline"></i>
-                                                                <i class="ion-android-star-outline"></i>
+                                                    <div class="qwick-view-right">
+                                                        <div class="qwick-view-content text-white">
+                                                            <h3 class=><strong>{{ produit.labelle}}</strong></h3>
+                                                            <div class="price">
+                                                                <span class="new">{{ produit.prix}} Cfa</span>
+                                                                <span class="old">3500 Cfa </span>
                                                             </div>
-                                                            <div class="quick-view-number">
-                                                                <span>2 Ratting (S)</span>
+                                                            <div class="rating-number">
+                                                                <div class="quick-view-rating">
+                                                                    <i class="ion-ios-star red-star"></i>
+                                                                    <i class="ion-ios-star red-star"></i>
+                                                                    <i class="ion-android-star-outline"></i>
+                                                                    <i class="ion-android-star-outline"></i>
+                                                                    <i class="ion-android-star-outline"></i>
+                                                                </div>
+                                                                <div class="quick-view-number">
+                                                                    <span>2 Ratting (S)</span>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <p> {{ produit.description }} .</p>
-                                                        <div class="quickview-plus-minus">
+                                                            <p> {{ produit.description }} .</p>
+                                                            <div class="quickview-plus-minus">
 
-                                                            <div class="quickview-btn-cart">
-                                                                <a class="btn-hover-black" href="{{ path('cart_index') }}"> Voir Panier</a>
-                                                            </div>
-                                                            <div class="quickview-btn-cart">
-                                                                <a class="btn-hover-black" href="{{ path ('produit_show',{ id:produit.id, slug:produit.slug} ) }} ">Voir Produit</a>
-                                                            </div>
-                                                            <div class="quickview-btn-wishlist">
-                                                                <a class="btn-hover" href="#"><i class="ion-ios-heart-outline"></i></a>
+                                                                <div class="quickview-btn-cart">
+                                                                    <a class="btn-hover-black" href="{{ path('cart_index') }}"> Voir Panier</a>
+                                                                </div>
+                                                                <div class="quickview-btn-cart">
+                                                                    <a class="btn-hover-black" href="{{ path ('produit_show',{ id:produit.id, slug:produit.slug} ) }} ">Voir Produit</a>
+                                                                </div>
+                                                                <div class="quickview-btn-wishlist">
+                                                                    <a class="btn-hover" href="#"><i class="ion-ios-heart-outline"></i></a>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -164,41 +165,40 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                {# fin fenetre modal#}
+                                    {# fin fenetre modal#}
 
                                     <div class="custom-col-5 custom-col-style">
-                                    <div class="single-product mb-35">
-                                        <div class="product-img">
-                                            {% if produit.filename %}
-                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
-                                            {% else %}
-                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
-                                            {% endif %}                                        <div class="product-action">
-                                                <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
-                                                <a title="Quick View" data-toggle="modal" data-target="#modalProduit{{ produit.id }}" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
-                                            </div>
-                                        </div>
-                                        <div class="product-content">
-                                            <div class="product-title-price">
-                                                <div class="product-title">
-                                                    <h4><a href="{{ path ('produit_show',{ id: produit.id, slug: produit.slug} ) }} " > <strong>{{ produit.labelle }} </strong></a></h4>
-                                                </div>
-                                                <div class="product-price">
-                                                    <span>{{ produit.formatPrice() }} Cfa </span>
+                                        <div class="single-product mb-35">
+                                            <div class="product-img">
+                                                {% if produit.filename %}
+                                                    <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                                {% else %}
+                                                    <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
+                                                {% endif %}                                        <div class="product-action">
+                                                    <a title="Wishlist" class="animate-left" href="#"><i class="ion-ios-heart-outline"></i></a>
+                                                    <a title="Quick View" data-toggle="modal" data-target="#modalProduit{{ produit.id }}" class="animate-right" href="#"><i class="ion-ios-eye-outline"></i></a>
                                                 </div>
                                             </div>
-                                            <div class="product-cart-categori">
-                                                <div class="product-cart">
-                                                    <span></span>
+                                            <div class="product-content">
+                                                <div class="product-title-price">
+                                                    <div class="product-title">
+                                                        <h4><a href="{{ path ('produit_show',{ id: produit.id, slug: produit.slug} ) }} " > <strong>{{ produit.labelle }} </strong></a></h4>
+                                                    </div>
+                                                    <div class="product-price">
+                                                        <span>{{ produit.formatPrice() }} Cfa </span>
+                                                    </div>
                                                 </div>
-                                                <div class="product-categori">
-                                                    <a href="{{ path('cart_add',{id:produit.id}) }}"><i class="ion-bag"></i><strong> ajouter au panier</strong></a>
+                                                <div class="product-cart-categori">
+                                                    <div class="product-cart">
+                                                        <span></span>
+                                                    </div>
+                                                    <div class="product-categori">
+                                                        <a href="{{ path('cart_add',{id:produit.id}) }}"><i class="ion-bag"></i><strong> ajouter au panier</strong></a>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
                                 {% else %}
                                     <div id="notfound">
                                         <div class="notfound">
@@ -325,7 +325,6 @@
                                                     <a class="btn-hover list-btn-wishlist" href="#"><i class="ion-ios-heart-outline"></i></a>
                                                 </div>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -337,8 +336,7 @@
             </div>
         </div>
     </div>
-      <div class="pagination justify-content-center ">
+    <div class="pagination justify-content-center ">
         {{ knp_pagination_render(produits) }}
-      </div>
-
+    </div>
 {% endblock  %}

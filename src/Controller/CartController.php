@@ -44,8 +44,18 @@ class CartController extends AbstractController
         $total = 0;
         foreach($data as $item)
         {
-            $totalItem = $item['produit']->getPrix()*$item['quantity'];
-            $total += $totalItem;
+            if($item['produit']->getPrix=0)
+            {
+                $totalItem = 0;
+                $total += $totalItem;
+            }
+
+            else
+            {
+                $totalItem = $item['produit']->getPrix()*$item['quantity'];
+                $total += $totalItem;
+            }
+
 
         }
 

@@ -79,7 +79,14 @@
                         <!-- /.box-header -->
                         <div class="box-body no-padding">
 
-                            <!-- /.row -->
+                            {% for message in app.flashes('succes') %}
+                                <div class="alert alert-success">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+
+                            {#  contenue du block contenue fiii lay affiché  baye fall bi #}
+
                         </div>
                         <!-- /.box-body -->
                     </div>

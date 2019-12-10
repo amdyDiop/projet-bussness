@@ -16,34 +16,69 @@ class BoutiqueType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nomBoutique',TextType::class,array(
-                'label'=> 'Boutique'
-            ))
-            ->add('ville',TextType::class,array(
-                'label'=> 'ville'
-            ))
-            ->add('nom',TextType::class,array(
-                'label'=> 'nom'
-            ))
-            ->add('prenom',TextType::class,array(
-                'label'=> 'prenom'
-            ))
-            ->add('email',TextType::class,array(
-                'label'=> 'email'
-            ))
-            ->add('password',TextType::class,array(
-                'label'=> 'mot de passe'
-            ))
-            ->add('numeroCompte',TextType::class,array(
-                'label'=> 'numéro compte'
-            ))
-            ->add('adresse',TextType::class,array(
-                'label'=> 'adresse '
-            ))
-            ->add('description',TextareaType::class,
-                array(
-                'label'=> 'déscription'
-            ))
+            ->add('nomBoutique',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Nom du de la boutique'
+                ]
+            ])
+            ->add('ville',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Ville'
+                ]
+            ])
+            ->add('nom',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Votre Nom '
+                ]
+            ])
+            ->add('prenom',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Prénom'
+                ]
+            ])
+            ->add('email',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Votre Prenom'
+                ]
+            ])
+            ->add('password',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Mot de Passe'
+                ]
+            ])
+            ->add('numeroCompte',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Numéro Compte '
+                ]
+            ])
+            ->add('adresse',TextType::class,[
+                'required' => true,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Adresse'
+                ]
+            ])
+            ->add('description',TextareaType::class,[
+                'required' => false,
+                'label' => false,
+                'attr' => [
+                    'placeholder' =>'Description de la boutique'
+                ]
+            ])
             ->add('imageFile',FileType::class,[
                 'required' => false
             ])

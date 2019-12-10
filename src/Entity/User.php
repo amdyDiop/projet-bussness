@@ -5,6 +5,8 @@ namespace App\Entity;
 
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 
 /**
  * @ORM\Entity
@@ -96,10 +98,12 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank()
      */
     private $prenom;
 
     /**
+     * @Assert\NotBlank()
      * @ORM\Column(type="string", length=50)
      */
     private $nom;
@@ -124,11 +128,13 @@ class User extends BaseUser
 
     /**
      * @ORM\Column(type="string", length=70)
+     * @Assert\NotBlank()
      */
     private $addresse;
 
     /**
      * @ORM\Column(type="string", length=50)
+     * @Assert\NotBlank()
      */
     private $ville;
 
@@ -139,7 +145,9 @@ class User extends BaseUser
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=14)
+     * @ORM\Column(type="string", length=9)
+     * @Assert\NotBlank()
+     * @Assert\Regex(pattern="/[0-9]{9}/")
      */
     private $telephone;
 

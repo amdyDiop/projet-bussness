@@ -84,7 +84,7 @@
 
                                         </ul>
                                     </li-->
-                                    <li><a href="#">contact</a></li>
+                                    <li><a href="{{ path('contact') }}">contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -93,7 +93,7 @@
                         <div class="header-search-cart">
                             <div class="header-cart common-style">
                                 <button class="sidebar-trigger">
-                                    <span class="ion-bag"></span>
+                                   <strong> <i class="icon-shopping-cart"></i></strong>
                                 </button>
                             </div>
                             <div class="header-sidebar common-style">
@@ -114,7 +114,7 @@
                                        ul class="dropdown">
                                        </ul>
                                    </li-->
-                                    <li><a href="#">contact</a></li>
+                                    <li><a href="{{ path('contact') }}">contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -204,76 +204,6 @@
 
             {% block body %}{% endblock %}
 
-       <link rel="stylesheet" href="{{asset('Style/pages/css/bootstrap.min.css')}}">
-        <!-- all js here -->
-       <script src="{{ asset('Style/pages/js/jquery-3.3.1.min.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/jquery-migrate-3.0.1.min.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/jquery-ui.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/popper.min.js') }}"></script>
-       <script src="{{asset('Style/pages/js/bootstrap.min.js')}}"></script>
-       <script src="{{ asset('Style/pages/js/owl.carousel.min.js') }}"></script>
-       <script src="{{asset('Style/pages/js/jquery.stellar.min.js')}}"></script>
-       <script src="{{ asset('Style/pages/js/jquery.countdown.min.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/bootstrap-datepicker.min.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/jquery.easing.1.3.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/aos.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/jquery.fancybox.min.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/jquery.sticky.js') }}"></script>
-       <script src="{{ asset('Style/pages/js/main.js') }}"></script>
-
-{##  nhena style#}
-       <script src="{{ asset('assets/js/vendor/jquery-1.12.0.min.js') }}"> </script>
-       <script src="{{ asset('assets/js/popper.js') }}"></script>
-       <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-       <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
-       <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
-       <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
-       <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
-       <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
-       <script src="{{ asset('assets/js/slinky.min.js') }}"></script>
-       <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-       <script src="{{ asset('assets/js/plugins.js') }}"></script>
-       <script src="{{ asset('assets/js/main.js') }}"></script>
-        <script src="{{ asset('assets/js/instafeed.js') }}"></script>
-
-
-        <script src="{{ asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
-        <!-- Bootstrap 3.3.7 -->
-        <script src="{{ asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
-        <!-- FastClick -->
-        <script src="{{ asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
-        <!-- AdminLTE App -->
-        <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
-        <!-- Sparkline -->
-        <script src="{{ asset('admin/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
-        <!-- jvectormap  -->
-        <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
-        <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
-        <!-- SlimScroll -->
-        <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
-        <!-- ChartJS -->
-        <script src="{{ asset('admin/bower_components/chart.js/Chart.js') }}"></script>
-        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-        <script src="{{ asset('admin/dist/js/pages/dashboard2.js') }}"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
-
-        <link rel="stylesheet"
-              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-
-         <script type="text/javascript">
-           // grab an element
-           var myElement = document.querySelector(".intelligent-header");
-           // construct an instance of Headroom, passing the element
-           var headroom  = new Headroom(myElement);
-           // initialise
-           headroom.init();
-         </script>
-          <script src="{{ asset('assets/js/main.js') }}"></script>
-
-            {% block javascripts %}
-
-            {% endblock %}
     </div>
      <footer class="footer-area gray-bg pt-100 pb-95">
          <div class="container">
@@ -314,10 +244,10 @@
                      <div class="footer-widget f-right">
                          <div class="footer-widget-r-content">
                              <ul>
-                                 <li><span>Téléphone :</span> 7777942204</li>
-                                 <li><span>Email : </span> <a href="#">amdy.diop@univ-thies.sn</a></li>
-                                 <li><span>Téléphone :</span> 771543457</li>
-                                 <li><span>Email : </span> <a href="#">baseydou95@gmail.com</a></li>
+                                 <li><span>Téléphone :</span> </li>
+                                 7777942204 / 771543457
+                                 <li><span>Email : </span></li>
+                                 amdy.diop@univ-thies.sn / baseydou95@gmail.com
                                  <li><span>Address :</span> Thies Sapco</li>
                              </ul>
                          </div>
@@ -326,5 +256,72 @@
              </div>
          </div>
      </footer>
+        <!-- all js here -->
+       <script src="{{ asset('Style/pages/js/jquery-3.3.1.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery-migrate-3.0.1.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery-ui.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/popper.min.js') }}"></script>
+       <script src="{{asset('Style/pages/js/bootstrap.min.js')}}"></script>
+       <script src="{{ asset('Style/pages/js/owl.carousel.min.js') }}"></script>
+       <script src="{{asset('Style/pages/js/jquery.stellar.min.js')}}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.countdown.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/bootstrap-datepicker.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.easing.1.3.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/aos.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.fancybox.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.sticky.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/main.js') }}"></script>
+
+{##  nhena style#}
+       <script src="{{ asset('assets/js/vendor/jquery-1.12.0.min.js') }}"> </script>
+       <script src="{{ asset('assets/js/popper.js') }}"></script>
+       <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+       <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+       <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+       <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+       <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+       <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
+       <script src="{{ asset('assets/js/slinky.min.js') }}"></script>
+       <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+       <script src="{{ asset('assets/js/plugins.js') }}"></script>
+       <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script src="{{ asset('assets/js/instafeed.js') }}"></script>
+
+
+        <!-- Bootstrap 3.3.7 -->
+        <!-- FastClick -->
+        <script src="{{ asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
+        <!-- Sparkline -->
+        <script src="{{ asset('admin/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+        <!-- jvectormap  -->
+        <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+        <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+        <!-- SlimScroll -->
+        <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+        <!-- ChartJS -->
+        <script src="{{ asset('admin/bower_components/chart.js/Chart.js') }}"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="{{ asset('admin/dist/js/pages/dashboard2.js') }}"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
+
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+         <script type="text/javascript">
+           // grab an element
+           var myElement = document.querySelector(".intelligent-header");
+           // construct an instance of Headroom, passing the element
+           var headroom  = new Headroom(myElement);
+           // initialise
+           headroom.init();
+         </script>
+          <script src="{{ asset('assets/js/main.js') }}"></script>
+
+            {% block javascripts %}
+
+            {% endblock %}
       </body>
 </html>

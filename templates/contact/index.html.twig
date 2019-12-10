@@ -1,0 +1,107 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nous Contacter{% endblock %}
+
+{% block body %}
+    <div class="breadcrumb-area pt-205 pb-210" style="background-image: url(assets/img/bg/breadcrumb.jpg)">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <h2>contact</h2>
+                <ul>
+                    <li><a href="#">home</a></li>
+                    <li> contact </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    {% for message in app.flashes('succes') %}
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+    <!-- contact-area start -->
+    <div class="contact-area ptb-100">
+        <div class="container">
+            <div class="contact-info">
+                <h2 class="contact-title">informations de contact</h2>
+                <div class="row">
+                    <div class="col-lg-3 col-md-12 col-12">
+                        <div class="single-contact-info mb-40">
+                            <div class="contact-info-icon">
+                                <i class="ion-ios-location-outline"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <p>
+                                    Localisation : <br>  Sapco, Thiés.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-12">
+                        <div class="single-contact-info mb-40">
+                            <div class="contact-info-icon">
+                                <i class="ion-ios-telephone-outline"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <p>
+                                    Téléphone  : <br> +221 777794204 / 771543457
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-6 col-12">
+                        <div class="single-contact-info mb-40">
+                            <div class="contact-info-icon">
+                                <i class="ion-ios-email-outline"></i>
+                            </div>
+                            <div class="contact-info-content">
+                                <p>E-mail : amdy.diop@univ-thies.sn / baseydou95@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form-wrap">
+                <h2 class="contact-title">entrer en contact</h2>
+                <div class="contact-message">
+                    {{ form_start(form) }}
+
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <div class="contact-form-style contact-font-one">
+                                    {{ form_row(form.firstname) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form-style contact-font-two">
+                                    {{ form_row(form.lastname) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form-style contact-font-three">
+                                  {{ form_row(form.phone) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="contact-form-style contact-font-three">
+                                    {{ form_row(form.email) }}
+                                </div>
+                            </div>
+                            <div class="col-lg-10">
+                                <div class="contact-form-style contact-font-four">
+                                  {{form_row(form.message)}}
+                                    <button class="submit btn-hover" type="submit"> Envoyer</button>
+                                    {{ form_end(form) }}
+                                </div>
+                            </div>
+                        </div>
+
+                    <p class="form-messege"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact-area end -->
+{% endblock %}
