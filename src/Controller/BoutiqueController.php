@@ -24,7 +24,7 @@ class BoutiqueController extends AbstractController
     {
         $boutiquePag  = $pagination->paginate(
             $boutiqueRepository->findAll(),
-            $request->query->getInt('page',1),8);
+            $request->query->getInt('page',1),16);
         $data= $cartService->fulCart();
 
         $total = 0;

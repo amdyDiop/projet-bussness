@@ -3,6 +3,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -24,6 +26,7 @@ class User extends BaseUser
     public function __construct()
     {
         parent::__construct();
+        $this->commandes = new ArrayCollection();
         // your own logic
     }
 
@@ -51,6 +54,7 @@ class User extends BaseUser
 
 
     /**
+     *
      * @ORM\Column(type="string", length=50)
      */
     private $numeroCompte;
@@ -157,10 +161,9 @@ class User extends BaseUser
     private $active;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Commande", inversedBy="users")
+     * @ORM\OneToMany(targetEntity="App\Entity\Commande", mappedBy="user")
      */
     private $commandes;
-
 
     public function getId(): ?int
     {
@@ -239,15 +242,33 @@ class User extends BaseUser
         return $this;
     }
 
-
-    public function getCommandes(): ?Commande
+    /**
+     * @return Collection|Commande[]
+     */
+    public function getCommandes(): Collection
     {
         return $this->commandes;
     }
 
-    public function setCommandes(?Commande $commandes): self
+    public function addCommande(Commande $commande): self
     {
-        $this->commandes = $commandes;
+        if (!$this->commandes->contains($commande)) {
+            $this->commandes[] = $commande;
+            $commande->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommande(Commande $commande): self
+    {
+        if ($this->commandes->contains($commande)) {
+            $this->commandes->removeElement($commande);
+            // set the owning side to null (unless already changed)
+            if ($commande->getUser() === $this) {
+                $commande->setUser(null);
+            }
+        }
 
         return $this;
     }

@@ -105,7 +105,7 @@ class CartController extends AbstractController
      * @Route("/panier/finaliser/",name="finaliser_commande")
      *
      */
-    public function finaliserCommande(BoutiqueRepository $boutiqueRepository, CartService $cartService ,ProduitRepository $produitRepository )
+    public function finaliserCommande(BoutiqueRepository $boutiqueRepository, CommandeRepository $commandeRepository,CartService $cartService ,ProduitRepository $produitRepository )
 
     {
         $data= $cartService->fulCart();
@@ -125,10 +125,9 @@ class CartController extends AbstractController
         {
             $index = 0;
             $commande->addProduit($item['produit']) ;
-            $produitBoutique=$commande->getProduit();
+            $produitBoutique=$commande->getProduits();
+            $vente=$produitBoutique[$index]->getBoutique()->getNombreDeVente();
 
-
-            $vente=$produitBoutique[$index]->getBoutique()->getNombreDeVente()+1;
             $produitBoutique[$index]->getBoutique()->setNombreDeVente($vente);
             $stock=$produitBoutique[$index]->getStock();
              $restant=$stock-1;
@@ -141,18 +140,21 @@ class CartController extends AbstractController
         }
 
 
+
         if ($this->getUser()!= null){
             $commande->setTht($total);
             $commande->setDateCommande(new \ DateTime());
-            $commande->addUser( $this->getUser());
+            $user= $this->getUser();
 
-            $numeroCommande =$commande->getId();
-
-            $commande->setNumcommande($numeroCommande);
-
+            $commande->setUser($user);
+            $number=  count($commandeRepository->findAll());
+            $numberCommmande = 201900000+$number;
+            $commande->setNumcommande($numberCommmande);
+            $commande->setLivrer('En attente');
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($commande);
             $entityManager->flush();
+
           $data=[];
           $total=0;
             $this->addFlash('success', 'merci d\'avoir complété votre paiement en ligne. Vous recevez votre commande dans sous peut');

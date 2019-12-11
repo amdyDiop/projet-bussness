@@ -29,8 +29,6 @@ class AdminController extends AbstractController
         $nombredeVente= count($commandeRepository->findAll());
         $nombreUser= count($userRepository->findAll());
         $nombreProduit= count($produitRepository->findAll());
-
-
         return $this->render('admin/index.html.twig',[
             'produits' => $produitRepository->findAll(),
             'commande' =>$commandeRepository->findAll(),

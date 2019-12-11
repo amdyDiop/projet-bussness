@@ -6,31 +6,26 @@
 
 
     <h1 class="description">Modification de la  Boutique: {{ boutique.nomBoutique }} </h1>
-
-
-
-
-
-        <!-- contact-area start -->
-        <div class="contact-area ptb-100">
+    <!-- contact-area start -->
+        <div class="contact-area ptb-100" >
             <div class="container">
 
-                <div class="contact-form-wrap">
+                <div class="contact-form-wrap text-dark">
                     <div class="contact-message">
                         {{ form_start(form) }}
 
                         <div class="row">
-                            <div class="col-lg-5">
-                                <div class="contact-form-style contact-font-one">
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                            <div class="col-lg-5 ">
+                                <div class="contact-form-style contact-font-one ">
+                                    <div class="section-title text-center mb-55 text-white bg-dark">
                                         <h2> {{ form_row(form.nomBoutique) }}</h2>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <div class="contact-form-style contact-font-two">
+                                <div class="contact-form-style font-weight-bold">
 
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <div class="section-title text-center mb-55 font-weight-bold text-dark">
                                         <h2>{{ form_row(form.description) }}</h2>
                                     </div>
 
@@ -41,14 +36,14 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="contact-form-style contact-font-three">
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <div class="section-title text-center mb-55 font-weight-bold text-dark ">
                                         {{ form_row(form.adresse) }}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="contact-form-style contact-font-three">
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <div class="section-title text-center mb-55 font-weight-bold text-dark">
                                         {{ form_row(form.ville) }}
                                     </div>
                                 </div>
@@ -58,14 +53,14 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="contact-form-style contact-font-three">
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <div class="section-title text-center mb-55 font-weight-bold text-dark ">
                                         {{ form_row(form.prenom) }}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="contact-form-style contact-font-three">
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <div class="section-title text-center mb-55 font-weight-bold text-dark">
                                         {{ form_row(form.nom) }}
                                     </div>
                                 </div>
@@ -75,14 +70,14 @@
                         <div class="row">
                             <div class="col-lg-5">
                                 <div class="contact-form-style contact-font-three">
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <div class="section-title text-center mb-55 font-weight-bold text-dark">
                                         {{ form_row(form.email) }}
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-5">
                                 <div class="contact-form-style contact-font-three">
-                                    <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <div class="section-title text-center mb-55 font-weight-bold text-dark">
                                         {{ form_row(form.numeroCompte) }}
                                     </div>
                                 </div>

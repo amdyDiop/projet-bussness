@@ -143,7 +143,7 @@
                                         </div>
                                         <!-- /.box-body -->
                                         <div class="box-footer text-center">
-                                            <a href="javascript:void(0)" class="uppercase">Voir tous les produits</a>
+                                            <a href="{{path('produit_index')}}" class="uppercase">Voir tous les produits</a>
                                         </div>
                                         <!-- /.box-footer -->
                                     </div>
@@ -202,7 +202,7 @@
                                         </div>
                                         <!-- /.box-body -->
                                         <div class="box-footer text-center">
-                                            <a href="javascript:void(0)" class="uppercase">Voir tous les produits</a>
+                                            <a href="{{path('boutique_index')}}" class="uppercase">Voir tous les Boutiques</a>
                                         </div>
                                         <!-- /.box-footer -->
                                     </div>
@@ -244,7 +244,7 @@
                                 </div>
                                 <!-- /.box-body -->
                                 <div class="box-footer text-center">
-                                    <a href="javascript:void(0)" class="uppercase">Voir tout les utilisateursl</a>
+                                    <a href="{{path('user_index')}}" class="uppercase">Voir tout les utilisateurs</a>
                                 </div>
                                 <!-- /.box-footer -->
                             </div>
@@ -272,8 +272,10 @@
                                 <table class="table no-margin">
                                     <thead>
                                     <tr>
-                                        <th> numéro Commnande</th>
-                                        <th>Date Commande</th>
+                                        <th>Numéro Commnande</th>
+                                        <th>Commandé le</th>
+                                        <th>Client</th>
+                                        <th>Email</th>
                                         <th>Status</th>
 
                                     </tr>
@@ -282,8 +284,12 @@
 
                                     {% for commande in commande  %}
                                         <tr>
-                                            <td>{{ commande.id }}</td>
+                                            <td>{{ commande.numcommande() }}</td>
                                             <td>{{ commande.dateCommande|date('d-m-y h:i') }}</td>
+
+                                            <td>{{ commande.getUser().prenom }} {{ commande.getUser().nom }}</td>
+                                            <td>{{ commande.getUser().email }} </td>
+
                                             <td><span class="label label-warning">{{commande.livrer}}</span></td>
 
                                         </tr>

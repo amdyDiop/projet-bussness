@@ -51,9 +51,9 @@
             <h1 class="description">
                Liste Des Produits
             </h1>
-    <table class="table table-striped">
+    <table class="table table-secondary table-striped">
                                 <thead>
-                                <tr>
+                                <tr >
                                     <th>Image</th>
                                     <th>Labelle</th>
                                     <th>Prix</th>
@@ -65,7 +65,7 @@
                                 </thead>
                                 <tbody>
                                 {% for produit in produits %}
-                                    <tr>
+                                    <tr class="active">
                                         <td>
                                             {% if produit.filename %}
                                                 <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:60%; height:auto;" >
@@ -95,13 +95,16 @@
                                     <tr>
                                         <td colspan="10">la liste des produit est vide</td>
                                     </tr>
+
                                 {% endfor %}
+
                                 </tbody>
 
                             </table>
-
     <div class="pagination justify-content-center">
         {{ knp_pagination_render(produit) }}
     </div>
+
+
 
 {% endblock %}

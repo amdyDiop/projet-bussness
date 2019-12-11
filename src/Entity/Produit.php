@@ -114,10 +114,6 @@ class Produit
     private $created_at;
 
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Commande", mappedBy="produit")
-     */
-    private $commandes;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Boutique", inversedBy="produits")
@@ -302,36 +298,6 @@ class Produit
     public function setCreatedAt(\DateTimeInterface $created_at): self
     {
         $this->created_at = $created_at;
-
-        return $this;
-    }
-
-
-
-    /**
-     * @return Collection|Commande[]
-     */
-    public function getCommandes(): Collection
-    {
-        return $this->commandes;
-    }
-
-    public function addCommande(Commande $commande): self
-    {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes[] = $commande;
-            $commande->addProduit($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommande(Commande $commande): self
-    {
-        if ($this->commandes->contains($commande)) {
-            $this->commandes->removeElement($commande);
-            $commande->removeProduit($this);
-        }
 
         return $this;
     }

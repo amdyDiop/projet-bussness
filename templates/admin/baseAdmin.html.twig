@@ -101,7 +101,7 @@
                             <li class="user-header">
                                 <img   src="{{ asset('StyleCv/img/IMG_1228.JPG') }} " class="img-circle" alt="User Image"><p>
                                     {{app.user.username}} - Web Developer
-                                    <small>Membre depuis Nov. 2019</small>
+                                    <small>Membre depuis {{app.user.getCreatedAt()|date('d-m-y')}}</small>
                                 </p>
                             </li>
                             <!-- Menu Footer-->
@@ -110,7 +110,7 @@
                                     <a href="#" class="btn btn-default btn-flat">Profile</a>
                                 </div>
                                 <div class="pull-right">
-                                    <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                    <a href="#" class="btn btn-default btn-flat">déconnecter</a>
                                 </div>
                             </li>
                         </ul>
@@ -141,7 +141,7 @@
             <!-- search form -->
             <form action="#" method="get" class="sidebar-form">
                 <div class="input-group">
-                    <input type="text" name="q" class="form-control" placeholder="Search...">
+                    <input type="text" name="q" class="form-control" placeholder="rechecher...">
                     <span class="input-group-btn">
                 <button type="submit" name="search" id="search-btn" class="btn btn-flat">
                   <i class="fa fa-search"></i>
@@ -149,8 +149,7 @@
               </span>
                 </div>
             </form>
-            <!-- /.search form -->
-            <!-- sidebar menu: : style can be found in sidebar.less -->
+
             <ul class="sidebar-menu" data-widget="tree">
                 <li class="header">NAVIGATION PRINCIPALE</li>
                 <li class="active treeview menu-open">
@@ -181,7 +180,7 @@
                 </li>
                 <li class="active treeview menu-open">
                     <a href="#">
-                        <i class="fa fa-cart-plus"></i> <span> Clients</span>
+                        <i class="ion ion-ios-people-outline"></i> <span> Clients</span>
                         <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
@@ -204,14 +203,30 @@
                         <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Ajouter un Produit</a></li>
                     </ul>
                 </li>
+                <li class="active treeview menu-open">
+                    <a href="#">
+                        <i class="fa fa-shopping-cart"></i> <span> Gestion des Commande </span>
+                        <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{path('admin_commnande_list')}}"><i class="fa fa-circle-o"></i> liste des Commandes </a></li>
+                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Commande non Livré</a></li>
+                    </ul>
+                </li>
             </ul>
         </section>
         <!-- /.sidebar -->
     </aside>
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
+        {#
+        style="background-image: url('{{asset('images/properties/5dee8e6b8d909888567843.jpg')}}');
+         background-repeat: no-repeat; background-attachment: fixed;  background-size:cover;opacity:1.75;
+        #}
         <!-- Main content -->
         {% block contenue %}
+
         {% endblock %}
         <!-- /.content -->
     </div>

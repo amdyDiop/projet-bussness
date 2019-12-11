@@ -13,7 +13,6 @@
                 <th>Enabled</th>
                 <th>LastLogin</th>
                 <th>Roles</th>
-                <th>Id</th>
                 <th>NumeroCompte</th>
                 <th>NomBoutique</th>
                 <th>Telephone</th>
@@ -28,7 +27,6 @@
                 <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
                 <td>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}</td>
                 <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
-                <td>{{ user.id }}</td>
                 <td>{{ user.numeroCompte }}</td>
                 <td>{{ user.nomBoutique }}</td>
                 <td>{{ user.telephone }}</td>

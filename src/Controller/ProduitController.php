@@ -49,7 +49,7 @@ class ProduitController extends AbstractController
         }
         $produitfilter = $pagination->paginate(
             $produitRepository->findAll(),
-            $request->query->getInt('page',1),12);
+            $request->query->getInt('page',1),6);
 
         return $this->render('admin/produit/index.html.twig', [
             'produits' => $produitRepository->findAll(),

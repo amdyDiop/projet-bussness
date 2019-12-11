@@ -45,15 +45,6 @@ class Commande
     private $tttc;
 
 
-    /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Produit", inversedBy="commandes")
-     */
-    private $produit;
-
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\User", mappedBy="commandes")
-     */
-    private $users;
 
     /**
      * @ORM\Column(type="boolean", nullable=true)
@@ -65,10 +56,19 @@ class Commande
      */
     private $livrer;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="commandes")
+     */
+    private $user;
+
+    /**
+     * @ORM\ManyToMany(targetEntity="App\Entity\Produit")
+     */
+    private $produits;
+
     public function __construct()
     {
-        $this->produit = new ArrayCollection();
-        $this->users = new ArrayCollection();
+        $this->produits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -140,62 +140,6 @@ class Commande
 
 
 
-    /**
-     * @return Collection|Produit[]
-     */
-    public function getProduit(): Collection
-    {
-        return $this->produit;
-    }
-
-    public function addProduit(Produit $produit): self
-    {
-        if (!$this->produit->contains($produit)) {
-            $this->produit[] = $produit;
-        }
-
-        return $this;
-    }
-
-    public function removeProduit(Produit $produit): self
-    {
-        if ($this->produit->contains($produit)) {
-            $this->produit->removeElement($produit);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers()
-    {
-        return $this->users;
-    }
-
-    public function addUser(User $user): self
-    {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->setCommandes($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            // set the owning side to null (unless already changed)
-            if ($user->getCommandes() === $this) {
-                $user->setCommandes(null);
-            }
-        }
-
-        return $this;
-    }
 
     public function getValider(): ?bool
     {
@@ -217,6 +161,44 @@ class Commande
     public function setLivrer(?string $livrer): self
     {
         $this->livrer = $livrer;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Produit[]
+     */
+    public function getProduits(): Collection
+    {
+        return $this->produits;
+    }
+
+    public function addProduit(Produit $produit): self
+    {
+        if (!$this->produits->contains($produit)) {
+            $this->produits[] = $produit;
+        }
+
+        return $this;
+    }
+
+    public function removeProduit(Produit $produit): self
+    {
+        if ($this->produits->contains($produit)) {
+            $this->produits->removeElement($produit);
+        }
 
         return $this;
     }

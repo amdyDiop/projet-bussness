@@ -1,0 +1,62 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block title %}Liste des Commandes{% endblock %}
+
+{% block contenue %}
+
+    {#
+     {% if boutique.filename %}
+                        <img src="{{ vich_uploader_asset(boutique, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:60%; height:auto;" >
+                    {% else %}
+                        <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                    {% endif %}
+    #}
+
+
+
+    <h1 class="description">
+        Liste des Commandes
+    </h1>
+<div class="box-body">
+    <div class="table-responsive">
+        <table class="table no-margin">
+            <thead>
+            <tr>
+                <th>Numéro Commnande</th>
+                <th>Commandé le</th>
+                <th>Client</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Actions</th>
+
+            </tr>
+            </thead>
+            <tbody >
+
+            {% for commande in commande  %}
+                <tr>
+                    <td>{{ commande.numcommande() }}</td>
+                    <td>{{ commande.dateCommande|date('d-m-y h:i') }}</td>
+
+                    <td>{{ commande.getUser().prenom }} {{ commande.getUser().nom }}</td>
+                    <td>{{ commande.getUser().email }} </td>
+
+                    <td><span class="label label-warning">{{commande.livrer}}</span></td>
+
+                    <td>
+                    <a title="Voir" class="animate-right" href="{{ path('admin_commnande_show', {id: commande.id}) }}" ><strong><button><i class="ion-ios-eye-outline"></i></button></strong></a>
+                    <a title="modifier"   href="#" ><strong><button><i class="ion-edit"></i></button></strong></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="11">La Liste est vide</td>
+                </tr>
+            {% endfor %}
+
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

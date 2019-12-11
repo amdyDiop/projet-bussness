@@ -4,6 +4,8 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,20 +15,26 @@ class UserType extends AbstractType
     {
         $builder
             ->add('username')
-            ->add('usernameCanonical')
+            ->add('usernameCanonical', HiddenType::class)
             ->add('email')
-            ->add('emailCanonical')
+            ->add('emailCanonical', HiddenType::class)
             ->add('enabled')
-            ->add('password')
+            ->add('password', HiddenType::class)
             ->add('lastLogin')
             ->add('roles')
-            ->add('numeroCompte')
-            ->add('nomBoutique')
+            ->add('numeroCompte',TextType::class,[
+                'required' => false,
+            ])
+            ->add('nomBoutique',TextType::class,[
+                'required' => false,
+            ])
             ->add('prenom')
             ->add('nom')
             ->add('addresse')
             ->add('ville')
-            ->add('description')
+            ->add('description',TextType::class,[
+                'required' => false,
+            ])
             ->add('telephone')
             ->add('active')
 
