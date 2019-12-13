@@ -13,7 +13,15 @@
     #}
 
 
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
 
+                </div>
+            </div>
+        </div>
+    </div>
     <h1 class="description">
         Liste des Commandes
     </h1>
@@ -34,8 +42,9 @@
             <tbody >
 
             {% for commande in commande  %}
+
                 <tr>
-                    <td>{{ commande.numcommande() }}</td>
+                    <td>{{ commande.numcommande }}</td>
                     <td>{{ commande.dateCommande|date('d-m-y h:i') }}</td>
 
                     <td>{{ commande.getUser().prenom }} {{ commande.getUser().nom }}</td>
@@ -44,8 +53,8 @@
                     <td><span class="label label-warning">{{commande.livrer}}</span></td>
 
                     <td>
-                    <a title="Voir" class="animate-right" href="{{ path('admin_commnande_show', {id: commande.id}) }}" ><strong><button><i class="ion-ios-eye-outline"></i></button></strong></a>
-                    <a title="modifier"   href="#" ><strong><button><i class="ion-edit"></i></button></strong></a>
+                    <a title="Voir" class="animate-right" href="{{ path('admin_commnande_show', {'id': commande.id}) }}" ><strong><button class="btn btn-lg fa fa-eye"></button></strong></a>
+                    <a title="modifier"   href="{{path('admin_commande_edit',{'id':commande.id})}}"><strong><button class="btn btn-lg fa fa-edit"></button></strong></a>
                     </td>
                 </tr>
             {% else %}

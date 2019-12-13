@@ -66,6 +66,13 @@ class Commande
      */
     private $produits;
 
+    /**
+     * @ORM\Column(type="array", nullable=true)
+     */
+    private $quantity = [];
+
+
+
     public function __construct()
     {
         $this->produits = new ArrayCollection();
@@ -202,5 +209,18 @@ class Commande
 
         return $this;
     }
+
+    public function getQuantity(): ?array
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(?array $quantity): self
+    {
+        $this->quantity = $quantity;
+
+        return $this;
+    }
+
 
 }

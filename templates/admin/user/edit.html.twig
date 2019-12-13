@@ -1,15 +1,14 @@
 {% extends 'admin/baseAdmin.html.twig' %}
 
-{% block title %}Edit User{% endblock %}
+{% block title %}Modifier {{ user.username }}{% endblock %}
 
 {% block contenue %}
 
 
 
-
-    <h1 class="description">Modifier l'utilisateur: {{ user.prenom }} </h1>
+    <h1 class="description text-black"><strong> Modifier {{ user.username }}</strong></h1>
     <!-- contact-area start -->
-    <div class="contact-area ptb-100" >
+    <div class="contact-area" >
         <div class="container">
             {{ form_start(form) }}
             <div class="contact-form-wrap text-dark">

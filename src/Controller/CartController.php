@@ -109,22 +109,25 @@ class CartController extends AbstractController
 
     {
         $data= $cartService->fulCart();
-
+        $commande = new Commande();
         $total = 0;
+        $quantity=[];
         foreach($data as $item)
         {
+
+
             $totalItem = $item['produit']->getPrix()*$item['quantity'];
+            $quantity[]=$item['quantity'];
+
             $total += $totalItem;
-
         }
-
-
-        $commande = new Commande();
+        $commande->setQuantity($quantity);
 
         foreach($data as $item)
         {
             $index = 0;
             $commande->addProduit($item['produit']) ;
+
             $produitBoutique=$commande->getProduits();
             $vente=$produitBoutique[$index]->getBoutique()->getNombreDeVente();
 

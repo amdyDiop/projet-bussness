@@ -3,45 +3,78 @@
 {% block title %}User index{% endblock %}
 
 {% block contenue %}
-    <h1>User index</h1>
+    <div class="cart-main-area pb-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-10 col-sm-10 col-xs-10">
+                    <h1 class="description text-black"><strong>    Utilisateurs</strong></h1>
+                    <div class="table-content table-responsive">
+                        <table class="table">
+                            <thead>
+                            <tr >
+                                <th>Nom d'utilisateur</th>
+                                <th>Email</th>
+                                <th>Activè</th>
+                                <th>En ligne Depuis</th>
+                                <th>Nom Boutique </th>
+                                <th>Actions</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for user in users %}
+                                <tr style="font-family: Arial,monospace" class="active" >
+                                 {#   <td>
+                                        {% if user.filename %}
+                                            <img src="{{ vich_uploader_asset(user, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:60%; height:auto;" >
+                                        {% else %}
+                                            <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                                        {% endif %}
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Username</th>
-                <th>Email</th>
-                <th>Enabled</th>
-                <th>LastLogin</th>
-                <th>Roles</th>
-                <th>NumeroCompte</th>
-                <th>NomBoutique</th>
-                <th>Telephone</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for user in users %}
-            <tr>
-                <td>{{ user.username }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.enabled ? 'Yes' : 'No' }}</td>
-                <td>{{ user.lastLogin ? user.lastLogin|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ user.roles ? user.roles|join(', ') : '' }}</td>
-                <td>{{ user.numeroCompte }}</td>
-                <td>{{ user.nomBoutique }}</td>
-                <td>{{ user.telephone }}</td>
-                <td>
-                    <a href="{{ path('user_show', {'id': user.id}) }}">show</a>
-                    <a href="{{ path('user_edit', {'id': user.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="23">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+                                    </td>#}
+                                    <td>{{ user.username }}</td>
+                                    <td>{{ user.email}}</td>
+                                    <td>{{ user.enabled ? 'Activé' : 'Non Avctivé'}}</td>
+                                    <td>{{ user.lastLogin|date('d-m-y h:i') }}</td>
+                                    <td>{{ user.nomBoutique  }}</td>
+                                    <td>
+
+                                        <a title="Voir" class="animate-right" href="{{ path('user_show', {'id': user.id}) }}" ><strong><button><i class="ion-ios-eye-outline"></i></button></strong></a>
+
+                                        <a title="modifier"   href="{{ path('user_edit', {'id': user.id}) }}" ><strong><button><i class="ion-edit"></i></button></strong></a>
+
+                                        <form method="post" action="{{ path('user_delete', {'id': user.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément?');">
+                                            <input type="hidden" name="_method" value="DELETE">
+                                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+                                            <button><i class="ion-ios-trash-outline"></i></button>
+                                        </form>
+
+
+
+
+                                    </td>
+
+                                </tr>
+                            {% else %}
+                                <tr>
+                                    <td colspan="11">La Liste est vide</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+
+                        <!--button class="btn btn"> <a href="{{ path('boutique_new') }} " class="text-white" >Nouveau Boutique</a> </button-->
+
+
+
+                        <!-- Table demo -->
+                        <div class="box-table">
+                            <table data-fn="contacts" data-url="https://codepen.io/nakome/pen/DnEvr.js"></table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <a href="{{ path('user_new') }}">Create new</a>
 {% endblock %}

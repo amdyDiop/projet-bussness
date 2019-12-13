@@ -80,10 +80,12 @@ class BoutiqueType extends AbstractType
                 ]
             ])
             ->add('imageFile',FileType::class,[
-                'required' => false
+                'required' => false,
+                'label' => false,
             ])
             ->add('active',CheckboxType::class,[
-                'required' => false
+                'required' => false,
+
             ])
 
         ;

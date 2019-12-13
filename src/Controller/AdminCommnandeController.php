@@ -3,12 +3,14 @@
 namespace App\Controller;
 
 use App\Entity\Commande;
-use App\Repository\BoutiqueRepository;
+use App\Form\CommandeType;
 use App\Repository\CommandeRepository;
 use App\Repository\ProduitRepository;
 use App\Services\Cart\CartService;
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -45,17 +47,36 @@ class AdminCommnandeController extends AbstractController
     }
 
     /**
-     * @Route("/admin/commnande/{id}", name="admin_commnande_show")
+     * @Route("/admin/commande/{id}", name="admin_commnande_show", methods={"GET"})
      */
-    public function show(CommandeRepository $commandeRepository , CartService $cartService ,ProduitRepository $produitRepository)
+    public function show(Commande $commande,ProduitRepository $produitRepository)
     {
 
-        $commande=$commandeRepository->findAll();
-
         return $this->render('admin/admin_commnande/show.html.twig', [
-            'commande' => $commandeRepository->findAll()
+            'commande' => $commande,
 
 
+        ]);
+    }
+
+    /**
+     * @Route("/admin/commande/edit/{id}/", name="admin_commande_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request ,Commande $commande ):Response
+    {
+        $form = $this->createForm(CommandeType::class, $commande);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+            // $this->addFlash('success', 'votre produit a été modifié avec succès');
+            return $this->redirectToRoute('admin_commnande_list');
+        }
+
+
+        return $this->render('admin/admin_commnande/edit.html.twig', [
+            'form' => $form->createView(),
+            'commande' => $commande
         ]);
     }
 }
