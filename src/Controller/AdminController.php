@@ -25,6 +25,11 @@ class AdminController extends AbstractController
      */
     public function index(BoutiqueRepository $boutiqueRepository,CommandeRepository $commandeRepository, UserRepository $userRepository,ProduitRepository $produitRepository): Response
     {
+
+        if ($this->getUser()== null)
+            return $this->redirectToRoute('login');
+
+
         $nombreBoutique= count($boutiqueRepository->findAll());
         $nombredeVente= count($commandeRepository->findAll());
         $nombreUser= count($userRepository->findAll());

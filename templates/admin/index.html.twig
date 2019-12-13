@@ -234,7 +234,13 @@
                                     <ul class="users-list clearfix">
                                         {% for user in users %}
                                         <li>
-                                            <img src="{{ asset('assets/img/quick-view/l3.jpg') }}"  class="img-circle" alt="User Image">
+                                            {% if user.filename %}
+                                                <a href="">
+                                                    <img src="{{ vich_uploader_asset(user, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:320px; height:80px;" >
+                                                </a>
+                                            {% else %}
+                                                <img src="{{ asset('assets/img/quick-view/l3.jpg') }}"  class="img-circle" alt="User Image">
+                                            {% endif %}
                                             <a class="users-list-name" href="#">{{ user.prenom }} {{ user.nom }}</a>
                                         <span class="users-list-date">{{ user.createdAt|date('d,m,y') }}</span>
                                         </li>

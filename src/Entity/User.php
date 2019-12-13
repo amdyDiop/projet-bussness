@@ -7,11 +7,14 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Constraints as Assert;
-
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity
+ * @Vich\Uploadable
  * @ORM\Table(name="fos_user")
  */
 class User extends BaseUser
@@ -51,8 +54,25 @@ class User extends BaseUser
      * @ORM\Column(type="datetime")
      */
     private $created_at;
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $updatedAt;
+    /**
 
+    /**
+     * @Vich\UploadableField(mapping="properties_image", fileNameProperty="fileName")
+     *
+     * @var File|null
+     */
+    private $imageFile;
 
+    /**
+     *@var string|null
+     * @ORM\Column(type="string", length=255)
+     *
+     */
+    private $fileName;
     /**
      *
      * @ORM\Column(type="string", length=50)
@@ -270,6 +290,44 @@ class User extends BaseUser
             }
         }
 
+        return $this;
+    }
+
+
+    /**
+     * @return File|null
+     */
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    /**
+     * @param File|null $imageFile
+     * @return Boutique
+     */
+    public function setImageFile(?File $imageFile): User
+    {
+        $this->imageFile = $imageFile;
+        if ( $this -> imageFile instanceof UploadedFile )
+        { $this-> updatedAt = new \ DateTime ( ' now ' );         }
+        return $this;
+    }
+    /**
+     * @return string|null
+     */
+    public function getFileName(): ?string
+    {
+        return $this->fileName;
+    }
+
+    /**
+     * @param string|null $fileName
+     * @return Boutique
+     */
+    public function setFileName(?string $fileName): User
+    {
+        $this->fileName = $fileName;
         return $this;
     }
 

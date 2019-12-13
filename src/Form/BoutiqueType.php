@@ -83,11 +83,6 @@ class BoutiqueType extends AbstractType
                 'required' => false,
                 'label' => false,
             ])
-            ->add('active',CheckboxType::class,[
-                'required' => false,
-
-            ])
-
         ;
     }
 

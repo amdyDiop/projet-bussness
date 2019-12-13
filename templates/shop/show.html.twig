@@ -66,7 +66,9 @@
                             <div class="sidebar-categories">
                                 <ul>
                                     <li><a href="{{ path('add_produit_boutique',{id:boutiques.id}) }}">Ajouter un  Produit <span></span></a></li>
-                                    <li><a href="#">Detailt des Ventes  <span></span> </a></li>
+                                    <li><a href="{{ path('shop_edit',{id:boutiques.id}) }}">Modifier Boutique <span></span></a></li>
+                                    <li><a href="{{ path('detail_commande',{id:boutiques.id}) }}">Detailt des commandes  <span> {{ boutiques.nombreDeVente }}</span> </a></li>
+                                    <li><a href="#">Detailt des Ventes  <span> {{ boutiques.nombreDeVente }}</span> </a></li>
 
                                 </ul>
                             </div>

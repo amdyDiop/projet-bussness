@@ -25,6 +25,7 @@ class BoutiqueController extends AbstractController
         $boutiquePag  = $pagination->paginate(
             $boutiqueRepository->findAll(),
             $request->query->getInt('page',1),16);
+
         $data= $cartService->fulCart();
 
         $total = 0;
@@ -59,8 +60,9 @@ class BoutiqueController extends AbstractController
             $total += $totalItem;
 
         }
-
+                $boutique = new Boutique();
         if ($form->isSubmitted() && $form->isValid()) {
+            $boutique->setActive(true);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($boutique);
             $entityManager->flush();

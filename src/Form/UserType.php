@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -37,7 +38,10 @@ class UserType extends AbstractType
             ])
             ->add('telephone')
             ->add('active')
-
+            ->add('imageFile',FileType::class,[
+                'required' => false,
+                'label' => false,
+            ])
         ;
     }
 

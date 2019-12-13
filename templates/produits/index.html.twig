@@ -2,8 +2,13 @@
 {% extends 'base.html.twig' %}
 {% block title 'liste de tous les produits' %}
 
+{% block stylesheets %}
+
+{% endblock %}
+
 {% block body %}
-    <br> <br>     <br> <br>
+
+    <br> <br>  <br> <br>
 
     {#liste image défilant#}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
@@ -45,6 +50,7 @@
         </a>
     </div>
     {# fin liste image défilant#}
+
     <div class="shop-page-wrapper hidden-items padding-filter">
         <div class="container-fluid">
             <div class="shop-filters-left">

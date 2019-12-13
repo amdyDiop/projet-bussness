@@ -20,7 +20,6 @@
                 <th>Boutique</th>
                 <th>Email</th>
                 <th>Numéro Compte</th>
-                <th>Active</th>
                 <th>Actions</th>
             </tr>
             </thead>
@@ -38,7 +37,6 @@
                     <td>{{ boutique.nomBoutique }}</td>
                     <td>{{ boutique.email}}</td>
                     <td>{{ boutique.numeroCompte }}</td>
-                    <td>{{ boutique.active ? 'Activé' : 'Non Avctivé' }}</td>
                     <td>
                       <a title="Voir" class="animate-right" href="{{ path('boutique_show', {'id': boutique.id}) }}" >  <button  type="button" class="btn fa fa-eye"></button></a>
 

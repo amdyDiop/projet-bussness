@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Commande;
 use App\Entity\Contact;
 use App\Entity\Boutique;
 use App\Entity\Produit;
@@ -13,6 +14,7 @@ use App\Form\Produit1Type;
 use App\Entity\PropertySearch;
 use App\notification\ContactNotification;
 use App\Repository\BoutiqueRepository;
+use App\Repository\CommandeRepository;
 use App\Repository\ProduitRepository;
 use App\Services\Cart\CartService;
 use Knp\Component\Pager\PaginatorInterface;
@@ -93,6 +95,62 @@ class ShopController extends AbstractController
 
     }
 
+
+    /**
+     * @Route("/{id}/edit", name="shop_edit", methods={"GET","POST"})
+     */
+    public function edit(Request $request, Boutique $boutique,CartService $cartService): Response
+    {
+        $form = $this->createForm(BoutiqueType::class, $boutique);
+        $form->handleRequest($request);
+        $data= $cartService->fulCart();
+
+        $total = 0;
+        foreach($data as $item)
+        {
+            $totalItem = $item['produit']->getPrix()*$item['quantity'];
+            $total += $totalItem;
+
+        }
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('shop');
+        }
+
+        return $this->render('shop/edit.html.twig', [
+            'boutique' => $boutique,
+            'form' => $form->createView(),
+            'item' => $data,
+            'total' =>$total
+        ]);
+    }
+
+
+
+    /**
+     * @Route("/shop/{id}/detailCommande", name="detail_commande", methods={"GET","POST"})
+     */
+    public function detailCommande(Commande $commande,CartService $cartService): Response
+    {
+
+
+        $data= $cartService->fulCart();
+        $total = 0;
+        foreach($data as $item)
+        {
+            $totalItem = $item['produit']->getPrix()*$item['quantity'];
+            $total += $totalItem;
+
+        }
+
+        return $this->render('shop/comande.html.twig', [
+            'commande' => $commande,
+            'item' => $data,
+            'total' =>$total
+        ]);
+    }
 
 
 
