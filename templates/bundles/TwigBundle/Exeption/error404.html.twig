@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>404 page non trouvée</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}"  sizes="32x32">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('style404.css') }}" />
+
+</head>
+
+<body>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
+
+<div id="notfound">
+
+    <div class="notfound">
+        <div class="notfound-404">
+            <h3>Oops! La page n'a pas été trouvée !</h3>
+            <h1><span>4</span><span>0</span><span>4</span></h1>
+        </div>
+        <h2>nous sommes désolés, mais la page que vous avez demandée n’a pas été trouvée</h2>
+       <a href="{{ path('home')}}"> <button  class=" btn btn-black btn-outline-black btn-lg"> Accueil</button></a>
+
+    </div>
+</div>
+
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>
+
+

@@ -5,15 +5,39 @@ use Symfony\Component\Validator\Constraints as Assert;
 class PropertySearch{
     /**
      * @var int|null
-     * @Assert\Range(min=100000)
+     * @Assert\Range(min=1000)
      */
     private $maxPrice ;
 
     /**
-     * @var int|null
-     * @Assert\Range(min=10 , max=450)
+     * @return int|null
      */
-    private  $surface;
+    /***
+     * @var string|null
+     */
+    private $ville;
+    /***
+     * @var string|null
+     */
+    private $nom;
+
+    /**
+     * @return string|null
+     */
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string|null $nom
+     * @return PropertySearch
+     */
+    public function setNom(?string $nom): PropertySearch
+    {
+        $this->nom = $nom;
+        return $this;
+    }
 
     /**
      * @return string|null
@@ -33,13 +57,6 @@ class PropertySearch{
         return $this;
     }
 
-    /**
-     * @return int|null
-     */
-    /***
-     * @var string|null
-     */
-    private $ville;
 
     public function getMaxPrice(): ?int
     {
@@ -55,29 +72,5 @@ class PropertySearch{
         $this->maxPrice = $maxPrice;
         return $this;
     }
-
-    /**
-     * @return int|null
-     */
-    public function getSurface(): ?int
-    {
-        return $this->surface;
-    }
-
-    /**
-     * @param int|null $surface
-     * @return PropertySearch
-     */
-    public function setSurface(int $surface): PropertySearch
-    {
-        $this->surface = $surface;
-        return $this;
-    }
-
-
-
-
-
-
 
 }

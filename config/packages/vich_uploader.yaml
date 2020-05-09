@@ -1,7 +1,6 @@
 # config/packages/vich_uploader.yaml or app/config/config.yml
 vich_uploader:
     db_driver: orm
-
     mappings:
         properties_image:
             uri_prefix: /images/properties

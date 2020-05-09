@@ -7,14 +7,40 @@ liip_imagine:
             # list of transformations to apply (the "filters")
             filters :
                thumbnail:
-                  size:         [360, 290]
+                  size:         [320, 380]
                   mode:           outbound
 
-        medium:
+        card:
           # adjust the image quality to 75%
           quality: 75
           # list of transformations to apply (the "filters")
           filters:
             thumbnail:
-              size:         [860, 590]
+              size:         [73,50]
+              mode:           outbound
+
+        detail:
+          # adjust the image quality to 75%
+          quality: 75
+          # list of transformations to apply (the "filters")
+          filters:
+            thumbnail:
+              size:         [650,555]
+              mode:           outbound
+
+        produit_boutique:
+                # adjust the image quality to 75%
+                quality: 75
+                # list of transformations to apply (the "filters")
+                filters:
+                  thumbnail:
+                    size:         [302,365]
+                    mode:           outbound
+        boutique_icon:
+          # adjust the image quality to 75%
+          quality: 75
+          # list of transformations to apply (the "filters")
+          filters:
+            thumbnail:
+              size:         [970,580]
               mode:           outbound

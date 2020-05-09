@@ -52,12 +52,6 @@ class  Contact {
      */
     private  $message;
 
-
-    /**
-     * @var Property|null
-     */
-    private  $property;
-
     /**
      * @return string|null
      */
@@ -145,24 +139,6 @@ class  Contact {
     public function setMessage(?string $message): Contact
     {
         $this->message = $message;
-        return $this;
-    }
-
-    /**
-     * @return Property|null
-     */
-    public function getProperty(): ?Property
-    {
-        return $this->property;
-    }
-
-    /**
-     * @param Property|null $property
-     * @return Contact
-     */
-    public function setProperty(?Property $property): Contact
-    {
-        $this->property = $property;
         return $this;
     }
 

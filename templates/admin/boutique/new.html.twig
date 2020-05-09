@@ -1,0 +1,118 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block title %}New Boutique{% endblock %}
+
+{% block contenue %}
+
+    <h1 class="description text-dark">Nouvelle  Boutique: {{ boutique.nomBoutique }} </h1>
+    <!-- contact-area start -->
+    <div class="contact-area ptb-100">
+        <div class="container">
+            <div class="contact-form-wrap">
+                <div class="contact-message">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-one">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <h2> {{ form_row(form.nomBoutique) }}</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-two">
+
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    <h2>{{ form_row(form.description) }}</h2>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.adresse) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.ville) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.prenom) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.nom) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.email) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.numeroCompte) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.password) }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2">
+                            <div class="contact-form-style contact-font-three  bg-dark">
+                                <div class="section-title text-center mb-55 font-weight-bold ">
+                                    {{ form_row(form.imageFile) }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-four">
+                                <div class="section-title text-center mb-55 font-weight-bold">
+                                    <button class="submit btn-hover" type="submit"> Enregistrer</button>
+                                </div>
+                            </div>
+
+                            {{ form_end(form) }}
+                        </div>
+                        <p class="form-messege"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- contact-area end -->
+{% endblock %}

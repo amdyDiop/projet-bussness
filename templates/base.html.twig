@@ -1,89 +1,342 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
     <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-        <!-- Google Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic' rel='stylesheet' type='text/css'>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <!-- Plugin CSS -->
-    
-       
-        <link href="{{ asset('StyleContact/vendor/magnific-popup/magnific-popup.css') }}" rel="stylesheet">
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Favicon -->
+        <title>
+            {% block title %}Seen Guinaar
+            {% endblock %}
+        </title>
 
-        <!-- Theme CSS - Includes Bootstrap -->
-        <link href="{{ asset('StyleContact/css/creative.min.css') }}" rel="stylesheet">
-        <!-- fin StyleContact -->
+        <!-- all css here -->
+
+        <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}"  sizes="32x32">
+        <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/magnific-popup.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/animate.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/slinky.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/meanmenu.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/easyzoom.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/slick.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/ionicons.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/bundle.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/responsive.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
+        <script src="{{ asset('assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
+        <link rel="stylesheet" href="{{asset('admin/bower_components/font-awesome/css/font-awesome.min.css')}}">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="{{ asset('admin/bower_components/Ionicons/css/ionicons.min.css') }}">
+        <!-- jvectormap -->
+        <link rel="stylesheet" href="{{ asset('admin/bower_components/jvectormap/jquery-jvectormap.css') }}">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="{{ asset('admin/dist/css/AdminLTE.min.css') }}">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+                     folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/_all-skins.min.css') }}">
+{#        homme second template#}
+
+        <link href="https://fonts.googleapis.com/css?family=Muli:300,400,700,900" rel="stylesheet">
+        <link rel="stylesheet" href="{{ asset('Style/pages/fonts/icomoon/style.css') }}">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+              integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
 
+    <link rel="stylesheet" href="{{asset('Style/pages/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/jquery.fancybox.min.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('Style/pages/css/style.css')}}">
+        {% block stylesheets %}
 
-
-        <title>{% block title %}{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        {% endblock %}
     </head>
-    <body class="mt-5">
+    <body>
+     <header class="pl-150 pr-155 intelligent-header">
+        <div class="header-area header-area-2">
+            <div class="container-fluid p-0">
+                <div class="row no-gutters">
+                    <div class="col-lg-2 col-md-6 col-6">
+                        <div class="logo">
+                            <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""style="width: 73px;" /></a>
+                        </div>
+                    </div>
+                    {#liste du centre de navigation#}
+                    <div class="col-lg-6 menu-none-block menu-center">
+                        <div class="main-menu">
+                            <nav>
+                                <ul>
+                                    <li><a href="{{ path('produits') }}">produits</a></li>
+                                    <li><a href="{{ path('shop') }}">Boutiques</a></li>
+                                    <li><a href="{{ path('promos') }}">Speciales</a></li>
+                                    <!--li><a href="#">login</a>
+                                        <ul class="dropdown">
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ path ('home') }}">Logo Bi</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="{{ path ('maison') }}">Keur Yi
-                            <span class="sr-only">(current)</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{path ('cv')}}">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-
-                    {% if app.user %}
-
-                            <li class="navbar-item bg-danger">
-                                <a href="{{ path ('logout') }}" class="nav-link"> Se Déconnecter</a>
-                            </li>
-                        {% else %}
-                            <li>
-                                <button class="nav-item bg-info" >
-                                    <a class="nav-link " href="{{ path('login') }}">Connecter</a>
+                                        </ul>
+                                    </li-->
+                                    <li><a href="{{ path('contact') }}">contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-6 col-6">
+                        <div class="header-search-cart">
+                            <div class="header-cart common-style">
+                                <button class="sidebar-trigger">
+                                   <strong> <i class="icon-shopping-cart"></i></strong>
                                 </button>
-                            </li>
-
-                    {% endif %}
-                </ul>
+                            </div>
+                            <div class="header-sidebar common-style">
+                                <button class="header-navbar-active">
+                                    <span class="ion-navicon"></span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-menu-area d-md-block col-md-12 col-lg-12 col-12 d-lg-none d-xl-none">
+                        <div class="mobile-menu">
+                            <nav id="mobile-menu-active">
+                                <ul>
+                                    <li><a href="{{ path('produits') }}">produits</a></li>
+                                    <li><a href="">Boutiques</a></li>
+                                    <li><a href="{{ path('promos') }}">Speciales</a></li>
+                                   <!--li><a href="">Ccontact</a>
+                                       ul class="dropdown">
+                                       </ul>
+                                   </li-->
+                                    <li><a href="{{ path('contact') }}">contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </nav>
+    </header>
+    <div class="wrapper ">
+        <div class="cur-lang-acc-active">
+            <div class="wrap-sidebar">
+                <div class="sidebar-nav-icon">
+                    <button class="op-sidebar-close"><span class="ion-android-close"></span></button>
+                </div>
+                <div class="cur-lang-acc-all">
+                    <div class="single-currency-language-account">
+                        <div class="cur-lang-acc-title">
+                            {% if app.user %}
+                            <h4>BONJOUR: {{ app.user.username }}
+                                {% if app.user.filename %}
 
-    {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
- crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
- crossorigin="anonymous"></script>
+                                        <img src="{{ vich_uploader_asset(app.user, 'imageFile')|imagine_filter('card') }}" class="img-circle"  alt ="card-img-top">
 
-
-    <!-- Bootstrap core JavaScript -->
-    <script src="{{ asset('StyleContact/vendor/jquery/jquery.min.js') }}"></script>
-    <script src="{{ asset('StyleContact/vendor/bootstrap/js/bootstrap.bundle.js') }}"></script>
-
-    </body>
-
-    <!-- Footer -->
-    <footer  class="py-lg-4 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Keur dofbi 2019 Développé par AMDY DIOP</p>
+                                {% else %}
+                                    <a class="btn-hover-black" href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }} ">
+                                        <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                                    </a>
+                                {% endif %}
+                            </h4>
+                            <ul>
+                                    <li><a href="{{path('logout')}}">Déconnexion</a></li>
+                            </ul>
+                        </div>
+                        <div class="cur-lang-acc-dropdown">
+                            <ul>
+                                {% else  %}
+                                <li><a href="{{path('login')}}">Connexion </a></li>
+                                    <li><a href="{{path('fos_user_registration_register')}}">s'inscrire </a></li>
+                                    <li><a href="{{path('cart_index')}}">Voir Panier </a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </footer>
+    {#modale du panier #}
+    <div class="sidebar-cart onepage-sidebar-area">
+        <div class="wrap-sidebar">
+            <div class="sidebar-cart-all">
+                <div class="sidebar-cart-icon">
+                    <button class="op-sidebar-close"><span class="ion-android-close"></span></button>
+                </div>
+                <div class="cart-content">
+                    <h3>Votre Panier </h3>
+                    <ul>
+                        {% for item in item %}
+                            <li class="single-product-cart">
+                                <div class="cart-img">
+                                    {% if item.produit.filename %}
+                                        <a class="btn-hover-black" href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }} ">
+                                            <img src="{{ vich_uploader_asset(item.produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                        </a>
+                                    {% else %}
+                                        <a class="btn-hover-black" href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }} ">
+                                            <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                                        </a>
+                                    {% endif %}
+
+                                </div>
+                                <div class="cart-title">
+                                    <h3><a href="{{ path ('produit_show',{ id:item.produit.id, slug:item.produit.slug} ) }} "> {{item.produit.labelle}}</a></h3>
+                                    <span>{{ item.quantity }} x {{item.produit.prix}}</span>
+                                </div>
+                                <div class="cart-delete">
+                                    <a href="{{path('cart_remove',{'id': item.produit.id})}}"><i class="ion-ios-trash-outline"></i></a>
+                                </div>
+
+                            </li>
+                            <li class="single-product-cart">
+                                <div class="cart-total">
+                                    <h4>Total : <span>{{ item.quantity *item.produit.prix}} Cfa</span></h4>
+                                </div>
+                            </li>
+                        {% endfor %}
+                        <li class="single-product-cart">
+                            <div class="cart-total">
+                                <h3> <span><strong>Total: </strong> <span>{{ total}} Cfa</span></span></h3>
+                            </div>
+                        </li>
+                        <li class="single-product-cart">
+                            <div class="cart-checkout-btn">
+                                <a class="btn-hover cart-btn-style" href="{{path('cart_index')}}">Voir Panier </a>
+                                <a class="no-mrg btn-hover cart-btn-style" href="{{ path('finaliser') }}">Finaliser</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+            {% block body %}{% endblock %}
+
+    </div>
+     <footer class="footer-area gray-bg pt-100 pb-95">
+         <div class="container">
+             <div class="row">
+                 <div class="col-lg-3 col-md-5 col-12">
+                     <div class="footer-widget">
+                         <div class="footer-widget-l-content">
+                             <h4>3 ans d'études Superieur</h4>
+                             <ul>
+                                 <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                                 <li><a href="#"><i class="ion-social-tumblr"></i></a></li>
+                                 <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                                 <li><a href="#"><i class="ion-social-instagram-outline"></i></a></li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-6 col-md-7 col-12">
+                     <div class="footer-widget">
+                         <div class="footer-widget-m-content text-center">
+                             <div class="footer-logo">
+                                 <a href="{{ path('home') }}"><img src="{{ asset('assets/img/logo/logo.png') }}" alt=""></a>
+                             </div>
+                             <div class="footer-nav">
+                                 <nav>
+                                     <ul>
+                                         <li><a href="{{ path('produits') }}">Produits</a></li>
+                                         <li><a href="">Promotions </a></li>
+                                         <li><a href=""> Contact </a></li>
+                                     </ul>
+                                 </nav>
+                             </div>
+                             <p>Copyright <i class="fa fa-copyright"></i> 2019 Séen Guinaar développé par Amdy diop et Seydou Ba All rights reserved. </p>
+                         </div>
+                     </div>
+                 </div>
+                 <div class="col-lg-3 col-md-12 col-12">
+                     <div class="footer-widget f-right">
+                         <div class="footer-widget-r-content">
+                             <ul>
+                                 <li><span>Téléphone :</span> </li>
+                                 7777942204 / 771543457
+                                 <li><span>Email : </span></li>
+                                 amdy.diop@univ-thies.sn / baseydou95@gmail.com
+                                 <li><span>Address :</span> Thies Sapco</li>
+                             </ul>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </footer>
+        <!-- all js here -->
+       <script src="{{ asset('Style/pages/js/jquery-3.3.1.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery-migrate-3.0.1.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery-ui.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/popper.min.js') }}"></script>
+       <script src="{{asset('Style/pages/js/bootstrap.min.js')}}"></script>
+       <script src="{{ asset('Style/pages/js/owl.carousel.min.js') }}"></script>
+       <script src="{{asset('Style/pages/js/jquery.stellar.min.js')}}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.countdown.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/bootstrap-datepicker.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.easing.1.3.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/aos.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.fancybox.min.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/jquery.sticky.js') }}"></script>
+       <script src="{{ asset('Style/pages/js/main.js') }}"></script>
+
+{##  nhena style#}
+       <script src="{{ asset('assets/js/vendor/jquery-1.12.0.min.js') }}"> </script>
+       <script src="{{ asset('assets/js/popper.js') }}"></script>
+       <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+       <script src="{{ asset('assets/js/jquery.magnific-popup.min.js') }}"></script>
+       <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
+       <script src="{{ asset('assets/js/imagesloaded.pkgd.min.js') }}"></script>
+       <script src="{{ asset('assets/js/jquery.counterup.min.js') }}"></script>
+       <script src="{{ asset('assets/js/waypoints.min.js') }}"></script>
+       <script src="{{ asset('assets/js/slinky.min.js') }}"></script>
+       <script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
+       <script src="{{ asset('assets/js/plugins.js') }}"></script>
+       <script src="{{ asset('assets/js/main.js') }}"></script>
+        <script src="{{ asset('assets/js/instafeed.js') }}"></script>
+
+     <!-- all js here -->
+
+
+
+        <!-- FastClick -->
+        <script src="{{ asset('admin/bower_components/fastclick/lib/fastclick.js') }}"></script>
+        <!-- AdminLTE App -->
+        <script src="{{ asset('admin/dist/js/adminlte.min.js') }}"></script>
+        <!-- Sparkline -->
+        <script src="{{ asset('admin/bower_components/jquery-sparkline/dist/jquery.sparkline.min.js')}}"></script>
+        <!-- jvectormap  -->
+        <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js') }}"></script>
+        <script src="{{ asset('admin/plugins/jvectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+        <!-- SlimScroll -->
+        <script src="{{ asset('admin/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+        <!-- ChartJS -->
+        <script src="{{ asset('admin/bower_components/chart.js/Chart.js') }}"></script>
+        <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+        <script src="{{ asset('admin/dist/js/pages/dashboard2.js') }}"></script>
+        <!-- AdminLTE for demo purposes -->
+        <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
+
+        <link rel="stylesheet"
+              href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
+         <script type="text/javascript">
+           // grab an element
+           var myElement = document.querySelector(".intelligent-header");
+           // construct an instance of Headroom, passing the element
+           var headroom  = new Headroom(myElement);
+           // initialise
+           headroom.init();
+         </script>
+            {% block javascripts %}
+
+            {% endblock %}
+      </body>
 </html>

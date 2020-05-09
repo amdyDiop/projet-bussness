@@ -1,0 +1,68 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block title %}Commande {{ commande.numcommande }}{% endblock %}
+
+{% block contenue %}
+
+    <h1 class="description text-black"><strong> Modifier la Commande Numéèro: {{ commande.numcommande }} </strong></h1>
+    <div class="contact-area ptb-100">
+        <div class="container">
+            <div class="contact-form-wrap">
+                <div class="contact-message">
+                    {{ form_start(form) }}
+
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-one">
+                                {{ form_row(form.numcommande) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-two">
+                                {{ form_row(form.dateCommande) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{ form_row(form.tht) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{ form_row(form.livrer) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+
+                            </div>
+                        </div>
+
+                        <div class="col-lg-10">
+                            <div class="contact-form-style contact-font-four">
+                                <button class="submit btn-hover" type="submit"> Enregistrer</button>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="form-messege"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

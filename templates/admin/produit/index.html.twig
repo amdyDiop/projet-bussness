@@ -1,0 +1,112 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block contenue %}
+
+   {# <table class="table">
+        <thead>
+            <tr>
+
+                <th>Labelle</th>
+                <th>Prix</th>
+                <th>Tva</th>
+                <th>Stock</th>
+                <th>Stockinit</th>
+                <th>Poids</th>
+                <th>Visible</th>
+                <th>Description</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in produits %}
+            <tr>
+                <td>{{ produit.labelle }}</td>
+                <td>{{ produit.prix }}</td>
+                <td>{{ produit.tva }}</td>
+                <td>{{ produit.stock }}</td>
+                <td>{{ produit.stockinit }}</td>
+                <td>{{ produit.poids }}</td>
+                <td>{{ produit.visible ? 'Yes' : 'No' }}</td>
+                <td>{{ produit.description }}</td>
+                <td>
+                    <a href="{{ path ('produit_show',{ id:produit.id, slug:produit.slug} ) }} ">show</a>
+                    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">la liste des produit est vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('produit_new') }}">Nouveau Produit</a>#}
+
+    <!-- Content Wrapper. Contains page content -->
+
+<div class="cart-main-area pb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-10 col-sm-10 col-xs-10">
+                <h1 class="description text-black"><strong>    Liste de Tout Les Boutiques </strong></h1>
+                <div class="table-content table-responsive">
+    <table class="table table-secondary table-striped">
+                                <thead>
+                                <tr >
+                                    <th>Image</th>
+                                    <th>Labelle</th>
+                                    <th>Prix</th>
+                                    <th>Stock</th>
+                                    <th>Poids</th>
+                                    <th>Visible</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for produit in produits %}
+                                    <tr class="active">
+                                        <td>
+                                            {% if produit.filename %}
+                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:60%; height:auto;" >
+                                            {% else %}
+                                                <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ produit.labelle }}</td>
+                                        <td>{{ produit.prix }}</td>
+                                        <td>{{ produit.stock }}</td>
+                                        <td>{{ produit.poids }}</td>
+                                        <td>{{ produit.visible ? 'Yes' : 'No' }}</td>
+                                        <td>
+
+                                            <a title="Voir" class="animate-right"  href="{{ path ('crud_produit_show',{ id:produit.id, slug:produit.slug} ) }}" ><strong> <button  type="button" class="btn fa fa-eye"></button></strong></a>
+
+                                            <a title="modifier"  href="{{ path('admin_produit_edit', {id: produit.id}) }}" ><strong> <button  type="button" class="btn fa fa-edit"></button></strong></a>
+
+
+                                    </tr>
+                                {% else %}
+                                    <tr>
+                                        <td colspan="10">la liste des produit est vide</td>
+                                    </tr>
+
+                                {% endfor %}
+
+                                </tbody>
+
+                            </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div class="pagination justify-content-center">
+        {{ knp_pagination_render(produit) }}
+    </div>
+
+
+
+{% endblock %}

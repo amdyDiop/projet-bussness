@@ -31,7 +31,8 @@
         "symfony/webpack-encore-bundle": "^1.6",
         "symfony/webpack-encore-pack": "^1.0",
         "symfony/yaml": "4.3.*",
-        "vich/uploader-bundle": "^1.10"
+        "vich/uploader-bundle": "^1.10",
+        "webeweb/adminbsb-material-design-bundle": "^1.1@beta"
     },
     "require-dev": {
         "doctrine/doctrine-fixtures-bundle": "^3.2",

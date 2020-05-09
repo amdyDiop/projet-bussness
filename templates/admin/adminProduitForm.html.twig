@@ -1,0 +1,25 @@
+
+{#
+{{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button class="btn">{{ button_label|default('Save') }}</button>
+{{ form_end(form) }}#}
+
+
+<div class="checkout-area ptb-100">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                {{ form_start(form) }}
+                {{ form_widget(form) }}
+                        <div class="col-md-2">
+                            <div class="checkout-form-list">
+                                <input type="submit"  value="Modifier"/>
+                                {{ form_end(form, {'render_rest': false}) }}
+                            </div>
+                        </div>
+
+            </div>
+        </div>
+    </div>
+</div>

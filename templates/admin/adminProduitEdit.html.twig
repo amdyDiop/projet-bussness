@@ -1,0 +1,67 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block title %}Modification  Produit{% endblock %}
+
+{% block contenue %}
+
+    <h1 class="description text-black"><strong> Modifier {{ produit.labelle }} </strong></h1>
+    <div class="contact-area ptb-100">
+        <div class="container">
+            <div class="contact-form-wrap">
+                <div class="contact-message">
+                    {{ form_start(form) }}
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-one">
+                                {{ form_row(form.labelle) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-two">
+                                {{ form_row(form.description) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{ form_row(form.prix) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{ form_row(form.stockinit) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{ form_row(form.poids) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{ form_row(form.imageFile) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{ form_row(form.tva) }}
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="contact-form-style contact-font-three">
+                                {{form_row(form.visible)}}
+                            </div>
+                        </div>
+
+                        <div class="col-lg-10">
+                            <div class="contact-form-style contact-font-four">
+                                <button class="submit btn-hover" type="submit"> Enregistrer</button>
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                    </div>
+                    <p class="form-messege"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

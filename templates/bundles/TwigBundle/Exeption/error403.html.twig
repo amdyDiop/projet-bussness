@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <title>accès refusé</title>
+    <link rel="shortcut icon" type="image/x-icon" href="{{ asset('assets/img/favicon.png') }}"  sizes="32x32">
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <!-- Google font -->
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="{{ asset('style404.css') }}" />
+
+</head>
+
+<body>
+
+
+
+<link href="https://fonts.googleapis.com/css?family=Cabin:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat:900" rel="stylesheet">
+
+<div id="notfound" style="background-image: url('{{asset('vector-website-error-403.jpg')}}');
+        background-repeat: no-repeat; background-attachment: fixed;  background-size:cover;opacity:1.75;">
+    <a href="{{ path('home')}}"> <button  class=" btn btn-black btn-outline-black btn-lg"> Accueil</button></a>
+
+    <div class="notfound">
+        <div class="notfound-404">
+            <h3>Oops! !</h3>
+        </div>
+
+    </div>
+</div>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+
+</body>
+
+</html>
+
+

@@ -20,4 +20,8 @@ return [
     Liip\ImagineBundle\LiipImagineBundle::class => ['all' => true],
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
+    WBW\Bundle\SyntaxHighlighterBundle\SyntaxHighlighterBundle::class => ['all' => true],
+    WBW\Bundle\BootstrapBundle\BootstrapBundle::class => ['all' => true],
+    WBW\Bundle\JQuery\DataTablesBundle\JQueryDataTablesBundle::class => ['all' => true],
+    WBW\Bundle\AdminBSBBundle\AdminBSBBundle::class => ['all' => true],
 ];
