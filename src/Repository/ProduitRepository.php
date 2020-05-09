@@ -72,7 +72,7 @@ class ProduitRepository extends ServiceEntityRepository
     {
 
         return $this->createQueryBuilder('p')
-            ->where('p.visible= true')
+            ->where('p.visible= false')
             ->setMaxResults(4)
             ->orderBy('p.id', 'DESC')
             ->getQuery()

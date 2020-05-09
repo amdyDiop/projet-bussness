@@ -33,7 +33,6 @@ class ProduitsController extends  AbstractController
     {
         $cartService->add($id);
         return $this->redirectToRoute("produits");
-
     }
     /**
      * @Route("/produits", name="produits")

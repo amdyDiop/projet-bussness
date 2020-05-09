@@ -49,9 +49,13 @@
 
                     <td>{{ commande.getUser().prenom }} {{ commande.getUser().nom }}</td>
                     <td>{{ commande.getUser().email }} </td>
-
-                    <td><span class="label label-warning">{{commande.livrer}}</span></td>
-
+                    {% if commande.livrer== 'livré' %}
+                    <td> <span class="label label-success">livré</span></td>
+                    {% elseif  commande.livrer== 'transporté'  %}
+                        <td><span class="label label-warning">{{commande.livrer}}</span></td>
+                        {% else %}
+                            <td><span class="label label-danger">{{commande.livrer}}</span></td>
+                    {% endif %}
                     <td>
                     <a title="Voir" class="animate-right" href="{{ path('admin_commnande_show', {'id': commande.id}) }}" ><strong><button class="btn btn-lg fa fa-eye"></button></strong></a>
                     <a title="modifier"   href="{{path('admin_commande_edit',{'id':commande.id})}}"><strong><button class="btn btn-lg fa fa-edit"></button></strong></a>

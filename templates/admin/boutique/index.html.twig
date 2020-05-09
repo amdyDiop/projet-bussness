@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-10 col-sm-10 col-xs-10">
-                <h1 class="description text-black"><strong>    Liste de Tout Les Boutiques </strong></h1>
+                <h1 class="description text-black"><strong>    Liste de Toutes Les Boutiques </strong></h1>
                 <div class="table-content table-responsive">
         <table class="table">
             <thead>
@@ -41,15 +41,6 @@
                       <a title="Voir" class="animate-right" href="{{ path('boutique_show', {'id': boutique.id}) }}" >  <button  type="button" class="btn fa fa-eye"></button></a>
 
                         <a title="modifier"   href="{{ path('boutique_edit', {'id': boutique.id}) }}" ><strong> <button  type="button" class="btn fa fa-edit"></button></strong></a>
-
-                        <form method="post" action="{{ path('boutique_delete', {'id': boutique.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément?');">
-                            <input type="hidden" name="_method" value="DELETE">
-                            <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ boutique.id) }}">
-                            <button><i class="ion-ios-trash-outline"></i></button>
-                        </form>
-
-
-
 
                     </td>
 

@@ -6,6 +6,7 @@ use App\Entity\Boutique;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -51,7 +52,7 @@ class BoutiqueType extends AbstractType
                     'placeholder' =>'Votre Prenom'
                 ]
             ])
-            ->add('password',TextType::class,[
+            ->add('password',PasswordType::class,[
                 'required' => true,
                 'label' => false,
                 'attr' => [

@@ -16,9 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class AdminCommnandeController extends AbstractController
 {
-
-
-
     /**
      * @var CommandeRepository
      */

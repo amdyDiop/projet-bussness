@@ -103,13 +103,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-5">
-                                <div class="contact-form-style contact-font-four">
-                                    <div class="section-title text-center mb-55 font-weight-bold">
-                                        {{ form_row(form.active) }}
-                                    </div>
-                                </div>
-                            </div>
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="contact-form-style contact-font-four">
@@ -128,7 +121,11 @@
             </div>
         </div>
     </div>
-
+    <form method="post" action="{{ path('boutique_delete', {'id': boutique.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément?');">
+        <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ boutique.id) }}">
+        <button><i class="ion-ios-trash-outline"></i></button>
+    </form>
     <!-- contact-area start -->
 
     <!-- contact-area end -->

@@ -82,15 +82,10 @@
                                         <td>{{ produit.visible ? 'Yes' : 'No' }}</td>
                                         <td>
 
-                                            <a title="Voir" class="animate-right"  href="{{ path ('crud_produit_show',{ id:produit.id, slug:produit.slug} ) }}" ><strong><button><i class="ion-ios-eye-outline"></i></button></strong></a>
+                                            <a title="Voir" class="animate-right"  href="{{ path ('crud_produit_show',{ id:produit.id, slug:produit.slug} ) }}" ><strong> <button  type="button" class="btn fa fa-eye"></button></strong></a>
 
-                                            <a title="modifier"  href="{{ path('admin_produit_edit', {id: produit.id}) }}" ><strong><button><i class="ion-edit"></i></button></strong></a>
+                                            <a title="modifier"  href="{{ path('admin_produit_edit', {id: produit.id}) }}" ><strong> <button  type="button" class="btn fa fa-edit"></button></strong></a>
 
-                                            <form method="post" action="{{ path('produit_delete', {'id': produit.id}) }}" onsubmit="return confirm('Êtes-vous sûr de vouloir supprimer cet élément?');">
-                                                <input type="hidden" name="_method" value="DELETE">
-                                                <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ produit.id) }}">
-                                                <button><i class="ion-ios-trash-outline"></i></button>
-                                            </form>
 
                                     </tr>
                                 {% else %}

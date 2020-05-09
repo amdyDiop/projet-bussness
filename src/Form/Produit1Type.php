@@ -61,7 +61,8 @@ class Produit1Type extends AbstractType
                 ]
             ])
             ->add('visible',CheckboxType::class,[
-                'required' => false
+                'required' => false,
+                   'label' => false,
             ])
             ->add('imageFile',FileType::class,[
                 'required' => false,

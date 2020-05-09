@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title 'Votre Panier'%}
+{% block title 'Produits Commandé '%}
 
 
 {% block body %}
@@ -52,7 +52,7 @@
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                     <h1 class="cart-heading text-white "><strong>Produits Commandés</strong></h1>
-                    {%if item | length %}
+                    {%if commandes | length %}
                     <div class="table-content table-responsive">
                         <table>
                             <thead>
@@ -65,17 +65,9 @@
                             </tr>
                             </thead>
                             <tbody>
-                            {% for produit in commandes.produits %}
+                            {% for key,produit in commandes %}
                                 <tr>
                                     <td class="product-thumbnail">
-                                        {% if produit.filename %}
-                                            <a href="{{ path ('produit_show',{ id:produit.id, slug:item.produit.slug} ) }}">
-                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
-                                            </a>
-                                        {% else %}
-                                            <a href="#"><img src="{{ asset('assets/img/cart/1.jpg') }}" alt=""></a>
-                                        {% endif %}
-
                                     </td>
                                     <td class="product-name"><a href=""></a></td>
                                     <td class="product-price"><span class="amount"></span></td>
@@ -90,9 +82,9 @@
                     <div class="row">
                         <div class="col-md-5 ml-auto ">
                             <div class="cart-page-total">
-                                <h2 >Total Panier:        {{total}} Fcfa </h2>
-                                <a href="{{ path('finaliser') }}">Finaliser</a>
-                                <a href="{{ path('produits') }}">Poursuivre Achat</a>
+                                <h2 >Total:        {{total}} Fcfa </h2>
+                                <a href="{{ path('finaliser') }}">Valider</a>
+
                                 <br>
                             </div>
                         </div>

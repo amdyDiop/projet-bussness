@@ -8,35 +8,41 @@
 
 {% block body %}
 
-    <br> <br>  <br> <br>
+    <br> <br>   <br> <br><br>
 
     {#liste image défilant#}
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="d-block w-100" src="{{asset('images/properties/5de15b5c295e1911505440.jpg')}}" alt="First slide" style="width: 850px;height: 500px;">
+                <img class="d-block w-100" src="{{asset('images/bg/guinar.jpg')}}" alt="First slide" style="width: 850px;height: 500px;">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3 class="text-black">Promo d'ouverture</h3>
-                    <p>...</p>
+
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{asset('images/bg/boutique1.jpg')}}" alt="Second slide" style="width: 850px;height: 500px;">
+                <img class="d-block w-100" src="{{asset('images/bg/guinar1.jpg')}}" alt="Second slide" style="width: 850px;height: 480px;">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3 class="text-dark">Promo d'ouverture</h3>
-                    <p>...</p>
+
                 </div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="{{asset('images/properties/5dee8f94a653a776301050.jpg')}}" alt="Third slide" style="width: 850px;height: 500px;">
+                <img class="d-block w-100" src="{{asset('images/bg/guinar2.jpg')}}" alt="Third slide" style="width: 850px;height: 480px;">
                 <div class="carousel-caption d-none d-md-block">
-                    <h3>Promo d'ouverture</h3>
-                    <p>...</p>
+
+                </div>
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="{{asset('images/bg/guinar3.jpg')}}" alt="Third slide" style="width: 850px;height: 480px;">
+                <div class="carousel-caption d-none d-md-block">
+
                 </div>
             </div>
         </div>
@@ -171,11 +177,11 @@
                                                         </div>
                                                     </div>
                                                     <div class="qwick-view-right">
-                                                        <div class="qwick-view-content text-white">
+                                                        <div class="qwick-view-content">
+                                                            <h2 class=><strong> Boutique: {{ produit.boutique.nomBoutique}}</strong></h2>
                                                             <h3 class=><strong>{{ produit.labelle}}</strong></h3>
                                                             <div class="price">
                                                                 <span class="new">{{ produit.prix}} Cfa</span>
-                                                                <span class="old">3500 Cfa </span>
                                                             </div>
                                                             <div class="rating-number">
                                                                 <div class="quick-view-rating">
@@ -214,7 +220,7 @@
                                         <div class="single-product mb-35">
                                             <div class="product-img">
                                                 {% if produit.filename %}
-                                                    <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                                    <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top" style="width:285px; height:355px;" >
                                                 {% else %}
                                                     <img src="{{ asset('assets/img/quick-view/l3.jpg') }}" alt="">
                                                 {% endif %}                                        <div class="product-action">
@@ -302,10 +308,10 @@
                                                 </div>
                                                 <div class="qwick-view-right ">
                                                     <div class="qwick-view-content">
+                                                        <h3><strong>{{ produit.boutique.nomBoutique}}</strong></h3>
                                                         <h3><strong>{{ produit.labelle}}</strong></h3>
                                                         <div class="price">
                                                             <span class="new">{{ produit.prix}} Cfa</span>
-                                                            <span class="old">3500 Cfa </span>
                                                         </div>
                                                         <div class="rating-number">
                                                             <div class="quick-view-rating">
@@ -343,7 +349,7 @@
                                     <div class="single-product single-product-list product-list-right-pr mb-40">
                                         <div class="product-img list-img-width">
                                             {% if produit.filename %}
-                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:100%; height:auto;" >
+                                                <img src="{{ vich_uploader_asset(produit, 'imageFile')|imagine_filter('thumb') }}"  alt ="card-img-top"  style="width:285px; height:355px;" >
                                             {% else %}
                                                 <a href="#"><img src="{{ asset('assets/img/product/list-img/1.jpg') }}" alt=""></a>
                                             {% endif %}
@@ -353,7 +359,8 @@
                                         </div>
                                         <div class="product-content-list">
                                             <div class="product-list-info">
-                                                <h4><a href="">{{produit.labelle}}</a></h4>
+                                                <h2><strong>{{ produit.boutique.nomBoutique}}</strong></h2>
+                                                <h4><a href="{{ path('produit_show',{id:produit.id , slug:produit.slug}) }}">{{produit.labelle}}</a></h4>
                                                 <div class="product-price">
                                                     <span>{{ produit.getFormatPrice() }} Fcfa</span>
                                                 </div>

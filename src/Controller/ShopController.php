@@ -17,14 +17,35 @@ use App\Repository\BoutiqueRepository;
 use App\Repository\CommandeRepository;
 use App\Repository\ProduitRepository;
 use App\Services\Cart\CartService;
+use Doctrine\Common\Persistence\ObjectManager;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
 class ShopController extends AbstractController
 {
+
+
+
+
+
+    /**
+     * @var CommandeRepository
+     */
+    private $em;
+    private $repository;
+    protected $session;
+
+    public function __construct(SessionInterface $session, CommandeRepository $commandeRepository,ObjectManager $em)
+    {
+        $this->repository = $commandeRepository;
+        $this->em  = $em;
+        $this->session = $session;
+
+    }
     /**
      * @Route("/shop", name="shop")
      */
@@ -47,6 +68,7 @@ class ShopController extends AbstractController
         }
         return $this->render('shop/index.html.twig', [
             'boutiques' => $boutique,
+            'nbBoutique'=>count($boutiqueRepository->findAll()),
             'item' => $data,
             'total' =>$total,
             'form' => $form->createView(),
@@ -128,15 +150,16 @@ class ShopController extends AbstractController
     }
 
 
-
     /**
-     * @Route("/shop/{id}/detailCommande", name="detail_commande", methods={"GET","POST"})
+     * @Route("/shop//detailCommande/{id}", name="detail_commande", methods={"GET"})
+     *
      */
-    public function detailCommande(Commande $commande,CartService $cartService): Response
+    public function detaiCommande(CommandeRepository $commandeRepository ,CartService $cartService)
     {
 
 
         $data= $cartService->fulCart();
+
         $total = 0;
         foreach($data as $item)
         {
@@ -146,12 +169,10 @@ class ShopController extends AbstractController
         }
 
         return $this->render('shop/comande.html.twig', [
-            'commande' => $commande,
+            'commandes' => $commandeRepository->findAll(),
             'item' => $data,
             'total' =>$total
         ]);
     }
-
-
 
 }

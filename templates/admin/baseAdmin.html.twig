@@ -44,16 +44,6 @@
     <link rel="stylesheet" href="{{ asset('admin/log.css') }}">
     <link rel="stylesheet" href="{{ asset('admin/jqquery.js') }}">
 
-
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="{{ asset('admin/bower_components/Ionicons/css/ionicons.min.css') }}">
-    <!-- jvectormap -->
-    <link rel="stylesheet" href="{{ asset('admin/bower_components/jvectormap/jquery-jvectormap.css') }}">
-    <!-- Theme style -->
-    <link rel="stylesheet" href="{{ asset('admin/dist/css/AdminLTE.min.css') }}">
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-                 folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="{{ asset('admin/dist/css/skins/_all-skins.min.css') }}">
     <title>
         {% block title %}Seen Guinaar Administration
         {% endblock %}
@@ -160,7 +150,7 @@
                             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('boutique_index') }}"><i class="fa fa-circle-o"></i>  Détail Boutiques</a></li>
+                        <li><a href="{{ path('boutique_index') }}"><i class="fa fa-circle-o"></i>  Géstion des Boutiques</a></li>
                         <li class="active"><a href="{{path('boutique_new')}}"><i class="fa fa-circle-o"></i> Ajouter une Boutique</a></li>
 
                     </ul>
@@ -173,7 +163,7 @@
                             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('produit_index') }}"><i class="fa fa-circle-o"></i>  détail des Produit</a></li>
+                        <li><a href="{{ path('produit_index') }}"><i class="fa fa-circle-o"></i>  Géstion  des Produits</a></li>
 
                     </ul>
                 </li>
@@ -185,9 +175,7 @@
                             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{ path('user_index') }}"><i class="fa fa-circle-o"></i>  Listes des Client</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Gestion des Client</a></li>
-
+                        <li><a href="{{ path('user_index') }}"><i class="fa fa-circle-o"></i>  Gestion des Clients</a></li>
                     </ul>
                 </li>
                 <li class="active treeview menu-open">
@@ -198,20 +186,18 @@
                             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="#"><i class="fa fa-circle-o"></i>  Listes des Client</a></li>
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Ajouter un Produit</a></li>
+                        <li><a href="{{ path('admin_vente') }}"><i class="fa fa-circle-o"></i> Gestion des Ventes</a></li>
                     </ul>
                 </li>
                 <li class="active treeview menu-open">
                     <a href="#">
-                        <i class="fa fa-shopping-cart"></i> <span> Gestion des Commande </span>
+                        <i class="fa fa-shopping-cart"></i> <span> Gestion des Commandes </span>
                         <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
                             </span>
                     </a>
                     <ul class="treeview-menu">
-                        <li><a href="{{path('admin_commnande_list')}}"><i class="fa fa-circle-o"></i> liste des Commandes </a></li>
-                        <li class="active"><a href="#"><i class="fa fa-circle-o"></i> Commande non Livré</a></li>
+                        <li><a href="{{path('admin_commnande_list')}}"><i class="fa fa-circle-o"></i> Géstion  des Commandes </a></li>
                     </ul>
                 </li>
             </ul>
@@ -437,10 +423,11 @@
 {% endblock %}
 
 
-<!-- ./wrapper -->
 
-<!-- jQuery 3 -->
 
+<!-- Google Font -->
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 <script src="{{ asset('admin/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="{{ asset('admin/bower_components/bootstrap/dist/js/bootstrap.min.js') }}"></script>
@@ -461,6 +448,9 @@
 <script src="{{ asset('admin/dist/js/pages/dashboard2.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('admin/dist/js/demo.js') }}"></script>
+
+
+
 <script src="{{ asset('assets/js/vendor/jquery-1.12.0.min.js') }}"> </script>
 <script src="{{ asset('assets/js/popper.js') }}"></script>
 <script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>

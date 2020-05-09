@@ -100,7 +100,7 @@ class Commande
         return $this->dateCommande;
     }
 
-    public function setDateCommande(\DateTimeInterface $dateCommande): self
+    public function setDateCommande($dateCommande): self
     {
         $this->dateCommande = $dateCommande;
 

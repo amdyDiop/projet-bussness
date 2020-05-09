@@ -1,0 +1,70 @@
+{% extends 'admin/baseAdmin.html.twig' %}
+
+{% block title %}Liste des Commandes{% endblock %}
+
+{% block contenue %}
+
+    {#
+     {% if boutique.filename %}
+                        <img src="{{ vich_uploader_asset(boutique, 'imageFile')|imagine_filter('card') }}"  alt ="card-img-top"  style="width:60%; height:auto;" >
+                    {% else %}
+                        <img src="{{ asset('assets/img/cart/3.jpg') }}" alt="">
+                    {% endif %}
+    #}
+
+
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <h1 class="description">
+        Liste des Commandes
+    </h1>
+    <div class="box-body">
+        <div class="table-responsive">
+            <table class="table no-margin">
+                <thead>
+                <tr>
+                    <th>Numéro Commnande</th>
+                    <th>Commandé le</th>
+                    <th>Status</th>
+                    <th>Montant</th>
+
+                </tr>
+                </thead>
+                <tbody >
+
+                {% for commande in commande if commande.livrer =='livré'  %}
+
+                    <tr>
+                        <td>{{ commande.numcommande }}</td>
+                        <td>{{ commande.dateCommande|date('d-m-y') }}</td>
+
+
+                        {% if commande.livrer == 'livré %}
+                            <td> <span class="label label-success">livré</span></td>
+                        {% elseif  commande.livrer== 'transporté'  %}
+                            <td><span class="label label-warning">{{commande.livrer}}</span></td>
+                        {% else %}
+                            <td><span class="label label-danger">{{commande.livrer}}</span></td>
+                        {% endif %}
+                        <td>{{ commande.tht }} Cfa</td>
+
+                    </tr>
+                {% else %}
+
+                    <tr>
+                        <td colspan="11">La Liste est vide</td>
+                    </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

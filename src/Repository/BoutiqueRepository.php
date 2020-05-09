@@ -64,8 +64,8 @@ class BoutiqueRepository extends ServiceEntityRepository
     function findNEW():array
     {
         return $this->createQueryBuilder('p')
-            ->where('p.active=false')
-            ->setMaxResults(100)
+            ->where('p.active=true')
+            ->setMaxResults(4)
             ->orderBy('p.id', 'DESC')
             ->getQuery()
             ->getResult();
@@ -74,7 +74,7 @@ class BoutiqueRepository extends ServiceEntityRepository
     function marchand():array
     {
         return $this->createQueryBuilder('b')
-            ->where('b.id=4')
+            ->where('b.id=8')
             ->getQuery()
             ->getResult();
 
